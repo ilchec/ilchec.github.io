@@ -1,6 +1,6 @@
 ---
-title: "Daghestanian loans database"
-author: Ilya Chechuro, Michael Daniel, Samira Verhees
+title: "Kibrik and Kodzasov 1990 Database"
+author: Viola Ivanova, Ilia Chechuro
 date: "`r Sys.Date()`"
 output:
   rmdformats::readthedown:
