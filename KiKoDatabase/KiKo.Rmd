@@ -8,7 +8,6 @@ output:
     css: style.css
 ---
 
-##The Database
 
 ```{r knitr_init, echo=FALSE, cache=FALSE}
 library(knitr)
@@ -29,11 +28,10 @@ knitr::opts_knit$set(global.device = TRUE)
 
 *Authors: Viola Ivanova, Ilia Chechuro.*
 
+
+##The Database
+
 This database contains wordlists collected by Kibrik and Kodzasov (1990).
-
-##The Clusterization
-
-This clusterization is based on the shared coding of meanings (lex_rus) across languages.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
@@ -68,6 +66,10 @@ words %>% datatable(class = 'cell-border stripe',
             dom = 'lBfrtip',
             buttons = c('copy', 'csv')))
 ```
+
+##The Clusterization
+
+This clusterization is based on the shared coding of meanings (lex_rus) across languages.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 library(data.table)
