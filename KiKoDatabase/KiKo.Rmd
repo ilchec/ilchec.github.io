@@ -8,6 +8,7 @@ output:
     css: style.css
 ---
 
+##The Database
 
 ```{r knitr_init, echo=FALSE, cache=FALSE}
 library(knitr)
@@ -30,6 +31,9 @@ knitr::opts_knit$set(global.device = TRUE)
 
 This database contains wordlists collected by Kibrik and Kobzasov (1990).
 
+##The Clusterization
+
+This clusterization is based on the shared coding of meanings (lex_rus) across languages.
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
 
