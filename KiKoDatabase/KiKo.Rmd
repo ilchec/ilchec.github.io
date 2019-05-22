@@ -29,7 +29,7 @@ knitr::opts_knit$set(global.device = TRUE)
 
 *Authors: Viola Ivanova, Ilia Chechuro.*
 
-This database contains wordlists collected by Kibrik and Kobzasov (1990).
+This database contains wordlists collected by Kibrik and Kodzasov (1990).
 
 ##The Clusterization
 
