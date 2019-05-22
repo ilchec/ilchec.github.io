@@ -20,3 +20,5 @@ gridExtra
 Matrix
 lme4
 data.table
+ape
+phangorn

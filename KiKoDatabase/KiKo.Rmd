@@ -99,3 +99,12 @@ result %>% text (cex = 0.5)
 result %>% pvrect(alpha=0.95)
 ```
 
+##NNet
+
+The NeighborNet is built with the same data.
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(phangorn)
+plot(neighborNet(dst),"2D")
+```
+
