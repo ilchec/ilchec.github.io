@@ -1,0 +1,95 @@
+---
+title: "Daghestanian loans database"
+author: Ilya Chechuro, Michael Daniel, Samira Verhees
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    highlight: kate
+    css: style.css
+---
+
+
+```{r knitr_init, echo=FALSE, cache=FALSE}
+library(knitr)
+library(rmdformats)
+
+## Global options
+options(max.print="75")
+opts_chunk$set(echo=FALSE,
+	             cache=TRUE,
+               prompt=FALSE,
+               tidy=TRUE,
+               comment=NA,
+               message=FALSE,
+               warning=FALSE)
+opts_knit$set(width=75)
+knitr::opts_knit$set(global.device = TRUE)
+```
+
+*Authors: Viola Ivanova, Ilia Chechuro.*
+
+This database contains wordlists collected by Kibrik and Kobzasov (1990).
+
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+
+# loading packages
+#Sys.setlocale("LC_TIME","ru_RU.UTF-8")
+library(tidyverse)
+library(DT)
+library(lingtypology)
+library(pcalg)
+library(ggplot2)
+library(pvclust)
+library(dendextend)
+library(UpSetR)
+library(gridExtra)
+library(lme4)
+
+#library(fansi)
+
+
+# loading data - mind the date in the csv filename!
+
+words <- read_tsv("dataset_nouns_trans.tsv")
+#words[sapply(words, is.character)] <- lapply(words[sapply(words, is.character)], as.factor)
+words %>% datatable(class = 'cell-border stripe', 
+          filter = 'top', 
+          #options = list(pageLength = 100),
+          extensions = 'Buttons', 
+          options = list(
+            autoWidth = TRUE,
+            columnDefs = list(list(width = '50px', targets = c(1, 5))),
+            pageLength = 10,
+            dom = 'lBfrtip',
+            buttons = c('copy', 'csv')))
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(data.table)
+df <- words[,c(2,3,4)]
+df <- setDT(df)[, list(class = paste(class, collapse = ' ')), 
+            by = c('lang', 'lex_rus')]
+df <- spread(df, lex_rus, class)
+View(df)
+write.csv(df, "nouns_wide.tsv", sep = "\t")
+View(head(df))
+```
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pvclust)
+dst <- read_tsv("KiKo_dist.tsv")
+rnames <- dst$Speaker
+dst <- dst[,-1]
+row.names(dst) <- rnames
+dst <- as.dist(dst)
+result <- pvclust::pvclust(as.matrix(dst), method.hclust="average", nboot=100, quiet=TRUE)
+dend <- as.dendrogram(result)
+dend %>%
+   pvclust_show_signif_gradient(result) %>%
+   pvclust_show_signif(result) %>%
+   plot(main = "Cluster Dendrogram of Class Assignment")
+result %>% text (cex = 0.5) 
+result %>% pvrect(alpha=0.95)
+```
+
