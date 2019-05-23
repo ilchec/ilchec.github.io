@@ -22,3 +22,4 @@ lme4
 data.table
 ape
 phangorn
+plotly

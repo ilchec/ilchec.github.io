@@ -77,9 +77,9 @@ df <- words[,c(2,3,4)]
 df <- setDT(df)[, list(class = paste(class, collapse = ' ')), 
             by = c('lang', 'lex_rus')]
 df <- spread(df, lex_rus, class)
-View(df)
-write.csv(df, "nouns_wide.tsv", sep = "\t")
-View(head(df))
+#View(df)
+#write.csv(df, "nouns_wide.tsv", sep = "\t")
+#View(head(df))
 ```
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
@@ -107,4 +107,40 @@ The NeighborNet is built with the same data.
 library(phangorn)
 plot(neighborNet(dst),"2D")
 ```
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+df_t <- t(df)
+cnames <- df_t[1,]
+df_t <- df_t[-1,]
+colnames(df_t) <- cnames
+#View(df)
+#write.csv(df_t, "meanings_wide.tsv", sep = "\t")
+#View(head(df))
+```
 
+##Clusterization of meanings
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+library(pvclust)
+dst_meanings <- read_tsv("KiKo_meanings_dist.tsv")
+rnames_meanings <- dst_meanings$Speaker
+dst_meanings$lex_rus <- dst_meanings$Speaker
+rus <- words[,c(2,14,15)]
+rus <- rus[!duplicated(rus),]            
+colors_to_use <- left_join(dst_meanings,rus,by = c("lex_rus"))
+dst_meanings <- dst_meanings[,-1]
+row.names(dst_meanings) <- rnames_meanings
+dst_meanings <- as.dist(dst_meanings)
+colors_to_use$semantics_KK_detailed <- factor(colors_to_use$semantics_KK_detailed)
+colors_to_use$semantics_KK <- factor(colors_to_use$semantics_KK)
+
+MDS <- cmdscale(dst_meanings,eig=TRUE, k=2)
+x <- MDS$points[,1]
+y <- MDS$points[,2]
+p1 <- ggplot(data = colors_to_use, aes(x = MDS$points[,1], y = MDS$points[,2])) + 
+    geom_text(aes(color = colors_to_use$semantics_KK_detailed, label = colors_to_use$Speaker))
+p2 <- ggplot(data = colors_to_use, aes(x = MDS$points[,1], y = MDS$points[,2])) + 
+    geom_text(aes(color = colors_to_use$semantics_KK, label = colors_to_use$Speaker))
+library(plotly)
+ggplotly(p2)
+
+```
