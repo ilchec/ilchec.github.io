@@ -1,75 +1,88 @@
 <!DOCTYPE HTML>
-<meta http_equiv="content_type" content="text/html" charset="UTF-8"/>
+<meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
 
 <html lang="ru">
 <title>Илья Чечуро</title>
 <head>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style-1.css">
 </head>
 <body>
-  <div class = "main_frame">
-    <div id = "header_container">
-      <div class = "top_title">
+  <div class = "main-frame">
+    <div id = "header-container">
+      <div class = "top-title">
       Илья Чечуро
       </div>
-      <div class = menu_bar_container>
-        <div class = "menu_bar">
-            <a class = "menu_item_text" href="#main" id = "menu_item_text_left">
+      <div class = menu-bar-container>
+        <div class = "menu-bar">
+            <a class = "menu-item-text" href="#main" id = "menu-item-text-left">
             главная
             </a>
-            <a class = "menu_item_text" href="#symbols" id ="corpus_link">
-            get symbols
+            <a class = "menu-item-text" href="#characters" id ="corpus-link">
+            get characters
             </a>
-            <a class = "menu_item_text" href="#participants">
+            <a class = "menu-item-text" href="#participants">
             TBA
             </a>
-            <a class = "menu_item_text" href="#consultants">
+            <a class = "menu-item-text" href="#consultants">
             TBA
             </a>
-            <a class = "menu_item_text"href="#publications">
+            <a class = "menu-item-text"href="#publications">
             TBA
             </a>
-            <a class = "menu_item_text" href="#bibliography" id = "menu_item_text_right">
+            <a class = "menu-item-text" href="#bibliography" id = "menu-item-text-right">
             TBA
             </a>
           </div>
         </div>
       </div>
     </div>
-    <div class = "text_container">
-      <div class="text_content" id="main">
+    <div class = "text-container">
+      <div class="text-content" id="main">
         <h2>TBA</h2>
       </div>
-      <div class="text_content" id="symbols">
-        <h2>Get symbols</h2>
-        <input type="file" id="file-selector" accept=".txt">
-        <p id="letters" class = "download_button">
-        <input type="button" id = "load_letters" value = "Load Letter File">
-        </p>
-        <p id="chars" class = "download_button">
-        <input type="button" id = "load_characters" value = "Load Character File">
-        </p>
+      <div class="text-content" id="characters">
+        <h2>Get Characters</h2>
+        <p>Add a data file:
+          <input type="file" id="file-selector" accept=".txt"/></p>
+        <p id="transliteration-file-frame">Add a Transliteration File:
+          <input type="file" id="transliteration-file" accept=".tsv"></p>
+        <div id="get-chars-interface">
+          <textarea id="source-text" class="file-content"></textarea>
+          <textarea id="output-text" class="file-content"></textarea>
+          <p id="letters" class = "show-button">
+          <input type="button" id = "show-letters" value = "Show Letters">
+          </p>
+          <p id="chars" class = "show-button">
+          <input type="button" id = "show-characters" value = "Show Chars">
+          </p>
+          <p id="download-button" class = "show-button">
+          <input type="button" id = "download-output" value = "Download">
+          </p>
+          <p id="transliteration-button" class = "show-button">
+          <input type="button" id = "tr-button" value = "Transliterate">
+          </p>
+        </div>
       </div>
-      <div class="text_content" id="participants">
+      <div class="text-content" id="participants">
 
        <h2>TBA</h2>
 
      </div>
-     <div id="consultants" class="text_content">
+     <div id="consultants" class="text-content">
    	  <h2>TBA</h2>
       </div>
 
-     <div id="publications" class="text_content">
+     <div id="publications" class="text-content">
        <h2>TBA</h2>
    </div>
-       <div id="bibliography" class="text_content">
+       <div id="bibliography" class="text-content">
         <h2>TBA</h2>
        </div>
     </div>
 <script src = "extractChars.js"> </script>
 <script src = "expandMenu.js">
-  
+
 </script>
 
 </body>

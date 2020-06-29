@@ -1,4 +1,4 @@
-function count_chars(str) { // This function counts the characters in a string 
+function count_chars(str) { // This function counts the characters in a string
   let res = {};
   let output = "";
   for (let s of str) {
@@ -50,25 +50,69 @@ function download(filename, text) {
   element.click();
   document.body.removeChild(element);
 }
-const load_letters = document.getElementById('letters');
-const load_chars = document.getElementById('chars');
+
+function transliterate(text, mapping){
+  let output = text;
+  for (i of mapping) {
+    output = output.replaceAll(i[0], i[1]);
+  }
+  return output
+}
+
+const showLetters = document.getElementById('letters');
+const showChars = document.getElementById('chars');
+const sourceText = document.getElementById('source-text');
+const outputText = document.getElementById('output-text');
+const downloadButton = document.getElementById('download-button');
+const transliterationFile = document.getElementById('transliteration-file-frame');
+const transliterationButton = document.getElementById('transliteration-button');
+
 if (window.FileList && window.File && window.FileReader) {
   document.getElementById('file-selector').addEventListener('change', event => {
     //output.innerHTML = '';
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', event => {
-      txt = count_chars(event.target.result).replace(/\n/g,'<br>')
-      txt = txt.replace(/\t/g,': ')
-      load_letters.style.display = "block";
-      load_chars.style.display = "block";
-      load_chars.onclick = function() {
-     	 download("characters.tsv",count_chars(event.target.result));
+      showLetters.style.display = "inline-block";
+      showChars.style.display = "inline-block";
+      downloadButton.style.display = "inline-block";
+      transliterationFile.style.display = "inline-block";
+      sourceText.style.display = "inline-block";
+      sourceText.value = event.target.result;
+      let sourceData = event.target.result;
+      outputText.style.display = "inline-block";
+      showChars.onclick = function() {
+        outputText.value = count_chars(sourceText.value);
+     	  //download("characters.tsv",count_chars(sourceText.value));
       };
-      
-      load_letters.onclick = function() {
-        download("letters.tsv",get_letters(event.target.result));
-    	}; 
+      showLetters.onclick = function() {
+        outputText.value = get_letters(sourceText.value);
+        //download("letters.tsv",get_letters(sourceText.value));
+    	};
+      downloadButton.onclick = function() {
+        download("output.tsv",outputText.value);
+    	};
+      document.getElementById('transliteration-file').addEventListener('change', event => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.addEventListener('load', event => {
+        let mapping = {};
+        let mappingSource = event.target.result;
+        for (item of mappingSource.split("\n")) {
+          if (item.includes("\t")) {
+            mapping[item.split("\t")[0]] = item.split("\t")[1].trim();
+          }
+        }
+        let mappingSorted = Object.entries(mapping);
+        mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
+        console.log(mappingSorted)
+        transliterationButton.style.display = "inline-block";
+        transliterationButton.onclick = function() {
+          outputText.value = transliterate(sourceText.value,mappingSorted);
+      	};
+      });
+      reader.readAsText(file);
+      });
     });
     reader.readAsText(file);
   });
