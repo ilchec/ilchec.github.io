@@ -20,7 +20,7 @@ function stringify(obj_arr) {
       entries.push(pair);
     }
   }
-  console.log(entries)
+  //console.log(entries)
   let sorted = entries.sort((a, b) => b[1] - a[1]);
   let output = '';
   for (let i of sorted) {
@@ -29,8 +29,8 @@ function stringify(obj_arr) {
   output = output.replace(/\n\n/g,'\n')
   return output.trim()
 }
-function get_letters(text) {
-  let regex = /([а-яА-Я].*?)[а-щыэюяА-ЩЫЭЮЯ\- $]/g;
+function get_letters(text, regexSource) {
+  let regex = new RegExp(regexSource, "g");
   let matches = [], found;
   let array1;
   while ((array1 = regex.exec(text)) !== null) {
@@ -120,7 +120,7 @@ if (window.FileList && window.File && window.FileReader) {
      	  //download("characters.tsv",count_chars(sourceText.value));
       };
       showLetters.onclick = function() {
-        outputText.value = get_letters(sourceText.value);
+        outputText.value = get_letters(sourceText.value, $("#regexpSource").val());
         //download("letters.tsv",get_letters(sourceText.value));
     	};
       downloadButton.onclick = function() {

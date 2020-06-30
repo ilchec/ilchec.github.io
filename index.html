@@ -19,7 +19,7 @@
             главная
             </a>
             <a class = "menu-item-text" href="#characters" id ="corpus-link">
-            get characters
+            Transliterator+
             </a>
             <a class = "menu-item-text" href="#participants">
             TBA
@@ -42,11 +42,17 @@
         <h2>TBA</h2>
       </div>
       <div class="text-content" id="characters">
-        <h2>Get Characters</h2>
+        <h2>Transliterator+</h2>
+        <p>
+        This is Transliterator+. The application allows to extract N-Grams, detect letters with a RegEx
+        and transliterate with a custom orthography profile. To start, upload a <strong>.txt</strong> file with the data. The orthography profile can be
+        created manually or uploaded from your computer, please use <strong>.tsv</strong> or <strong>.csv</strong> with tabs("	"), commas(",") or semicolons(";") as delimiters.
+        Press <strong>Download</strong> to download the output.
+        </p>
         <p>Add a data file: <br>
           <input type="file" id="file-selector" accept=".txt"/></p>
         <p id="transliteration-file-frame">Add a Transliteration File:
-          <input type="file" id="transliteration-file" accept=".tsv"></p>
+          <input type="file" id="transliteration-file" accept=".tsv, .csv"></p>
         <div id="get-chars-interface">
           <div class = "textarea-container">
             <p>Data:<p>
@@ -62,7 +68,16 @@
           </div>
           <br>
           <p id="letters" class = "show-button">
+            <strong>Letter Detector. </strong>Please, provide a regular expression in the box:
             <input type="button" id = "show-letters" value = "Show Letters">
+          </p>
+          <p id="reSource" class = "show-button">
+            <input type="text" style = "width: 200px;" id = "regexpSource" placeholder = "([а-яА-Я].*?)[а-щыэюяА-ЩЫЭЮЯ\- $]" value = "([а-яА-Я].*?)[а-щыэюяА-ЩЫЭЮЯ\- $]" class = "ngram-number-input">
+          </p>
+          <br>
+          <p id="chars" class = "show-button">
+            <strong>N-Gram Detector. </strong>Please, provide the lowest and the highest length of N-Grams:
+            <input type="button" id = "show-characters" value = "Show N-Grams">
           </p>
           <p class = "show-button">
             <input type="text" id = "nGramStartNumber" placeholder = "Start Number for N-Grams: " class = "ngram-number-input">
@@ -70,16 +85,17 @@
           <p class = "show-button">
             <input type="text" id = "nGramEndNumber" placeholder = "End Number for N-Grams: " class = "ngram-number-input">
           </p>
-          <p id="chars" class = "show-button">
-            <input type="button" id = "show-characters" value = "Show N-Grams">
-          </p>
+          <br>
           <p id="sort-button" class = "show-button">
+            <strong>Transliterator. </strong>
             <input type="button" id = "srt-button" value = "Sort Rules by Letter Lenth">
           </p>
           <p id="transliteration-button" class = "show-button">
             <input type="button" id = "tr-button" value = "Transliterate">
           </p>
+          <br>
           <p id="download-button" class = "show-button">
+            <strong>Download Output. </strong>
             <input type="button" id = "download-output" value = "Download">
           </p>
         </div>
