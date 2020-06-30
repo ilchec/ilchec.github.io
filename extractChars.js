@@ -70,9 +70,10 @@ function transliterate(text, mapping){
 
 function readMapping(mappingSource) {
   let mapping = {};
+  let sep = getDelimiters(mappingSource, ['\t', ';', ',', '>'])[0]
   for (item of mappingSource.split("\n")) {
-    if (item.includes("\t")) {
-      mapping[item.split("\t")[0]] = item.split("\t")[1].trim();
+    if (item.includes(sep)) {
+      mapping[item.split(sep)[0]] = item.split(sep)[1].trim();
     }
   }
   return mapping
@@ -129,21 +130,21 @@ if (window.FileList && window.File && window.FileReader) {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.addEventListener('load', event => {
-        let mapping = readMapping(event.target.result);
-        let mappingSorted = Object.entries(mapping);
-        transliterationButton.style.display = "inline-block";
-        sortButton.onclick = function() {
-          mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
-          transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
-        }
-        console.log(mappingSorted)
-        transliterationButton.onclick = function() {
-          outputText.value = transliterate(sourceText.value,mappingSorted);
-      	};
         transliterationRules.value = event.target.result;
       });
       reader.readAsText(file);
       });
+      sortButton.onclick = function() {
+        let mapping = readMapping($("#transliteration-rules").val());
+        //console.log(mapping)
+        let mappingSorted = Object.entries(mapping);
+        mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
+        transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
+      }
+      //console.log(mappingSorted)
+      transliterationButton.onclick = function() {
+        outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
+      };
     });
     reader.readAsText(file);
   });
@@ -193,4 +194,23 @@ function repeatnGram(start, end, string) {
     res.push(nGram(i)(string))
   }
   return(res)
+}
+function getDelimiters (text, possibleDelimiters) {
+    return possibleDelimiters.filter(weedOut);
+    function weedOut (delimiter) {
+        var cache = -1;
+        return text.split('\n').every(checkLength);
+
+        function checkLength (line) {
+            if (!line) {
+                return true;
+            }
+
+            var length = line.split(delimiter).length;
+            if (cache < 0) {
+                cache = length;
+            }
+            return cache === length && length > 1;
+        }
+    }
 }
