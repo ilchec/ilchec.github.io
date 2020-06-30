@@ -48,19 +48,39 @@
         <p id="transliteration-file-frame">Add a Transliteration File:
           <input type="file" id="transliteration-file" accept=".tsv"></p>
         <div id="get-chars-interface">
-          <textarea id="source-text" class="file-content"></textarea>
-          <textarea id="output-text" class="file-content"></textarea>
+          <div class = "textarea-container">
+            <p>Data:<p>
+            <textarea id="source-text" class="file-content" name = ""></textarea>
+          </div>
+          <div class = "textarea-container">
+            <p>Transliteration Rules:</p>
+            <textarea id="transliteration-rules" class="file-content"></textarea>
+          </div>
+          <div class = "textarea-container">
+            <p>Result:</p>
+            <textarea id="output-text" class="file-content"></textarea>
+          </div>
+          <br>
           <p id="letters" class = "show-button">
-          <input type="button" id = "show-letters" value = "Show Letters">
+            <input type="button" id = "show-letters" value = "Show Letters">
+          </p>
+          <p>
+            <input type="text" id = "nGramStartNumber" value = "3">
+          </p>
+          <p>
+            <input type="text" id = "nGramEndNumber" value = "3">
           </p>
           <p id="chars" class = "show-button">
-          <input type="button" id = "show-characters" value = "Show Chars">
+            <input type="button" id = "show-characters" value = "Show Chars">
           </p>
-          <p id="download-button" class = "show-button">
-          <input type="button" id = "download-output" value = "Download">
+          <p id="sort-button" class = "show-button">
+            <input type="button" id = "srt-button" value = "Sort Rules by Letter Lenth">
           </p>
           <p id="transliteration-button" class = "show-button">
-          <input type="button" id = "tr-button" value = "Transliterate">
+            <input type="button" id = "tr-button" value = "Transliterate">
+          </p>
+          <p id="download-button" class = "show-button">
+            <input type="button" id = "download-output" value = "Download">
           </p>
         </div>
       </div>

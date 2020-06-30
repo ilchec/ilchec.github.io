@@ -90,16 +90,17 @@
       width: 100%;
     }
     .file-content {
-      width: 45%;
+      width: 95%;
       height: 150px;
       margin: 0 auto;
-    }
-    #source-text {
-      display: none;
-    }
-    #output-text {
       display: none;
     }
     #transliteration-file-frame {
+      display: none;
+    }
+    .textarea-container {
+      width: 30%;
+      height: 250px;
+      margin: 0 auto;
       display: none;
     }

@@ -12,8 +12,17 @@ function count_chars(str) { // This function counts the characters in a string
       continue
     }
   }
-  let entries = Object.entries(res);
+}
+function stringify(obj_arr) {
+  let entries = []
+  for (obj of obj_arr) {
+    for (pair of Object.entries(obj)) {
+      entries.push(pair);
+    }
+  }
+  console.log(entries)
   let sorted = entries.sort((a, b) => b[1] - a[1]);
+  let output = '';
   for (let i of sorted) {
     output = output + i[0] + "\t " + i[1] + "\n";
   }
@@ -59,13 +68,24 @@ function transliterate(text, mapping){
   return output
 }
 
+function readMapping(mappingSource) {
+  let mapping = {};
+  for (item of mappingSource.split("\n")) {
+    if (item.includes("\t")) {
+      mapping[item.split("\t")[0]] = item.split("\t")[1].trim();
+    }
+  }
+  return mapping
+}
 const showLetters = document.getElementById('letters');
 const showChars = document.getElementById('chars');
 const sourceText = document.getElementById('source-text');
 const outputText = document.getElementById('output-text');
 const downloadButton = document.getElementById('download-button');
 const transliterationFile = document.getElementById('transliteration-file-frame');
+const transliterationRules = document.getElementById('transliteration-rules');
 const transliterationButton = document.getElementById('transliteration-button');
+const sortButton = document.getElementById('sort-button');
 
 if (window.FileList && window.File && window.FileReader) {
   document.getElementById('file-selector').addEventListener('change', event => {
@@ -73,16 +93,29 @@ if (window.FileList && window.File && window.FileReader) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', event => {
-      showLetters.style.display = "inline-block";
-      showChars.style.display = "inline-block";
-      downloadButton.style.display = "inline-block";
-      transliterationFile.style.display = "inline-block";
-      sourceText.style.display = "inline-block";
+      //$(".fileContent").show();
+      //$(".showButton").css("display", "inline-block");
+      $(".textarea-container").css("display", "inline-block");
+      $(".show-button").css("display", "inline-block");
+      $(".file-content").css("display", "inline-block");
+      $("#transliteration-file-frame").css("display", "inline-block");
       sourceText.value = event.target.result;
       let sourceData = event.target.result;
-      outputText.style.display = "inline-block";
+
       showChars.onclick = function() {
-        outputText.value = count_chars(sourceText.value);
+        start = parseInt($("#nGramStartNumber").val());
+        end = parseInt($("#nGramEndNumber").val());
+        if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
+          alert(new Error(`This is not a valid argument for n-gram.`))
+        }
+        if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
+          alert(new Error(`This is not a valid argument for n-gram.`))
+        }
+        else if (end < start) {
+          alert(new Error('Start number cannot be greater than End number.'))
+        }
+        outputText.value = stringify(repeatnGram(start, end, sourceText.value));
+        //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
      	  //download("characters.tsv",count_chars(sourceText.value));
       };
       showLetters.onclick = function() {
@@ -96,24 +129,68 @@ if (window.FileList && window.File && window.FileReader) {
         const file = event.target.files[0];
         const reader = new FileReader();
         reader.addEventListener('load', event => {
-        let mapping = {};
-        let mappingSource = event.target.result;
-        for (item of mappingSource.split("\n")) {
-          if (item.includes("\t")) {
-            mapping[item.split("\t")[0]] = item.split("\t")[1].trim();
-          }
-        }
+        let mapping = readMapping(event.target.result);
         let mappingSorted = Object.entries(mapping);
-        mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
-        console.log(mappingSorted)
         transliterationButton.style.display = "inline-block";
+        sortButton.onclick = function() {
+          mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
+          transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
+        }
+        console.log(mappingSorted)
         transliterationButton.onclick = function() {
           outputText.value = transliterate(sourceText.value,mappingSorted);
       	};
+        transliterationRules.value = event.target.result;
       });
       reader.readAsText(file);
       });
     });
     reader.readAsText(file);
   });
+}
+
+//ngrams
+function nGram(n) {
+  if (typeof n !== 'number' || isNaN(n) || n < 1 || n === Infinity) {
+    throw new Error('`' + n + '` is not a valid argument for n-gram')
+  }
+
+  return grams
+
+  // Create n-grams from a given value.
+  function grams(value) {
+    var nGrams = {}
+    var index
+
+    if (value === null || value === undefined) {
+      return nGrams
+    }
+
+    value = value.slice ? value : String(value)
+    index = value.length - n + 1
+
+    if (index < 1) {
+      return nGrams
+    }
+
+    while (index--) {
+      if (!nGrams[value.slice(index, index + n)] && !/[\n\b\r\x\t  \-]/.test(value.slice(index, index + n))) {
+        nGrams[value.slice(index, index + n)] = 1
+      }
+      else if (!/[\n\b\r\x\t  \-]/.test(value.slice(index, index + n))) {
+        nGrams[value.slice(index, index + n)]++
+      }
+      else {
+        continue
+      }
+    }
+    return nGrams
+  }
+}
+function repeatnGram(start, end, string) {
+  let res = []
+  for (let i = start; i <= end; i++) {
+    res.push(nGram(i)(string))
+  }
+  return(res)
 }
