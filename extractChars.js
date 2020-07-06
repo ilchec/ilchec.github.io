@@ -94,63 +94,58 @@ if (window.FileList && window.File && window.FileReader) {
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', event => {
-      //$(".fileContent").show();
-      //$(".showButton").css("display", "inline-block");
-      $(".textarea-container").css("display", "inline-block");
-      $(".show-button").css("display", "inline-block");
-      $(".file-content").css("display", "inline-block");
-      $("#transliteration-file-frame").css("display", "inline-block");
       sourceText.value = event.target.result;
-      let sourceData = event.target.result;
-
-      showChars.onclick = function() {
-        start = parseInt($("#nGramStartNumber").val());
-        end = parseInt($("#nGramEndNumber").val());
-        if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
-          alert(new Error(`This is not a valid argument for n-gram.`))
-        }
-        if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
-          alert(new Error(`This is not a valid argument for n-gram.`))
-        }
-        else if (end < start) {
-          alert(new Error('Start number cannot be greater than End number.'))
-        }
-        outputText.value = stringify(repeatnGram(start, end, sourceText.value));
-        //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
-     	  //download("characters.tsv",count_chars(sourceText.value));
-      };
-      showLetters.onclick = function() {
-        outputText.value = get_letters(sourceText.value, $("#regexpSource").val());
-        //download("letters.tsv",get_letters(sourceText.value));
-    	};
-      downloadButton.onclick = function() {
-        download("output.tsv",outputText.value);
-    	};
-      document.getElementById('transliteration-file').addEventListener('change', event => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.addEventListener('load', event => {
-        transliterationRules.value = event.target.result;
-      });
-      reader.readAsText(file);
-      });
-      sortButton.onclick = function() {
-        let mapping = readMapping($("#transliteration-rules").val());
-        //console.log(mapping)
-        let mappingSorted = Object.entries(mapping);
-        mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
-        transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
-      }
-      //console.log(mappingSorted)
-      transliterationButton.onclick = function() {
-        outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
-      };
     });
     reader.readAsText(file);
   });
+  document.getElementById('transliteration-file').addEventListener('change', event => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', event => {
+    transliterationRules.value = event.target.result;
+  });
+  reader.readAsText(file);
+  });
 }
 
-//ngrams
+showChars.onclick = function() {
+  start = parseInt($("#nGramStartNumber").val());
+  end = parseInt($("#nGramEndNumber").val());
+  if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
+    alert(new Error(`This is not a valid argument for n-gram.`))
+  }
+  if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
+    alert(new Error(`This is not a valid argument for n-gram.`))
+  }
+  else if (end < start) {
+    alert(new Error('Start number cannot be greater than End number.'))
+  }
+  outputText.value = stringify(repeatnGram(start, end, sourceText.value));
+  //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
+  //download("characters.tsv",count_chars(sourceText.value));
+};
+
+showLetters.onclick = function() {
+  outputText.value = get_letters(sourceText.value, $("#regexpSource").val());
+  //download("letters.tsv",get_letters(sourceText.value));
+};
+
+downloadButton.onclick = function() {
+  download("output.tsv",outputText.value);
+};
+
+sortButton.onclick = function() {
+  let mapping = readMapping($("#transliteration-rules").val());
+  //console.log(mapping)
+  let mappingSorted = Object.entries(mapping);
+  mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
+  transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
+}
+
+transliterationButton.onclick = function() {
+  outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
+};
+
 function nGram(n) {
   if (typeof n !== 'number' || isNaN(n) || n < 1 || n === Infinity) {
     throw new Error('`' + n + '` is not a valid argument for n-gram')
@@ -188,6 +183,7 @@ function nGram(n) {
     return nGrams
   }
 }
+
 function repeatnGram(start, end, string) {
   let res = []
   for (let i = start; i <= end; i++) {
@@ -195,6 +191,7 @@ function repeatnGram(start, end, string) {
   }
   return(res)
 }
+
 function getDelimiters (text, possibleDelimiters) {
     return possibleDelimiters.filter(weedOut);
     function weedOut (delimiter) {
