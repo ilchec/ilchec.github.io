@@ -1,3 +1,13 @@
+const showLetters = document.getElementById('letters');
+const showChars = document.getElementById('chars');
+const sourceText = document.getElementById('source-text');
+const outputText = document.getElementById('output-text');
+const downloadButton = document.getElementById('download-button');
+const transliterationFile = document.getElementById('transliteration-file-frame');
+const transliterationRules = document.getElementById('transliteration-rules');
+const transliterationButton = document.getElementById('transliteration-button');
+const sortButton = document.getElementById('sort-button');
+
 function count_chars(str) { // This function counts the characters in a string
   let res = {};
   let output = "";
@@ -13,6 +23,7 @@ function count_chars(str) { // This function counts the characters in a string
     }
   }
 }
+
 function stringify(obj_arr) {
   let entries = []
   for (obj of obj_arr) {
@@ -20,7 +31,6 @@ function stringify(obj_arr) {
       entries.push(pair);
     }
   }
-  //console.log(entries)
   let sorted = entries.sort((a, b) => b[1] - a[1]);
   let output = '';
   for (let i of sorted) {
@@ -29,6 +39,7 @@ function stringify(obj_arr) {
   output = output.replace(/\n\n/g,'\n')
   return output.trim()
 }
+
 function get_letters(text, regexSource) {
   let regex = new RegExp(regexSource, "g");
   let matches = [], found;
@@ -50,6 +61,7 @@ function get_letters(text, regexSource) {
   //}
   return output.trim()
 }
+
 function download(filename, text) {
   var element = document.createElement('a');
   element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
@@ -78,73 +90,6 @@ function readMapping(mappingSource) {
   }
   return mapping
 }
-const showLetters = document.getElementById('letters');
-const showChars = document.getElementById('chars');
-const sourceText = document.getElementById('source-text');
-const outputText = document.getElementById('output-text');
-const downloadButton = document.getElementById('download-button');
-const transliterationFile = document.getElementById('transliteration-file-frame');
-const transliterationRules = document.getElementById('transliteration-rules');
-const transliterationButton = document.getElementById('transliteration-button');
-const sortButton = document.getElementById('sort-button');
-
-if (window.FileList && window.File && window.FileReader) {
-  document.getElementById('file-selector').addEventListener('change', event => {
-    //output.innerHTML = '';
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.addEventListener('load', event => {
-      sourceText.value = event.target.result;
-    });
-    reader.readAsText(file);
-  });
-  document.getElementById('transliteration-file').addEventListener('change', event => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.addEventListener('load', event => {
-    transliterationRules.value = event.target.result;
-  });
-  reader.readAsText(file);
-  });
-}
-
-showChars.onclick = function() {
-  start = parseInt($("#nGramStartNumber").val());
-  end = parseInt($("#nGramEndNumber").val());
-  if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
-    alert(new Error(`This is not a valid argument for n-gram.`))
-  }
-  if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
-    alert(new Error(`This is not a valid argument for n-gram.`))
-  }
-  else if (end < start) {
-    alert(new Error('Start number cannot be greater than End number.'))
-  }
-  outputText.value = stringify(repeatnGram(start, end, sourceText.value));
-  //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
-  //download("characters.tsv",count_chars(sourceText.value));
-};
-
-showLetters.onclick = function() {
-  outputText.value = get_letters(sourceText.value, $("#regexpSource").val());
-  //download("letters.tsv",get_letters(sourceText.value));
-};
-
-downloadButton.onclick = function() {
-  download("output.tsv",outputText.value);
-};
-
-sortButton.onclick = function() {
-  let mapping = readMapping($("#transliteration-rules").val());
-  //console.log(mapping)
-  let mappingSorted = Object.entries(mapping);
-  mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
-  transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
-}
-
-transliterationButton.onclick = function() {
-  outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
-};
 
 function nGram(n) {
   if (typeof n !== 'number' || isNaN(n) || n < 1 || n === Infinity) {
@@ -211,3 +156,61 @@ function getDelimiters (text, possibleDelimiters) {
         }
     }
 }
+
+if (window.FileList && window.File && window.FileReader) {
+  document.getElementById('file-selector').addEventListener('change', event => {
+    //output.innerHTML = '';
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', event => {
+      sourceText.value = event.target.result;
+    });
+    reader.readAsText(file);
+  });
+  document.getElementById('transliteration-file').addEventListener('change', event => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.addEventListener('load', event => {
+    transliterationRules.value = event.target.result;
+  });
+  reader.readAsText(file);
+  });
+}
+
+showChars.onclick = function() {
+  start = parseInt($("#nGramStartNumber").val());
+  end = parseInt($("#nGramEndNumber").val());
+  if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
+    alert(new Error(`This is not a valid argument for n-gram.`))
+  }
+  if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
+    alert(new Error(`This is not a valid argument for n-gram.`))
+  }
+  else if (end < start) {
+    alert(new Error('Start number cannot be greater than End number.'))
+  }
+  outputText.value = stringify(repeatnGram(start, end, sourceText.value));
+  //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
+  //download("characters.tsv",count_chars(sourceText.value));
+};
+
+showLetters.onclick = function() {
+  outputText.value = get_letters(sourceText.value, $("#regexpSource").val());
+  //download("letters.tsv",get_letters(sourceText.value));
+};
+
+downloadButton.onclick = function() {
+  download("output.tsv",outputText.value);
+};
+
+sortButton.onclick = function() {
+  let mapping = readMapping($("#transliteration-rules").val());
+  //console.log(mapping)
+  let mappingSorted = Object.entries(mapping);
+  mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
+  transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
+}
+
+transliterationButton.onclick = function() {
+  outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
+};
