@@ -84,7 +84,7 @@
       padding: 0;
     }
     .show-button {
-      display: none;
+      display: inline-block;
     }
     .get-chars-interface {
       width: 100%;
@@ -93,18 +93,18 @@
       width: 95%;
       height: 150px;
       margin: 0 auto;
-      display: none;
+      display: inline-block;
     }
     #transliteration-file-frame {
-      display: none;
+      display: inline-block;
     }
     .textarea-container {
       width: 30%;
       height: 250px;
       margin: 0 auto;
-      display: none;
+      display: inline-block;
     }
     .ngram-number-input {
       wigth: 30;
-      display: block;
+      display: inline-block;
     }
