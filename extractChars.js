@@ -7,6 +7,7 @@ const transliterationFile = document.getElementById('transliteration-file-frame'
 const transliterationRules = document.getElementById('transliteration-rules');
 const transliterationButton = document.getElementById('transliteration-button');
 const sortButton = document.getElementById('sort-button');
+const getLinesButton = document.getElementById('getLines-button');
 
 function count_chars(str) { // This function counts the characters in a string
   let res = {};
@@ -157,6 +158,35 @@ function getDelimiters (text, possibleDelimiters) {
     }
 }
 
+function getLinesContainingChars(text, chars) {
+  let output = ""
+  let res = {}
+  for (char of chars.split("\n")) {
+    //console.log(char)
+    for (line of text.split("\n")) {
+      if (line.includes(char) && !(line in res)) {
+        res[line] = char;
+      }
+      else if (line.includes(char) && (line in res)) {
+        if (!res[line].includes(char)) {
+          res[line] += ", " + char;
+        }
+      }
+      //else if (!(line.includes(char)) && !(line in res)) {
+      //  res[line] = "";
+      //}
+      else {
+        continue
+      }
+    }
+  }
+  for (item in res) {
+    output = output + item + "\t" + res[item] +  "\n";
+  }
+  console.log(output)
+  return output
+}
+
 if (window.FileList && window.File && window.FileReader) {
   document.getElementById('file-selector').addEventListener('change', event => {
     //output.innerHTML = '';
@@ -213,4 +243,8 @@ sortButton.onclick = function() {
 
 transliterationButton.onclick = function() {
   outputText.value = transliterate(sourceText.value,Object.entries(readMapping($("#transliteration-rules").val())));
+};
+
+getLinesButton.onclick = function() {
+  outputText.value = getLinesContainingChars(sourceText.value,transliterationRules.value);
 };
