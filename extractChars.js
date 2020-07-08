@@ -164,10 +164,11 @@ function getLinesContainingChars(text, chars) {
   for (char of chars.split("\n")) {
     //console.log(char)
     for (line of text.split("\n")) {
-      if (line.includes(char) && !(line in res)) {
+      let lineContent = line.split("\t").pop()
+      if (lineContent.includes(char) && !(line in res)) {
         res[line] = char;
       }
-      else if (line.includes(char) && (line in res)) {
+      else if (lineContent.includes(char) && (line in res)) {
         if (!res[line].includes(char)) {
           res[line] += ", " + char;
         }

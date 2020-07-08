@@ -53,10 +53,8 @@
         An example of <strong>data</strong> can be found <a href = "data/andic_test.txt" download>here</a>. <br>
         An example of an <strong>orthography profile</strong> can be found <a href = "data/translit_dict_andic.tsv" download>here</a>.
         </p>
-
-
         <p>Add a data file: <br>
-          <input type="file" id="file-selector" accept=".txt"/></p>
+          <input type="file" id="file-selector" accept=".txt, .tsv, .csv"/></p>
         <p id="transliteration-file-frame">Add a Transliteration File:
           <input type="file" id="transliteration-file" accept=".tsv, .csv"></p>
         <div id="get-chars-interface">
@@ -65,7 +63,7 @@
             <textarea id="source-text" class="file-content" name = ""></textarea>
           </div>
           <div class = "textarea-container">
-            <p>Transliteration Rules:</p>
+            <p>Rules:</p>
             <textarea id="transliteration-rules" class="file-content"></textarea>
           </div>
           <div class = "textarea-container">
@@ -78,7 +76,7 @@
             <input type="button" id = "show-letters" value = "Show Letters">
           </p>
           <p id="reSource" class = "show-button">
-            <input type="text" style = "width: 200px;" id = "regexpSource" placeholder = "([а-яА-Я].*?)[а-щыэюяА-ЩЫЭЮЯ\- $]" value = "([а-яА-Я].*?)[а-щыэюяА-ЩЫЭЮЯ\- $]" class = "ngram-number-input">
+            <input type="text" style = "width: 200px;" id = "regexpSource" placeholder = "([а-яА-Я].*?)[абг-щыэюяА-ЩЫЭЮЯ\- $]" value = "([а-яА-Я].*?)[абг-щыэюяА-ЩЫЭЮЯ\- $]" class = "ngram-number-input">
           </p>
           <br>
           <p id="chars" class = "show-button">
