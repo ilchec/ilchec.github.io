@@ -86,7 +86,15 @@ function readMapping(mappingSource) {
   let sep = getDelimiters(mappingSource, ['\t', ';', ',', '>'])[0]
   for (item of mappingSource.split("\n")) {
     if (item.includes(sep)) {
-      mapping[item.split(sep)[0]] = item.split(sep)[1].trim();
+      if (item.split(sep)[0].includes("^")) {
+        mapping[item.split(sep)[0].replace("^", "\n")] = item.split(sep)[1].trim().replace("^", "\n");
+      }
+      else if (item.split(sep)[0].includes("$")) {
+        mapping[item.split(sep)[0].replace("$", "\n")] = item.split(sep)[1].trim().replace("$", "\n");
+      }
+      else {
+        mapping[item.split(sep)[0]] = item.split(sep)[1].trim();
+      }
     }
   }
   return mapping
