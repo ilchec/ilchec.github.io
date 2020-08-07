@@ -8,6 +8,8 @@ const transliterationRules = document.getElementById('transliteration-rules');
 const transliterationButton = document.getElementById('transliteration-button');
 const sortButton = document.getElementById('sort-button');
 const getLinesButton = document.getElementById('getLines-button');
+const fileSelectorLabel = document.getElementById('file-selector-label');
+const translitSelectorLabel = document.getElementById('transliteration-selector-label');
 
 function count_chars(str) { // This function counts the characters in a string
   let res = {};
@@ -197,12 +199,14 @@ function getLinesContainingChars(text, chars) {
 }
 
 if (window.FileList && window.File && window.FileReader) {
+
   document.getElementById('file-selector').addEventListener('change', event => {
     //output.innerHTML = '';
     const file = event.target.files[0];
     const reader = new FileReader();
     reader.addEventListener('load', event => {
       sourceText.value = event.target.result;
+      fileSelectorLabel.innerText = "Data: " + file.name
     });
     reader.readAsText(file);
   });
@@ -211,6 +215,7 @@ if (window.FileList && window.File && window.FileReader) {
     const reader = new FileReader();
     reader.addEventListener('load', event => {
     transliterationRules.value = event.target.result;
+    translitSelectorLabel.innerText = "Orthography Profile: " + file.name
   });
   reader.readAsText(file);
   });
