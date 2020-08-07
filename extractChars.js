@@ -75,10 +75,14 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
 function transliterate(text, mapping){
   let output = text;
   for (i of mapping) {
-    output = output.replaceAll(i[0], i[1]);
+    output = replaceAll(output, i[0], i[1]);
   }
   return output
 }
@@ -252,7 +256,7 @@ sortButton.onclick = function() {
   //console.log(mapping)
   let mappingSorted = Object.entries(mapping);
   mappingSorted = mappingSorted.sort((a, b) => b[0].length - a[0].length)
-  transliterationRules.value = mappingSorted.join("\n").replaceAll(",", "\t");
+  transliterationRules.value = replaceAll(mappingSorted.join("\n"),",", "\t");
 }
 
 transliterationButton.onclick = function() {
