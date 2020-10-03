@@ -10,6 +10,7 @@ const sortButton = document.getElementById('sort-button');
 const getLinesButton = document.getElementById('getLines-button');
 const fileSelectorLabel = document.getElementById('file-selector-label');
 const translitSelectorLabel = document.getElementById('transliteration-selector-label');
+const alertNgrams = document.getElementById('alert-ngrams');
 
 function count_chars(str) { // This function counts the characters in a string
   let res = {};
@@ -229,15 +230,21 @@ showChars.onclick = function() {
   start = parseInt($("#nGramStartNumber").val());
   end = parseInt($("#nGramEndNumber").val());
   if (typeof start !== 'number' || isNaN(start) || start < 1 || start === Infinity) {
-    alert(new Error(`This is not a valid argument for n-gram.`))
+    //alert(new Error(`This is not a valid argument for n-gram.`))
+    $("#alert-ngrams").html("<div class='alert alert-danger' role='alert'> Both arguments should be numbers!</div>")
   }
-  if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
-    alert(new Error(`This is not a valid argument for n-gram.`))
+  else if (typeof end !== 'number' || isNaN(end) || end < 1 || end === Infinity) {
+  //  alert(new Error(`This is not a valid argument for n-gram.`))
+    $("#alert-ngrams").html("<div class='alert alert-danger' role='alert'> Both arguments should be numbers!</div>")
   }
   else if (end < start) {
-    alert(new Error('Start number cannot be greater than End number.'))
+    //alert(new Error('Start number cannot be greater than End number.'))
+    $("#alert-ngrams").html("<div class='alert alert-danger' role='alert'> The FROM number cannot be greater than the TO number!</div>")
   }
-  outputText.value = stringify(repeatnGram(start, end, sourceText.value));
+  else {
+    outputText.value = stringify(repeatnGram(start, end, sourceText.value));
+    $("#alert-ngrams").html("");
+  }
   //console.log(nGram(parseInt($("#nGramNumber").val()))(sourceText.value))
   //download("characters.tsv",count_chars(sourceText.value));
 };
