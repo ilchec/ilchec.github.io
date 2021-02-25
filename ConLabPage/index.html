@@ -148,7 +148,8 @@
   $("#pageContent").html(cards)
 }
     $(document).ready(function() {
-      $("#pageContent").load("pages/home.html")
+      $("#pageContent").load("pages/home.html");
+      $("#homeButton").addClass("active");
     });
     $("#homeButton").click(function(){
       $("#pageContent").load("pages/home.html")
@@ -163,7 +164,7 @@
       JSONtoCards("json/databases.json")
     })
     $(".nav-item").on("click", function(){
-      $(".nav").find(".active").removeClass("active");
+      $(".nav-item").find(".active").removeClass("active");
       $(this).addClass("active");
     })
   </script>
