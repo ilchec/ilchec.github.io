@@ -73,6 +73,8 @@
     })
     $("#projectsButton").click(function(){
       $("#pageContent").load("pages/projects.html")
+      $(".nav-item").removeClass("active")
+      $("projectsButton").addClass("active")
     })
   </script>
 
