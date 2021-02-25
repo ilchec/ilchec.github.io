@@ -67,11 +67,23 @@
   </div>
   <script type="text/javascript" src="json/dictionaries.json"></script>
   <script>
-  function loadJSON() {
-  	var mydata = JSON.parse(data);
-  	alert(mydata[0].name);
-  	alert(mydata[0].age);
+  function loadJSON(data) {
+  	var content = JSON.parse(data);
+    var cards = ""
+    for(let entry in content){
+      let out='<div class="card">';
+      out+='<div class="card-header">'+entry.name+'</div>';
+      //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
+      out+='<div class="card-body">';
+      out+=entry.age;
+      //out+='<div class="cls-for-load"></div>';
+      //out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
+      out+='</div>';
+      out+='</div>';
+      cards += out;
   }
+  $("#pageContent").html(cards)
+}
   //function jsonToCards(data){
   //  data = JSON.parse(data);
   //  console.log(data);
@@ -104,7 +116,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      loadJSON()
+      loadJSON(dictionariesData)
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
