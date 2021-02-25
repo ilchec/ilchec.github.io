@@ -53,7 +53,7 @@
               <li class="nav-item">
                   <a class="nav-link" href="#">Corpora</a>
               </li>
-              <li class="nav-item">
+              <li id="dictionariesButton" class="nav-item">
                   <a class="nav-link" href="#">Dictionaries</a>
               </li>
               <li class="nav-item">
@@ -80,6 +80,11 @@
       $("#pageContent").load("pages/projects.html")
       $(".nav-item").removeClass("active")
       $("projectsButton").addClass("active")
+    })
+    $("#dictionariesButton").click(function(){
+      $("#pageContent").load("pages/dictionaries.html")
+      $(".nav-item").removeClass("active")
+      $("dictionariesButton").addClass("active")
     })
   </script>
 
