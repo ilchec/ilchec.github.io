@@ -72,14 +72,15 @@
     var cards = '';
     var i = 0;
     for(let entry of content){
+      let out = "";
       if (i == 0) {
-        let out='<div class="card-deck"><div class="card">'
+        out += '<div class="card-deck"><div class="card">'
       }
       else if (i % 3 == 0) {
-        let out='</div><div class="card-deck"><div class="card">'
+        out += '</div><div class="card-deck"><div class="card">'
       }
       else {
-        let out='<div class="card">';
+        out += '<div class="card">';
       }
       i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
