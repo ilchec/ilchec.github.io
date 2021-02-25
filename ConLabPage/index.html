@@ -93,14 +93,26 @@
     $.ajax({
       url:path,
       success: function (JSONdata){
-        let JSONcontent = JSON.parse(JSONdata);
+        var JSONcontent = JSON.parse(JSONdata);
       }
     });
     return(JSONcontent)
   }
-  
+
+  function loadFile(path) {
+    var result = null;
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", path, false);
+    xmlhttp.send();
+    if (xmlhttp.status==200) {
+      result = xmlhttp.responseText;
+    }
+    return result;
+  }
+
   function JSONtoCards(path) {
-  	var content = getJSON(path);
+    var data = loadFile(path)
+  	var content = JSON.parse(data);
     var cards = '';
     var i = 0;
     for(let entry of content){
