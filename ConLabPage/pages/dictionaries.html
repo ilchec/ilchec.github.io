@@ -1,5 +1,5 @@
 <script>
-  $.getJSON('/JSON/dictionaries.json/', function( data ) {
+  $.getJSON('../json/dictionaries.json/', function( data ) {
       for(var key in data.articles){
            var out='<div class="card">';
                 out+='<div class="card-header">'+data.articles[key].title+'</div>';
