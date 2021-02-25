@@ -66,7 +66,7 @@
   <div id="pageContent" class="container" style="margin-top: 50px">
   </div>
   <script>
-  function openJSON(path, target){
+  function jsonToCards(path, target){
     $.getJSON(path, function( data ) {
       for(let key in data.articles){
            let out='<div class="card">';
@@ -97,7 +97,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      openJSON("json/dictionaries.json","pageContent")
+      jsonToCards("json/dictionaries.json","#pageContent")
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
