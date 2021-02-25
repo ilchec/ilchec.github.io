@@ -122,13 +122,13 @@
     for(let entry of content){
       let out = "";
       if (i == 0) {
-        out += '<div class="row"><div class = "card-deck"><div class="col-sm-3 mb-3"><div class="card">'
+        out += '<div class="row"><div class = "card-deck"><div class="col-sm-3"><div class="card">'
       }
       else if (i % 4 == 0) {
-        out += '</div></div><div class="row"><div class = "card-deck"><div class="col-sm-3 mb-3"><div class="card">'
+        out += '</div></div><div class="row"><div class = "card-deck"><div class="col-sm-3"><div class="card">'
       }
       else {
-        out += '<div class="col-sm-3 mb-3"><div class="card">';
+        out += '<div class="col-sm-3"><div class="card">';
       }
       i = i+1;
       out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
