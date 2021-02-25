@@ -63,14 +63,13 @@
       </div>
   </nav>
 
-<script src="http://www.w3schools.com/lib/w3data.js"></script>
-<div id="pageContent" class="container" style="margin-top: 50px">
-  <div w3-include-html="home.html">
-    <script>
-      w3IncludeHTML();
-    </script>
+  <div id="pageContent" class="container" style="margin-top: 50px">
   </div>
-</div>
+  <script>
+    $("#homeButton").click(function(){
+      $("#pageContent").load("home.html")
+    })
+  </script>
 
 </body>
 
