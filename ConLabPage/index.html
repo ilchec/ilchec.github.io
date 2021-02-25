@@ -118,9 +118,11 @@
     var i = 0;
     var j = 0;
     for(let type of content){
+      console.log(type);
       if (j >= 1) {cards += "<hr/>"};
       cards += "<h1>"+type+"</h1>";
       for(let entry of type){
+        console.log(entry);
         let out = "";
         if (i == 0) {
           out += '<div class = "card-deck mb-3"><div class="card ">'
