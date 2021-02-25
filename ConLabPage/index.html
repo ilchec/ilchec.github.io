@@ -68,6 +68,7 @@
   <script>
   function jsonToCards(path){
     $.getJSON(path, function( data ) {
+      alert("success");
       for(let key in data.articles){
            let out='<div class="card">';
                 out+='<div class="card-header">'+data.articles[key].title+'</div>';
@@ -80,7 +81,11 @@
                 out+='</div>';
            $("#pageContent").append(out);
       };
-  })};
+  })
+  .done(function() { alert("second success"); })
+  .fail(function() { alert("error"); })
+  .always(function() { alert("complete"); });
+};
     $(document).ready(function() {
       $("#pageContent").load("pages/home.html")
       $(".nav-item").removeClass("active")
@@ -97,7 +102,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      jsonToCards("https://github.com/ilchec/ilchec.github.io/blob/master/ConLabPage/json/dictionaries.json")
+      jsonToCards("json/dictionaries.json")
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
