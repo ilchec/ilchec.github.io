@@ -109,7 +109,7 @@
         out += '<div class="col-sm-4 mb-3"><div class="card">';
       }
       i = i+1;
-      out+='<div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div>'
+      out+='<a href='+entry.url+')><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       out+='<div class="card-body">';
       out+=entry.exerpt;
       out+='<div class="cls-for-load"></div>';
@@ -124,22 +124,6 @@
   }
   $("#pageContent").html(cards)
 }
-  //function jsonToCards(data){
-  //  data = JSON.parse(data);
-  //  console.log(data);
-  //    for(let key in data){
-  //         let out='<div class="card">';
-  //              out+='<div class="card-header">'+data.articles[key].title+'</div>';
-  //              out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
-  //              out+='<div class="card-body">';
-  //              out+=data.articles[key].exerpt;
-  //              out+='<div class="cls-for-load"></div>';
-  //              out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
-  //              out+='</div>';
-  //              out+='</div>';
-  //         $("#pageContent").append(out);
-  //    };
-  //};
     $(document).ready(function() {
       $("#pageContent").load("pages/home.html")
       $(".nav-item").removeClass("active")
