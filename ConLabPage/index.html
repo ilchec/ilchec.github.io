@@ -88,9 +88,16 @@
 
   <div id="pageContent" class="container" style="margin-top: 50px">
   </div>
-  <script type="text/javascript" src="json/dictionaries.js"></script>
   <script>
-  function loadJSON(data) {
+  function loadJSON(path) {
+    let content
+    fetch(path).then(
+        function(u){ return u.json();}
+      ).then(
+        function(json){
+          data = json;
+        }
+      )
   	var content = JSON.parse(data);
     var cards = '';
     var i = 0;
@@ -137,7 +144,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      loadJSON(dictionariesData)
+      loadJSON("json/dictionaries.json")
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
