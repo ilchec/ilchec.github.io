@@ -116,39 +116,30 @@
   	var content = JSON.parse(data);
     var cards = '';
     var i = 0;
-    var j = 0;
-    for (const [type, items] of Object.entries(content)) {
-      console.log(`${type}: ${items}`)
-      //console.log(type);
-      if (j >= 1) {cards += "<hr/>"};
-      cards += "<h1>"+type+"</h1>";
-      for(let entry of items){
-        //console.log(entry);
-        let out = "";
-        if (i == 0) {
-          out += '<div class = "card-deck mb-3"><div class="card ">'
-        }
-        else if (i % 4 == 0) {
-          out += '</div><div class = "card-deck mb-3"><div class="card">'
-        }
-        else {
-          out += '<div class="card">';
-        }
-        i = i+1;
-        out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
-        out+='<div class="card-body d-flex flex-column pb-3">';
-        out+=entry.exerpt;
-        out+='<div class="cls-for-load"></div><br>';
-        out+='<a href='+entry.url+' class="mt-auto btn btn-info" role="button">Open</a>';
-        //out+='</div>';
-        out+='</div>';
-        out+='</div>';
-        cards += out;
-        if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
-          cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
-        }
+    for(let entry of content){
+      let out = "";
+      if (i == 0) {
+        out += '<div class = "card-deck mb-3"><div class="card ">'
       }
-      j = j+1;
+      else if (i % 4 == 0) {
+        out += '</div><div class = "card-deck mb-3"><div class="card">'
+      }
+      else {
+        out += '<div class="card">';
+      }
+      i = i+1;
+      out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+      out+='<div class="card-body d-flex flex-column pb-3">';
+      out+=entry.exerpt;
+      out+='<div class="cls-for-load"></div><br>';
+      out+='<a href='+entry.url+' class="mt-auto btn btn-info" role="button">Open</a>';
+      //out+='</div>';
+      out+='</div>';
+      out+='</div>';
+      cards += out;
+      if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
+        cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
+      }
   }
   $("#pageContent").html(cards)
 }
