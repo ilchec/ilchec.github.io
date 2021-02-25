@@ -1,4 +1,4 @@
- [
+[{"Dictionaries" :  [
    { "title": "Mehweb I",
     "url": "https://linghub.ru/mehwebdict/",
     "image": "images/1.JPG",
@@ -15,4 +15,6 @@
      "url": "http://lingconlab.ru/TukitaDict/",
      "image": "images/2.JPG",
      "exerpt": "Lorem Ipsum blabla interesting preview to the site"}
-]
+  ]
+  }
+  ]
