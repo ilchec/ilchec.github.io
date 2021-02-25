@@ -67,6 +67,9 @@
   </div>
   <script type="text/javascript" src="json/dictionaries.js"></script>
   <script>
+  function relocate(target){
+     location.href = target;
+  }
   function loadJSON(data) {
   	var content = JSON.parse(data);
     var cards = '';
@@ -84,11 +87,11 @@
       }
       i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
-      //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
+      out+='<img class="card-img-top" src="'+entry.image+'" alt="...">';
       out+='<div class="card-body">';
       out+=entry.age;
-      //out+='<div class="cls-for-load"></div>';
-      //out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
+      out+='<div class="cls-for-load"></div>';
+      out+='<button class="btn btn-primary" onclick="relocate('+entry.url+');">Open</button>';
       out+='</div>';
       out+='</div>';
       out+='</div>';
