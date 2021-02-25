@@ -70,18 +70,8 @@
   function loadJSON(data) {
   	var content = JSON.parse(data);
     var cards = '';
-    var i = 0;
     for(let entry of content){
-      let out = "";
-      if (i == 0) {
-        out += '<div class="card-deck"><div class="card">'
-      }
-      else if (i % 3 == 0) {
-        out += '</div><div class="card-deck"><div class="card">'
-      }
-      else {
-        out += '<div class="card">';
-      }
+      out += '<div class="card w-25">';
       i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
       //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
@@ -92,10 +82,6 @@
       out+='</div>';
       out+='</div>';
       cards += out;
-      if (cards.endsWith('<div class="card-deck"><div class="card">')) {
-        cards.substring(0, cards.length - '<div class="card-deck"><div class="card">'.length);
-      }
-      cards += "</div>"
   }
   $("#pageContent").html(cards)
 }
