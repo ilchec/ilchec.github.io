@@ -117,11 +117,12 @@
     var cards = '';
     var i = 0;
     var j = 0;
-    for(let type in content){
-      console.log(type);
+    for (const [type, items] of Object.entries(content)) {
+      console.log(`${type}: ${items}`)
+      //console.log(type);
       if (j >= 1) {cards += "<hr/>"};
       cards += "<h1>"+type+"</h1>";
-      for(let entry of content.type){
+      for(let entry of items){
         //console.log(entry);
         let out = "";
         if (i == 0) {
