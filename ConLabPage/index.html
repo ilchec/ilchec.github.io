@@ -69,19 +69,17 @@
   function openJSON(path){
     $.getJSON(path, function( data ) {
       let content = "";
-      for(var key in data.articles){
-           var out='<div class="card">';
+      for(let key in data.articles){
+           let out='<div class="card">';
                 out+='<div class="card-header">'+data.articles[key].title+'</div>';
                 out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
-
-                 out+='<div class="card-body">';
-                 out+=data.articles[key].exerpt;
-                 out+='<div class="cls-for-load"></div>';
-                 out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
-                 out+='</div>';
-                 out+=
-              out+='</div>';
-              content += out;
+                out+='<div class="card-body">';
+                out+=data.articles[key].exerpt;
+                out+='<div class="cls-for-load"></div>';
+                out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
+                out+='</div>';
+                out+='</div>';
+           content += out;
       };
       console.log(content);
       return(content);
