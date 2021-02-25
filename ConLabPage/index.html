@@ -71,7 +71,7 @@
   	var content = JSON.parse(data);
     var cards = '';
     for(let entry of content){
-      let out += '<div class="card w-25">';
+      let out = '<div class="card w-25">';
       i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
       //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
