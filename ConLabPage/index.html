@@ -125,7 +125,7 @@
         out += '<div class="row"><div class="col-sm-3 mb-3"><div class = "card-deck"><div class="card">'
       }
       else if (i % 4 == 0) {
-        out += '</div><div class="row"><div class = "card-deck"><div class="col-sm-3 mb-3"><div class="card">'
+        out += '</div></div><div class="row"><div class = "card-deck"><div class="col-sm-3 mb-3"><div class="card">'
       }
       else {
         out += '<div class="col-sm-3 mb-3"><div class="card">';
@@ -139,7 +139,6 @@
       out+='</div>';
       out+='</div>';
       out+='</div>';
-      out+='</div>';  
       cards += out;
       if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
         cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
