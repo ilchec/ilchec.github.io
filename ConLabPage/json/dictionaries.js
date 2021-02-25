@@ -14,5 +14,5 @@ var dictionariesData = '['+
   '{ "title": "Tukita",' +
      '"url": "http://lingconlab.ru/TukitaDict/",' +
      '"image": "/images/blog/blog-article-1.png",' +
-     '"exerpt": "Lorem Ipsum blabla interesting preview to the site"},' +
+     '"exerpt": "Lorem Ipsum blabla interesting preview to the site"}' +
 ']';
