@@ -66,7 +66,7 @@
   <div id="pageContent" class="container" style="margin-top: 50px">
   </div>
   <script>
-  function jsonToCards(path, target){
+  function jsonToCards(path){
     $.getJSON(path, function( data ) {
       for(let key in data.articles){
            let out='<div class="card">';
@@ -78,7 +78,7 @@
                 out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
                 out+='</div>';
                 out+='</div>';
-           $(target).append(out);
+           $("#pageContent").append(out);
       };
   })};
     $(document).ready(function() {
@@ -97,7 +97,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      jsonToCards("json/dictionaries.json","#pageContent")
+      jsonToCards("json/dictionaries.json")
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
