@@ -84,6 +84,7 @@
 
     $("#dictionariesButton").click(function(){
       $.getJSON('json/dictionaries.json', function( data ) {
+        let content = ""
         for(var key in data.articles){
              var out='<div class="card">';
                   out+='<div class="card-header">'+data.articles[key].title+'</div>';
@@ -96,8 +97,9 @@
                    out+='</div>';
                    out+=
                 out+='</div>';
-                $('#pageContent').append(out);
+                content += out;
         }
+        $('#pageContent').html(content)
     });
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
