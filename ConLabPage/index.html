@@ -26,6 +26,10 @@
   .nav-item > li:hover {
     text-decoration-color: #ffffff;
   }
+  .rounded-circle {
+    z-index:1000;
+    position:relative;
+  }
   .card-img-top {
     width: 100%;
     height: 30vh;
@@ -72,7 +76,7 @@
           </button>
       </div>
       <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
-          <ul class="navbar-nav nav-justified w-100">
+          <ul class="navbar-nav justify-content-end w-100">
               <li id="corporaButton" class="nav-item">
                   <a class="nav-link" href="#">Corpora</a>
               </li>
@@ -86,7 +90,7 @@
       </div>
   </nav>
   <nav id="corporaNav" style="display:none;margin-top:50px" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
-    <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
+    <div class="navbar-collapse collapse w-100 py-5 dual-collapse2 order-2 order-md-2">
         <ul class="navbar-nav nav-justified w-100">
             <li id="corporaButton" class="nav-item">
                 <a class="nav-link" href="#russianDialects">Russian Dialects</a>
