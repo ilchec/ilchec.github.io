@@ -22,6 +22,26 @@
             height:50px;
         }
     }
+    .card-footer:last-child {
+    border-radius: 0!important;
+  }
+
+  .card-footer {
+    padding: 0!important;
+    background-color: unset!important;
+    border-top: unset!important;
+  }
+
+  .text-center {
+      color: #fff;
+  }
+
+  .card-img-overlay {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 100%;
+  }
   </style>
 
 </head>
@@ -86,8 +106,10 @@
         out += '<div class="col-sm-4 mb-3"><div class="card">';
       }
       i = i+1;
-      out+='<div class="card-header">'+entry.title+'</div>';
       out+='<img class="card-img-top" src="'+entry.image+'" alt="...">';
+      out+='<div class="card-img-overlay"><h5 class="card-title"></h5><div class="card-footer text-center"><h4>'+
+      entry.title+
+      '</h4></div></div>';
       out+='<div class="card-body">';
       out+=entry.exerpt;
       out+='<div class="cls-for-load"></div>';
