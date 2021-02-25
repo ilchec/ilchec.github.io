@@ -68,14 +68,15 @@
   <script type="text/javascript" src="json/dictionaries.json"></script>
   <script>
   function jsonToCards(data){
+    data = JSON.parse(data);
       for(let key in data){
            let out='<div class="card">';
-                out+='<div class="card-header">'+data.articles[key].title+'</div>';
-                out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
+                out+='<div class="card-header">'+data[key].title+'</div>';
+                out+='<img class="card-img-top" src="'+data[key].image+'" alt="...">';
                 out+='<div class="card-body">';
-                out+=data.articles[key].exerpt;
+                out+=data[key].exerpt;
                 out+='<div class="cls-for-load"></div>';
-                out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
+                out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data[key].url+'\');">more...</button>';
                 out+='</div>';
                 out+='</div>';
            $("#pageContent").append(out);
