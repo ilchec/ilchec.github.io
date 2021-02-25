@@ -90,12 +90,12 @@
   </div>
   <script>
   function loadJSON(path) {
-    let data
+    let content
     fetch(path).then(
         function(u){ return u.json();}
       ).then(
         function(json){
-          data = json;
+          content = json;
         }
       )
   	//var content = JSON.parse(data);
