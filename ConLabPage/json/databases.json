@@ -1,5 +1,4 @@
- [{"Databases" : [
-   { "title": "DagSwadesh",
+[{ "title": "DagSwadesh",
     "url": "http://lingconlab.ru/dagswadesh/",
     "image": "images/1.JPG",
     "exerpt": "Lorem Ipsum blabla interesting preview to the site"},
@@ -31,6 +30,4 @@
        "url": "http://lingconlab.ru/dagatlas/",
        "image": "images/2.JPG",
        "exerpt": "Typological Atlas of the languages of Daghestan"}
-]
-}
 ]
