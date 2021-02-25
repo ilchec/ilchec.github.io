@@ -117,11 +117,11 @@
     var cards = '';
     var i = 0;
     var j = 0;
-    for(let type of content){
+    for(let type in content){
       console.log(type);
       if (j >= 1) {cards += "<hr/>"};
       cards += "<h1>"+type+"</h1>";
-      for(let entry of type){
+      for(let entry of content.type){
         //console.log(entry);
         let out = "";
         if (i == 0) {
