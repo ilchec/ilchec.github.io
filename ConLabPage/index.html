@@ -145,28 +145,22 @@
 }
     $(document).ready(function() {
       $("#pageContent").load("pages/home.html")
-      $(".nav-item").removeClass("active")
-      $("homeButton").addClass("active")
     });
     $("#homeButton").click(function(){
       $("#pageContent").load("pages/home.html")
-      $(".nav-item").removeClass("active")
-      $("homeButton").addClass("active")
     })
     $("#projectsButton").click(function(){
       $("#pageContent").load("pages/projects.html")
-      $(".nav-item").removeClass("active")
-      $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
       JSONtoCards("json/dictionaries.json")
-      $(".nav-item").removeClass("active")
-      $("dictionariesButton").addClass("active")
     })
     $("#databasesButton").click(function(){
       JSONtoCards("json/databases.json")
-      $(".nav-item").removeClass("active")
-      $("databasesButton").addClass("active")
+    })
+    $(".nav .nav-item").on("click", function(){
+      $(".nav").find(".active").removeClass("active");
+      $(this).addClass("active");
     })
   </script>
 
