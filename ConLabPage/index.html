@@ -22,13 +22,6 @@
             height:50px;
         }
     }
-    .card-deck{
-    margin-top: 10px;
-    margin-left: auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-gap: .5rem;
-}
   </style>
 
 </head>
@@ -76,9 +69,18 @@
   <script>
   function loadJSON(data) {
   	var content = JSON.parse(data);
-    var cards = '<div class="card-deck">'
+    var cards = '';
+    var i = 0;
     for(let entry of content){
-      let out='<div class="card">';
+      if (i == 0) {
+        let out='<div class="card-deck"><div class="card">'
+      }
+      else if (i % 3 == 0) {
+        let out='</div><div class="card-deck"><div class="card">'
+      }
+      else {
+        let out='<div class="card">';
+      }
       out+='<div class="card-header">'+entry.name+'</div>';
       //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
       out+='<div class="card-body">';
@@ -88,6 +90,9 @@
       out+='</div>';
       out+='</div>';
       cards += out;
+      if cards.endsWith('<div class="card-deck"><div class="card">') {
+        cards.substring(0, cards.length - '<div class="card-deck"><div class="card">'.length);
+      }
       cards += "</div>"
   }
   $("#pageContent").html(cards)
