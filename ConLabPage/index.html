@@ -91,7 +91,7 @@
       out+='</div>';
       out+='</div>';
       cards += out;
-      if cards.endsWith('<div class="card-deck"><div class="card">') {
+      if (cards.endsWith('<div class="card-deck"><div class="card">')) {
         cards.substring(0, cards.length - '<div class="card-deck"><div class="card">'.length);
       }
       cards += "</div>"
