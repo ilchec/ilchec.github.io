@@ -70,12 +70,13 @@
   function loadJSON(data) {
   	var content = JSON.parse(data);
     var cards = ""
-    for(let entry in content){
+    var i = 0;
+    for(let i = 0; i < length(content); i++){
       let out='<div class="card">';
-      out+='<div class="card-header">'+entry.name+'</div>';
+      out+='<div class="card-header">'+content[i].name+'</div>';
       //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
       out+='<div class="card-body">';
-      out+=entry.age;
+      out+=content[i].age;
       //out+='<div class="cls-for-load"></div>';
       //out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
       out+='</div>';
