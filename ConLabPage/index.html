@@ -22,6 +22,13 @@
             height:50px;
         }
     }
+    .card-deck{
+    margin-top: 10px;
+    margin-left: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: .5rem;
+}
   </style>
 
 </head>
@@ -69,7 +76,7 @@
   <script>
   function loadJSON(data) {
   	var content = JSON.parse(data);
-    var cards = ""
+    var cards = '<div class="card-deck">'
     for(let entry of content){
       let out='<div class="card">';
       out+='<div class="card-header">'+entry.name+'</div>';
@@ -81,6 +88,7 @@
       out+='</div>';
       out+='</div>';
       cards += out;
+      cards += "</div>"
   }
   $("#pageContent").html(cards)
 }
