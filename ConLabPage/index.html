@@ -90,9 +90,6 @@
   </div>
   <script type="text/javascript" src="json/dictionaries.js"></script>
   <script>
-  function relocate(target){
-     location.href = target;
-  }
   function loadJSON(data) {
   	var content = JSON.parse(data);
     var cards = '';
@@ -113,7 +110,7 @@
       out+='<div class="card-body">';
       out+=entry.exerpt;
       out+='<div class="cls-for-load"></div>';
-      out+='<button class="btn btn-primary" style="margin-top: 10px" onclick="window.location.href='+entry.url+'">Open</button>';
+      out+='<a href='+entry.url+' class="btn btn-info" style="margin-top: 10px" role="button">Open</a>';
       out+='</div>';
       out+='</div>';
       out+='</div>';
