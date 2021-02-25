@@ -109,11 +109,11 @@
         out += '<div class="col-sm-4 mb-3"><div class="card">';
       }
       i = i+1;
-      out+='<a href='+entry.url+')><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+      out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       out+='<div class="card-body">';
       out+=entry.exerpt;
       out+='<div class="cls-for-load"></div>';
-      out+='<button class="btn btn-primary" style="margin-top: 10px" onclick="relocate('+entry.url+');">Open</button>';
+      out+='<button class="btn btn-primary" style="margin-top: 10px" onclick="window.location.href='+entry.url+'">Open</button>';
       out+='</div>';
       out+='</div>';
       out+='</div>';
