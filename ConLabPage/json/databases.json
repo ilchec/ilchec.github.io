@@ -1,0 +1,18 @@
+ [
+   { "title": "DagSwadesh",
+    "url": "http://lingconlab.ru/dagswadesh/",
+    "image": "images/1.JPG",
+    "exerpt": "Lorem Ipsum blabla interesting preview to the site"},
+  { "title": "DagLoans",
+       "url": "http://lingconlab.ru/dagloans/",
+       "image": "images/2.JPG",
+       "exerpt": "Lorem Ipsum blabla interesting preview to the site"},
+  { "title": "Multidagestan",
+     "url": "https://multidagestan.com/",
+     "image": "images/1.JPG",
+     "exerpt": "Atlas of multilingualism in Daghestan"},
+  { "title": "DagTyp",
+     "url": "http://lingconlab.ru/dagatlas/",
+     "image": "images/2.JPG",
+     "exerpt": "Typological Atlas of the languages of Daghestan"}
+]
