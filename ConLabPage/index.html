@@ -33,7 +33,7 @@
                   <a id="homeButton" class="nav-link" href="#">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">Projects</a>
+                  <a id="projectsButton" class="nav-link" href="#">Projects</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="#">People</a>
@@ -68,6 +68,9 @@
   <script>
     $("#homeButton").click(function(){
       $("#pageContent").load("pages/home.html")
+    })
+    $("#projectsButton").click(function(){
+      $("#pageContent").load("pages/projects.html")
     })
   </script>
 
