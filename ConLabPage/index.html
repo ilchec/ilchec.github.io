@@ -154,7 +154,7 @@
       $("#pageContent").load("pages/projects.html")
     })
     $("#dictionariesButton").click(function(){
-      $("#pageContent").htmlJSONtoCards("json/dictionaries.json"))
+      $("#pageContent").html(JSONtoCards("json/dictionaries.json"))
     })
     $("#databasesButton").click(function(){
       $("#pageContent").html(JSONtoCards("json/databases.json"))
