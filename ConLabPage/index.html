@@ -65,24 +65,29 @@
 
   <div id="pageContent" class="container" style="margin-top: 50px">
   </div>
-  <script type="text/javascript" src="json/dictionaries.js"></script>
+  <script type="text/javascript" src="json/dictionaries.json"></script>
   <script>
-  function jsonToCards(data){
-    data = JSON.parse(data);
-    console.log(data);
-      for(let key in data){
-           let out='<div class="card">';
-                out+='<div class="card-header">'+data.articles[key].title+'</div>';
-                out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
-                out+='<div class="card-body">';
-                out+=data.articles[key].exerpt;
-                out+='<div class="cls-for-load"></div>';
-                out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
-                out+='</div>';
-                out+='</div>';
-           $("#pageContent").append(out);
-      };
-  };
+  function loadJSON() {
+  	var mydata = JSON.parse(data);
+  	alert(mydata[0].name);
+  	alert(mydata[0].age);
+  }
+  //function jsonToCards(data){
+  //  data = JSON.parse(data);
+  //  console.log(data);
+  //    for(let key in data){
+  //         let out='<div class="card">';
+  //              out+='<div class="card-header">'+data.articles[key].title+'</div>';
+  //              out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
+  //              out+='<div class="card-body">';
+  //              out+=data.articles[key].exerpt;
+  //              out+='<div class="cls-for-load"></div>';
+  //              out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
+  //              out+='</div>';
+  //              out+='</div>';
+  //         $("#pageContent").append(out);
+  //    };
+  //};
     $(document).ready(function() {
       $("#pageContent").load("pages/home.html")
       $(".nav-item").removeClass("active")
@@ -99,7 +104,7 @@
       $("projectsButton").addClass("active")
     })
     $("#dictionariesButton").click(function(){
-      jsonToCards(dictionariesContent)
+      loadJSON()
       $(".nav-item").removeClass("active")
       $("dictionariesButton").addClass("active")
     })
