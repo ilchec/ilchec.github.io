@@ -16,9 +16,9 @@
      "image": "images/2.JPG",
      "exerpt": "Lorem Ipsum blabla interesting preview to the site"}
   ]
-  }
-  {"Other" :  [
-     { "title": "Mehweb I",
+},
+{"Other" :  [
+    { "title": "Mehweb I",
       "url": "https://linghub.ru/mehwebdict/",
       "image": "images/1.JPG",
       "exerpt": "Lorem Ipsum blabla interesting preview to the site"},
