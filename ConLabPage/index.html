@@ -74,13 +74,13 @@
     for(let entry of content){
       let out = "";
       if (i == 0) {
-        out += '<div class="row"><div class="col-sm-3"><div class="card">'
+        out += '<div class="row"><div class="col-sm-4 mb-3"><div class="card">'
       }
       else if (i % 3 == 0) {
-        out += '</div><div class="row"><div class="col-sm-3"><div class="card">'
+        out += '</div><div class="row"><div class="col-sm-4 mb-3"><div class="card">'
       }
       else {
-        out += '<div class="col-sm-3"><div class="card">';
+        out += '<div class="col-sm-4 mb-3"><div class="card">';
       }
       i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
