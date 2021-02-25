@@ -70,8 +70,19 @@
   function loadJSON(data) {
   	var content = JSON.parse(data);
     var cards = '';
+    var i = 0;
     for(let entry of content){
-      let out = '<div class="card w-25">';
+      let out = "";
+      if (i == 0) {
+        out += '<div class="row"><div class="col-sm-3"><div class="card">'
+      }
+      else if (i % 3 == 0) {
+        out += '</div><div class="row"><div class="col-sm-3"><div class="card">'
+      }
+      else {
+        out += '<div class="col-sm-3"><div class="card">';
+      }
+      i = i+1;
       out+='<div class="card-header">'+entry.name+'</div>';
       //out+='<img class="card-img-top" src="'+data.articles[key].image+'" alt="...">';
       out+='<div class="card-body">';
@@ -80,7 +91,11 @@
       //out+='<button class="btn btn-primary" onclick="$(this).parent().find(\'.cls-for-load\').load( \''+data.articles[key].url+'\');">more...</button>';
       out+='</div>';
       out+='</div>';
+      out+='</div>';
       cards += out;
+      if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
+        cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
+      }
   }
   $("#pageContent").html(cards)
 }
