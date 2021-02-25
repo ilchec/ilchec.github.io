@@ -141,7 +141,7 @@
         cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
       }
   }
-  $("#pageContent").html(cards)
+  return(cards)
 }
     $(document).ready(function() {
       $("#pageContent").load("pages/home.html");
@@ -154,10 +154,10 @@
       $("#pageContent").load("pages/projects.html")
     })
     $("#dictionariesButton").click(function(){
-      JSONtoCards("json/dictionaries.json")
+      $("#pageContent").htmlJSONtoCards("json/dictionaries.json"))
     })
     $("#databasesButton").click(function(){
-      JSONtoCards("json/databases.json")
+      $("#pageContent").html(JSONtoCards("json/databases.json"))
     })
     $(".nav-item").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
