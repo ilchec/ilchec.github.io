@@ -435,7 +435,7 @@ function scrollToAnchor(aid){
     $(".project-btn").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $("projectsButton").addClass("active");
-      $("#pageContent").load(`pages/projects.html`);
-      scrollToAnchor(this.val());
+      $("#pageContent").load("pages/projects.html")
+      scrollToAnchor($(this).val());
     });
   </script>
