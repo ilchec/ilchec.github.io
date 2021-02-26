@@ -185,7 +185,7 @@ h5 {
                   <a class="nav-link" href="#">Home</a>
               </li>
               <li id="projectsButton" class="nav-item">
-                  <a  class="nav-link" href="#">Projects</a>
+                  <a class="nav-link" href="#">Projects</a>
               </li>
               <li id="peopleButton" class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="peopleDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
@@ -375,8 +375,8 @@ function generateProjectButtons(projects) {
   let buttons = ""
   let i = 0
   for (project of projects.split(";")) {
-    let b = `<a href="#" class='project-btn btn mx-1 btn-sm btn-outline-${colors[i]}'`
-    b += `role = "button" value="${project}">${project}</a>`
+    let b = `<a href="#" class='btn project-btn mx-1 btn-sm btn-outline-${colors[i]}'`
+    b += `role="button" value="${project}">${project}</a>`
     i = i+1;
     buttons += b
   }
