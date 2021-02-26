@@ -337,7 +337,6 @@ function generatePopOverWindow(project) {
   var data = loadFile("json/projects.json");
   //console.log(data);
   var projects = JSON.parse(data);
-  var popOverWindow = "";
   let currentProjectData;
   for (p of projects) {
     if(p.title == project){
@@ -346,7 +345,7 @@ function generatePopOverWindow(project) {
       break;
     }
   }
-  popOverWindow += currentProjectData.exerpt
+  var popOverWindow = String(currentProjectData.exerpt)
   //popOverWindow += '<br><button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
   return(popOverWindow)
 
