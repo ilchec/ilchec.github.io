@@ -443,7 +443,7 @@ function scrollToAnchor(aid){
       $(this).addClass("active");
     })
 
-    $(".project-btn").on("click", function(){
+    $(".card-footer").on("click", ".project-btn", function(){
       $(".navbar").find(".active").removeClass("active");
       $("#projectsButton").addClass("active");
       $("#pageContent").load("pages/projects.html");
