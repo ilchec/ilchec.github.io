@@ -291,7 +291,7 @@ h5 {
       out+= '<div class="card-text">A small text about yourself here.</div>'
       out+= '</div></div>'
       if (entry.projects.length > 0) {
-        out += '<div class="card-footer">'+generatePopOverButtons(entry.projects)
+        out += '<div class="card-footer">'+generateProjectButtons(entry.projects)
       }
       else {
         out += '<div class="card-footer"> No Current Projects'
@@ -351,25 +351,25 @@ h5 {
   return(cards)
 }
 
-function generatePopOverWindow(project) {
-  var data = loadFile("json/projects.json");
+//function generatePopOverWindow(project) {
+//  var data = loadFile("json/projects.json");
   //console.log(data);
-  var projects = JSON.parse(data);
-  let currentProjectData;
-  for (p of projects) {
-    if(p.title == project){
+//  var projects = JSON.parse(data);
+//  let currentProjectData;
+//  for (p of projects) {
+//    if(p.title == project){
       //console.log(p)
-      currentProjectData = p;
-      break;
-    }
-  }
-  var popOverWindow = String(currentProjectData.exerpt);
+//      currentProjectData = p;
+//      break;
+//    }
+//  }
+//  var popOverWindow = String(currentProjectData.exerpt);
   //console.log("Project Exerpt: "+popOverWindow)
   //popOverWindow += '<br><button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
-  return(popOverWindow)
-}
+//  return(popOverWindow)
+//}
 
-function generatePopOverButtons(projects) {
+function generateProjectButtons(projects) {
   let colors = ["primary", "secondary", "success", "danger", "warning", "info", "dark"]
   colors = colors.concat(colors)
   let buttons = ""
@@ -438,7 +438,7 @@ function scrollToAnchor(aid){
     })
     $(".project-btn").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
-      $("projectsButton").addClass("active");
+      $("#projectsButton").addClass("active");
       $("#pageContent").load("pages/projects.html")
       //scrollToAnchor($(this).val());
     });
