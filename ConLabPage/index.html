@@ -346,7 +346,7 @@ function generatePopOverWindow(project) {
       break;
     }
   }
-  popOverWindow += '<p>'+currentProjectData.exerpt+'</p>'
+  popOverWindow += currentProjectData.exerpt
   //popOverWindow += '<button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
   return(popOverWindow)
 
@@ -358,8 +358,8 @@ function generatePopOverButtons(projects) {
   let buttons = ""
   let i = 0
   for (project of projects.split(";")) {
-    let b = '<a tabindex="0" style="font-size: 0.8em" class="btn btn-sm btn-outline-'+colors[i]
-    b += ' py-0" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title='+project+' data-content='+generatePopOverWindow(project)+'>'+project+'</a>'
+    let b = '<a tabindex="0" style="font-size: 0.8em" class="btn py-0 btn-sm btn-outline-'+colors[i]
+    b += '" role="button" data-toggle="popover" data-trigger="focus" data-placement="bottom" title='+project+' data-content='+generatePopOverWindow(project)+'>'+project+'</a>'
     i = i+1;
     buttons += b
   }
