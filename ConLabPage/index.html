@@ -298,11 +298,11 @@ h5 {
       i = i+1;
       out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p>'+
       '<p class="card-text-small">Contributors: <i>'+entry.contributors+'</i></p>'
-      if (entry.image != "") {
+      if (entry.image.length > 0) {
         out += '<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       }
       else {
-        out += '<div class="card-img-top background"></div></a>'
+        out += '<img class="card-img-top background"></a>'
       }
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+=entry.exerpt;
