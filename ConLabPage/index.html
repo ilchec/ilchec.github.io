@@ -103,8 +103,17 @@
               <li id="projectsButton" class="nav-item">
                   <a  class="nav-link" href="#">Projects</a>
               </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="#">People</a>
+              <li id="peopleButton" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="peopleDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
+                  Corpora
+                </a>
+                <div class="dropdown-menu" aria-labelledby="peopleDropdown">
+                  <a class="dropdown-item" href="#peopleSupervisors">Supervisors</a>
+                  <a class="dropdown-item" href="#peopleResearchers">Researchers</a>
+                  <a class="dropdown-item" href="#peopleAssociate">Associate Researchers</a>
+                  <a class="dropdown-item" href="#peopleAssistants">Research Assistants</a>
+                  <a class="dropdown-item" href="#Manager">Manager</a>
+                </div>
               </li>
           </ul>
       </div>
@@ -164,6 +173,53 @@
     return result;
   }
 
+
+
+  function peopleJSONtoCards(path) {
+    var data = loadFile(path)
+    console.log(data);
+    var content = JSON.parse(data);
+    var cards = '';
+    var i = 0;
+    for(let entry of content){
+      let out = "";
+      if (i == 0) {
+        out += '<div class = "card-deck mb-3"><div class="card ">'
+      }
+      else if (i % 3 == 0) {
+        out += '</div><div class = "card-deck mb-3"><div class="card">'
+      }
+      else {
+        out += '<div class="card">';
+      }
+      i = i+1;
+      out+='<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+      out+='<div class="card-body d-flex flex-column pb-3">';
+      out+='<div class="card-block">
+          <h4 class="card-title mt-3">Tawshif Ahsan Khan</h4>
+          <div class="meta">'+
+              entry.role +
+          '</div>
+          <div class="card-text">
+              A small text about yourself here.
+          </div>
+      </div>
+      <div class="card-footer">
+          PROJECTS TBA
+          <a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a>
+      </div>';
+      out+='</div>';
+      out+='</div>';
+      //out+='</div>';
+      cards += out;
+      if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
+        cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
+      }
+  }
+  cards += '</div>'
+  return(cards)
+  }
+
   function JSONtoCards(path) {
     var data = loadFile(path)
     console.log(data);
@@ -208,26 +264,21 @@
     $("#homeButton").click(function(){
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
-      $("#corporaNav").fadeOut();
     })
     $("#projectsButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").load("pages/projects.html")
-      $("#corporaNav").fadeOut();
     })
     $("#dictionariesButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
-      $("#corporaNav").fadeOut();
     })
     $("#databasesButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Databases</h1><br>" + JSONtoCards("json/databases.json"))
-      $("#corporaNav").fadeOut();
     })
     $("#corporaButton").click(function(){
       $("#homePageJumbotron").html("");
-      $("#corporaNav").fadeIn();
       let corporaHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
                         JSONtoCards("json/russianDialectalCorpora.json") +
                         "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
@@ -235,6 +286,20 @@
                         "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
                         JSONtoCards("json/indigenousCorpora.json");
       $("#pageContent").html(corporaHTML)
+    })
+    $("#peopleButton").click(function(){
+      $("#homePageJumbotron").html("");
+      let peopleHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='peopleSupervisors'>Supervisors</h1><br>" +
+                        peopleJSONtoCards("json/peopleSupervisors.json") +
+                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleResearchers'>Researchers</h1><br>"
+                        peopleJSONtoCards("json/peopleResearchers.json") +
+                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssociate'>Associate Researchers</h1><br>"
+                        peopleJSONtoCards("json/peopleAssociate.json") +
+                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssistants'>Research Assistants</h1><br>"  +
+                        peopleJSONtoCards("json/peopleAssistants.json") +
+                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleManagers'>Manager</h1><br>" +
+                        peopleJSONtoCards("json/peopleManagers.json");
+      $("#pageContent").html(peopleHTML)
     })
     $(".nav-item").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
