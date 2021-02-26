@@ -111,7 +111,7 @@ $(function () {
   }
 
 .project-btn {
-  
+
 }
 
 h5 {
@@ -264,7 +264,7 @@ h5 {
 
   function peopleJSONtoCards(path) {
     var data = loadFile(path)
-    console.log(data);
+    //console.log(data);
     var content = JSON.parse(data);
     var cards = '';
     var i = 0;
@@ -311,7 +311,7 @@ h5 {
 
   function JSONtoCards(path) {
     var data = loadFile(path)
-    console.log(data);
+    //console.log(data);
   	var content = JSON.parse(data);
     var cards = '';
     var i = 0;
@@ -364,7 +364,7 @@ function generatePopOverWindow(project) {
     }
   }
   var popOverWindow = String(currentProjectData.exerpt);
-  console.log("Project Exerpt: "+popOverWindow)
+  //console.log("Project Exerpt: "+popOverWindow)
   //popOverWindow += '<br><button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
   return(popOverWindow)
 }
