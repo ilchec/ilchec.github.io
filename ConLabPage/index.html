@@ -392,6 +392,12 @@ function scrollToAnchor(aid){
       $("#pageContent").load("pages/home.html");
       $("#homeButton").addClass("active");
 
+      $("body").delegate(".project-btn", "click", function(){
+        $(".navbar").find(".active").removeClass("active");
+        $("#projectsButton").addClass("active");
+        $("#pageContent").load("pages/projects.html");
+      });
+
     $("#homeButton").click(function(){
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
@@ -443,11 +449,5 @@ function scrollToAnchor(aid){
       $(this).addClass("active");
     })
 
-    $(".project-btn").on("click", function(){
-      $(".navbar").find(".active").removeClass("active");
-      $("#projectsButton").addClass("active");
-      $("#pageContent").load("pages/projects.html");
-      //scrollToAnchor($(this).val());
-    });
     });
   </script>
