@@ -195,19 +195,12 @@
       i = i+1;
       out+='<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       out+='<div class="card-body d-flex flex-column pb-3">';
-      out+='<div class="card-block">
-          <h4 class="card-title mt-3">Tawshif Ahsan Khan</h4>
-          <div class="meta">'+
-              entry.role +
-          '</div>
-          <div class="card-text">
-              A small text about yourself here.
-          </div>
-      </div>
-      <div class="card-footer">
-          PROJECTS TBA
-          <a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a>
-      </div>';
+      out+='<div class="card-block">'
+      out+='<h4 class="card-title mt-3">'+entry.name+'</h4>'
+      out+= '<div class="meta">'+entry.role +'</div>'
+      out+= '<div class="card-text">A small text about yourself here.</div>'
+      out+= '</div>'
+      out+= '<div class="card-footer"> PROJECTS TBA <a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
       out+='</div>';
       out+='</div>';
       //out+='</div>';
