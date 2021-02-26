@@ -133,13 +133,6 @@ h5 {
 .avatar-container {
   width: 100%;
   border: 0px;
-  background-color: linear-gradient(to bottom right, #f1beab, #efa4cd);
-}
-
-.avatar {
-  width: 100%;
-  border: 0px;
-  background-color: linear-gradient(to bottom right, #f1beab, #efa4cd);
 }
   </style>
 
@@ -246,7 +239,7 @@ h5 {
       i = i+1;
       out+='<div class="avatar-container text-center mx-auto">'
       out+='<div class="avatar mx-auto">'
-      out+='<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-responsive p-3" alt="avatar">'
+      out+='<img src="'+entry.image+'" class="rounded-circle img-responsive p-3" alt="avatar" style="height:190px; wigth:190px">'
       out+='</div>'
       out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
