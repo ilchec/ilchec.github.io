@@ -134,6 +134,11 @@ h5 {
   width: 100%;
   border: 0px;
 }
+.avatar-image {
+  border-radius: 50%;
+  border-width: 2px;
+  border-color: white;
+}
   </style>
 
 </head>
@@ -239,12 +244,12 @@ h5 {
       i = i+1;
       out+='<div class="avatar-container text-center mx-auto">'
       out+='<div class="avatar mx-auto">'
-      out+='<img src="https://picsum.photos/200" class="rounded-circle img-responsive p-3" alt="avatar" style="height:190px; wigth:190px">'
+      out+='<img src="https://picsum.photos/200" class="rounded-circle avatar-image img-responsive p-3" alt="avatar" style="height:190px; wigth:190px">'
       out+='</div>'
+      out+='<h4 class="card-title text-center mt-3">'+entry.name+'</h4>'
       out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+='<div class="card-block">'
-      out+='<h4 class="card-title mt-3">'+entry.name+'</h4>'
       out+= '<div class="meta">'+entry.role +'</div>'
       out+= '<div class="card-text">A small text about yourself here.</div>'
       out+= '</div></div>'
