@@ -177,15 +177,13 @@
       out+='<a href='+entry.url+' class="mt-auto btn btn-info" role="button">Open</a>';
       out+='</div>';
       out+='</div>';
-      out+='</div>';
+      //out+='</div>';
       cards += out;
       if (cards.endsWith('<div class="row"><div class="col-sm-3"><div class="card">')) {
         cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
       }
   }
-  //if (i % 3 != 0) {
-  //  cards += '</div>'
-  //}
+  cards += '</div>'
   return(cards)
 }
     $(document).ready(function() {
