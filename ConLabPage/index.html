@@ -439,6 +439,7 @@ function scrollToAnchor(aid){
           $("#projectsButton").addClass("active");
           $("#pageContent").load("pages/projects.html");
           $("#projectModal").modal('hide');
+          scrollToAnchor(project);
         })
       })
 
