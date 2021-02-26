@@ -163,7 +163,7 @@
       if (i == 0) {
         out += '<div class = "card-deck mb-3"><div class="card ">'
       }
-      else if (i % 4 == 0) {
+      else if (i % 3 == 0) {
         out += '</div><div class = "card-deck mb-3"><div class="card">'
       }
       else {
@@ -183,7 +183,7 @@
         cards.substring(0, cards.length - '<div class="row"><div class="col-sm-3"><div class="card">'.length);
       }
   }
-  if (i % 4 != 0) {
+  if (i % 3 != 0) {
     cards += '</div>'
   }
   return(cards)
