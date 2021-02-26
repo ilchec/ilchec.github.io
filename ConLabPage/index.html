@@ -375,8 +375,8 @@ function generateProjectButtons(projects) {
   let buttons = ""
   let i = 0
   for (project of projects.split(";")) {
-    let b = `<button class='project-btn btn mx-1 btn-sm btn-outline-${colors[i]}'`
-    b += `value="${project}">${project}</button>`
+    let b = `<a href="#" class='project-btn btn mx-1 btn-sm btn-outline-${colors[i]}'`
+    b += `role = "button" value="${project}">${project}</a>`
     i = i+1;
     buttons += b
   }
@@ -443,7 +443,7 @@ function scrollToAnchor(aid){
       $(this).addClass("active");
     })
 
-    $(".card-footer").on("click", ".project-btn", function(){
+    $(".project-btn").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $("#projectsButton").addClass("active");
       $("#pageContent").load("pages/projects.html");
