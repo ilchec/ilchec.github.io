@@ -340,15 +340,15 @@ function generatePopOverWindow(project) {
   let currentProjectData;
   for (p of projects) {
     if(p.title == project){
-      console.log(p)
+      //console.log(p)
       currentProjectData = p;
       break;
     }
   }
-  var popOverWindow = String(currentProjectData.exerpt)
+  var popOverWindow = String(currentProjectData.exerpt);
+  console.log("Project Exerpt: "+popOverWindow)
   //popOverWindow += '<br><button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
   return(popOverWindow)
-
 }
 
 function generatePopOverButtons(projects) {
