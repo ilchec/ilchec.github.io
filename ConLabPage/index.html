@@ -111,7 +111,7 @@ $(function () {
   }
 
 .project-btn {
-
+  font-size: 0.8em;
 }
 
 h5 {
@@ -375,7 +375,7 @@ function generateProjectButtons(projects) {
   let buttons = ""
   let i = 0
   for (project of projects.split(";")) {
-    let b = `<button style="font-size: 0.8em" class='project-btn btn mx-1 btn-sm btn-outline-${colors[i]}'`
+    let b = `<button class='project-btn btn mx-1 btn-sm btn-outline-${colors[i]}'`
     b += `value="${project}">${project}</button>`
     i = i+1;
     buttons += b
