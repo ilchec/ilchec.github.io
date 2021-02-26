@@ -391,23 +391,27 @@ function scrollToAnchor(aid){
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
       $("#homeButton").addClass("active");
-    });
+
     $("#homeButton").click(function(){
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
     })
+
     $("#projectsButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").load("pages/projects.html")
     })
+
     $("#dictionariesButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
     })
+
     $("#databasesButton").click(function(){
       $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Databases</h1><br>" + JSONtoCards("json/databases.json"))
     })
+
     $("#corporaButton").click(function(){
       $("#homePageJumbotron").html("");
       let corporaHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
@@ -418,6 +422,7 @@ function scrollToAnchor(aid){
                         JSONtoCards("json/indigenousCorpora.json");
       $("#pageContent").html(corporaHTML)
     })
+
     $("#peopleButton").click(function(){
       $("#homePageJumbotron").html("");
       let peopleHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='peopleSupervisors'>Supervisors</h1><br>" +
@@ -432,14 +437,17 @@ function scrollToAnchor(aid){
                         peopleJSONtoCards("json/peopleManagers.json");
       $("#pageContent").html(peopleHTML)
     })
+
     $(".nav-item").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $(this).addClass("active");
     })
+
     $(".project-btn").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $("#projectsButton").addClass("active");
-      $("#pageContent").load("pages/projects.html")
+      $("#pageContent").load("pages/projects.html");
       //scrollToAnchor($(this).val());
+    });
     });
   </script>
