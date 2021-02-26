@@ -129,6 +129,15 @@ h5 {
 .card-inverse .btn {
     border: 1px solid rgba(0, 0, 0, .05);
 }
+
+.image {
+  margin-top: -150px;
+}
+
+.avatar-container {
+  width: 90%;
+  border: 1px solid #eee;
+}
   </style>
 
 </head>
@@ -232,7 +241,12 @@ h5 {
         out += '<div class="card">';
       }
       i = i+1;
-      out+='<img class="card-img-top" src="https://via.placeholder.com/150" alt="...">'
+      out+='<div class="avatar-container text-center mx-auto">'
+      out+='<div class="card-up warm-flame-gradient"></div>'
+      out+='<div class="avatar mx-auto white">'
+      out+='<img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2831%29.jpg" class="rounded-circle img-responsive bg-white p-3 image" alt="avatar">'
+      out+='</div>'
+      out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+='<div class="card-block">'
       out+='<h4 class="card-title mt-3">'+entry.name+'</h4>'
