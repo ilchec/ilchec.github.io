@@ -1,8 +1,8 @@
-[{ "title": "DagSwadesh",
+[{"title": "DagSwadesh",
     "url": "http://lingconlab.ru/dagswadesh/",
     "image": "images/1.JPG",
     "exerpt": "DagSwadesh (Swadesh lists with village granularity) is a database of Swadesh-100 wordlists from the languages of Daghestan.",
-    "contributors" : "Konstantin Filatov and Michael Daniel"}
+    "contributors" : "Konstantin Filatov and Michael Daniel"},
   { "title": "DagLoans",
        "url": "http://lingconlab.ru/dagloans/",
        "image": "images/2.JPG",
