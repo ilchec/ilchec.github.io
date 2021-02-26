@@ -356,7 +356,8 @@ function generatePopOverButtons(projects) {
   colors = colors.concat(colors)
   let buttons = ""
   let i = 0
-  for (project of projects.split(";")) {
+  p_array = projects.split(";")
+  for (project of p_array) {
     let b = '<a tabindex="0" style="font-size: 0.8em;" class="btn btn-sm btn-outline-'+
                 colors[i]+
                 'py-0" role="button" data-toggle="popover" data-trigger="focus" title="'+project+'" data-content="'+generatePopOverWindow(project)+'" data-placement="bottom">'+project+'</a>'
