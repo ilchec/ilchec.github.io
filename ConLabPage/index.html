@@ -397,7 +397,7 @@ function generateProjectButtons(projects) {
   let i = 0
   for (project of projects.split(";")) {
     let b = `<button type="button" class='btn project-btn mx-1 btn-sm btn-outline-${colors[i]}'`
-    b += `data-toggle="modal" data-target="#projectModal" data-project="${project}">${project}</a>`
+    b += `data-toggle="modal" data-target="#projectModal" data-project="${project}">${project}</button>`
     i = i+1;
     buttons += b
   }
