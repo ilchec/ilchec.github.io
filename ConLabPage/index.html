@@ -161,6 +161,7 @@ h5 {
   </style>
 
 </head>
+
 <body>
   <nav id="mainNavbar" class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
       <div class="navbar-collapse collapse w-100 dual-collapse2 order-1 order-md-0">
@@ -271,7 +272,13 @@ h5 {
       out+='<div class="card-block">'
       out+= '<div class="card-text">A small text about yourself here.</div>'
       out+= '</div></div>'
-      out+= '<div class="card-footer"> PROJECTS TBA <a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
+      if (entry.projects.length > 0) {
+        out += '<div class="card-footer">"'+generatePopOverButtons(entry.projects)
+      }
+      else {
+        out += '<div class="card-footer"> No Current Projects'
+      }
+      out+='<a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
       out+='</div>';
       //out+='</div>';
       //out+='</div>';
@@ -325,6 +332,39 @@ h5 {
   cards += '</div>'
   return(cards)
 }
+
+function generatePopOverWindow(project) {
+  var data = loadFile("json/projects.json");
+  console.log(data);
+  var projects = JSON.parse(data);
+  var popUpWindow = "";
+  let currentProjectData;
+  for (p of projects) {
+    if(p.title == project){
+      let currentProjectData = p;
+      break;
+    }
+  }
+  popUpWindow += '<p>'+currentProjectData.exerpt+'</p>'
+  popUpWindow += '<button value="'+project+'" class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
+  return(popUpWindow)
+
+}
+
+function generatePopOverButtons(projects) {
+  let colors = ["primary", "secondary", "success", "danger", "warning", "info", "dark"]
+  colors = colors.concat(colors)
+  let buttons = ""
+  let i = 0
+  for project of projects.split(";") {
+    let b = '<a tabindex="0" style="font-size: 0.8em;" class="btn btn-sm btn-outline-'+
+                colors[i]+
+                'py-0" role="button" data-toggle="popover" data-trigger="focus" title="'+project+'" data-content="'+generatePopOverWindow(project)+'" data-placement="bottom">'+project+'</a>'
+    i = i+1;
+    buttons += b
+  }
+  return()
+}
     $(document).ready(function() {
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
@@ -373,6 +413,11 @@ h5 {
     $(".nav-item").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $(this).addClass("active");
+    })
+    $(".project-btn").on("click", function(){
+      $(".navbar").find(".active").removeClass("active");
+      $("projectsButton").addClass("active");
+      $("#pageContent").load("pages/projects.html/#"+$(this).val())
     })
   </script>
 

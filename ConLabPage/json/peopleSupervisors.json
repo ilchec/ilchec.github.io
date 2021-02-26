@@ -2,10 +2,10 @@
    "url": "https://www.hse.ru/en/org/persons/206235799",
    "image": "images/people/NicholsJohanna.jpg",
    "role": "Academic Supervisor",
-   "projects": [""]},
+   "projects": ""},
   { "name": "Nina Dobrushina",
    "url": "https://www.hse.ru/en/staff/dobrushina",
    "image": "images/people/DobrushinaNina.jpg",
    "role": "Supervisor; Professor of the HSE School of Linguistics",
-   "projects": [""]}
+   "projects": ["DagLoans;Multidagestan;DagSwadesh"]}
  ]
