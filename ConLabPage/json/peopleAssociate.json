@@ -2,15 +2,15 @@
   "url": "http://www.ddl.cnrs.fr/Annuaires/Index.asp?Langue=EN&Page=Brigitte%20PAKENDORF",
   "image": "images/people/PakendorfBrigitte.jpg",
   "role": "Associate Researcher; Senior Researcher, CNRS, France",
-  "projects": [""]},
+  "projects": ""},
 { "name": "Ruprecht von Waldenfels",
   "url": "https://www.gw.uni-jena.de/fakultät/institut+für+slawistik+und+kaukasusstudien/mitarbeiterinnen/von+waldenfels+ruprecht",
   "image": "images/people/WaldenfelsRuprecht.jpg",
   "role": "Associate Researcher; Professor, Friedrich-Schiller University of Jena (Germany)",
-  "projects": [""]},
+  "projects": ""},
 { "name": "Sven Grawunder, Prof. Dr.",
   "url": "http://www.phonetik.uni-frankfurt.de/staff/graw/",
   "image": "images/people/GrawunderSven.jpg",
   "role": "Associate Researcher; Professor, Goethe University Frankfurt (Germany)",
-  "projects": [""]}
+  "projects": ""}
 ]
