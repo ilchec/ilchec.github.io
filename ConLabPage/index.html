@@ -85,7 +85,7 @@
     color: white;
     font-family: tahoma;
     width: 100%;
-    margin: 50% 0;
+    margin: 33% 0;
     position: absolute;
     z-index: 1;
   }
@@ -182,7 +182,7 @@
       }
       i = i+1;
       out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p>'+
-      '<p class="card-text-small"><strong>Contributors:</strong> '+entry.contributors+'</p>'+
+      '<p class="card-text-small">Contributors: <i>'+entry.contributors+'</i></p>'+
       '<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+=entry.exerpt;
