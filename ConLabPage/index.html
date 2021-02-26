@@ -371,13 +371,18 @@ function generatePopOverButtons(projects) {
   let buttons = ""
   let i = 0
   for (project of projects.split(";")) {
-    let b = `<button tabindex="0" style="font-size: 0.8em" class='btn project-btn mx-1 btn-sm btn-outline-${colors[i]}'`
+    let b = `<button style="font-size: 0.8em" class='btn project-btn mx-1 btn-sm btn-outline-${colors[i]}'`
     b += `value="${project}">${project}</button>`
     i = i+1;
     buttons += b
   }
   return(buttons)
 }
+function scrollToAnchor(aid){
+    var aTag = $("a[name='"+ aid +"']");
+    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+}
+
     $(document).ready(function() {
       $("#homePageJumbotron").load("pages/homePageJumbotron.html");
       $("#pageContent").load("pages/home.html");
@@ -430,6 +435,7 @@ function generatePopOverButtons(projects) {
     $(".project-btn").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
       $("projectsButton").addClass("active");
-      $("#pageContent").load("pages/projects.html/#"+$(this).val())
+      $("#pageContent").load(`pages/projects.html`);
+      scrollToAnchor(this.val());
     });
   </script>
