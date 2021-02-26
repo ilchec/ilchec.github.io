@@ -199,18 +199,22 @@
       $("#corporaNav").fadeOut();
     })
     $("#projectsButton").click(function(){
+      $("#homePageJumbotron").html("");
       $("#pageContent").load("pages/projects.html")
       $("#corporaNav").fadeOut();
     })
     $("#dictionariesButton").click(function(){
+      $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
       $("#corporaNav").fadeOut();
     })
     $("#databasesButton").click(function(){
+      $("#homePageJumbotron").html("");
       $("#pageContent").html("<h1>Databases</h1><br>" + JSONtoCards("json/databases.json"))
       $("#corporaNav").fadeOut();
     })
     $("#corporaButton").click(function(){
+      $("#homePageJumbotron").html("");
       $("#corporaNav").fadeIn();
       let corporaHTML = "<h1 style='padding-top: 100px; margin-top: -100px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
                         JSONtoCards("json/russianDialectalCorpora.json") +
