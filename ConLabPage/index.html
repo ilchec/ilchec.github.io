@@ -431,9 +431,10 @@ function scrollToAnchor(aid){
           }
         }
         var projectExerpt = String(currentProjectData.exerpt);
+        var projectContributors = String(currentProjectData.contributors);
         var modal = $(this)
         modal.find('.modal-title').text(projectTitle)
-        modal.find('.modal-body p').html(projectExerpt)
+        modal.find('.modal-body p').html(`${projectExerpt}<br>Contributors: <i>${projectContributors}</i>`)
         modal.find('#learnMoreModalButton').on('click', function() {
           $(".navbar").find(".active").removeClass("active");
           $("#projectsButton").addClass("active");
