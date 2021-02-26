@@ -85,7 +85,7 @@
                   <a class="nav-link" href="#"></a>
               </li>
               <li id="corporaButton" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="corporaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="corporaDropdown" role="button" data-toggle="dropdown">
                   Corpora
                 </a>
                 <div class="dropdown-menu" aria-labelledby="corporaDropdown">
@@ -186,11 +186,11 @@
     })
     $("#corporaButton").click(function(){
       $("#corporaNav").fadeIn();
-      let corporaHTML = "<h1 style='padding-top: 40px; margin-top: -50px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
+      let corporaHTML = "<h1 style='padding-top: 100px; margin-top: -100px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
                         JSONtoCards("json/russianDialectalCorpora.json") +
-                        "<br><h1 style='padding-top: 40px; margin-top: -50px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
+                        "<br><h1 style='padding-top: 100px; margin-top: -100px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
                         JSONtoCards("json/bilingualRussianCorpora.json") +
-                        "<br><h1 style='padding-top: 40px; margin-top: -50px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
+                        "<br><h1 style='padding-top: 100px; margin-top: -100px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
                         JSONtoCards("json/indigenousCorpora.json");
       $("#pageContent").html(corporaHTML)
     })
