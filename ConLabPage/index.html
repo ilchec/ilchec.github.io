@@ -186,11 +186,11 @@
     })
     $("#corporaButton").click(function(){
       $("#corporaNav").fadeIn();
-      let corporaHTML = "<h1 id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
+      let corporaHTML = "<h1 style='padding-top: 40px; margin-top: -50px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
                         JSONtoCards("json/russianDialectalCorpora.json") +
-                        "<br><h1 id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
+                        "<br><h1 style='padding-top: 40px; margin-top: -50px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
                         JSONtoCards("json/bilingualRussianCorpora.json") +
-                        "<br><h1 id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
+                        "<br><h1 style='padding-top: 40px; margin-top: -50px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
                         JSONtoCards("json/indigenousCorpora.json");
       $("#pageContent").html(corporaHTML)
     })
