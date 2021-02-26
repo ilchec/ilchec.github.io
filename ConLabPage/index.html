@@ -79,6 +79,16 @@
     position: absolute;
     z-index: 1;
   }
+  .card-img-caption .card-text-small {
+    text-align: left;
+    font-size: 15px;
+    color: white;
+    font-family: tahoma;
+    width: 100%;
+    margin: 50% 0;
+    position: absolute;
+    z-index: 1;
+  }
   </style>
 
 </head>
@@ -171,7 +181,9 @@
         out += '<div class="card">';
       }
       i = i+1;
-      out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p><img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+      out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p>'+
+      '<p class="card-text-small"><strong>Contributors:</strong> '+entry.contributors+'</p>'+
+      '<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+=entry.exerpt;
       out+='<div class="cls-for-load"></div><br>';
