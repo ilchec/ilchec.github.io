@@ -314,11 +314,11 @@ h5 {
       out+='</div>'
       out+='<h4 class="card-title text-center mt-3">'+entry.name+'<small>'+entry.role+'</small></h4>'
       out+='</div>'
-      out+='<div class="card-body d-flex flex-column pb-3">';
+      out+='<div class="card-body d-flex flex-column pb-1">';
       out+='<div class="card-block">'
       out+= '<div class="card-text">'
       if (entry.projects.length > 0) {
-        out += '<h5 class="card-title text-center">Projects</h5><div class="text-center">'+generateProjectButtons(entry.projects)
+        out += '<h4 class="card-title text-center">Projects</h4><div class="text-center">'+generateProjectButtons(entry.projects)
       }
       else {
         out += '<div class="text-center">No Current Projects'
