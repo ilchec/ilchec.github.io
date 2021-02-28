@@ -305,9 +305,9 @@ h5 {
       out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+='<div class="card-block">'
-      out+= '<div class="card-text">Projects: <br><br>'
+      out+= '<div class="card-text">'
       if (entry.projects.length > 0) {
-        out += generateProjectButtons(entry.projects)
+        out += 'Projects: <br><br>'+generateProjectButtons(entry.projects)
       }
       else {
         out += 'No Current Projects'
