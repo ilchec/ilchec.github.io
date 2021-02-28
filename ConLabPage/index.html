@@ -305,14 +305,14 @@ h5 {
       out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+='<div class="card-block">'
-      out+= '<div class="card-text">A small text about yourself here.</div>'
-      out+= '</div></div>'
+      out+= '<div class="card-text">Projects: <br>'
       if (entry.projects.length > 0) {
-        out += '<div class="card-footer">'+generateProjectButtons(entry.projects)
+        out += generateProjectButtons(entry.projects)
       }
       else {
-        out += '<div class="card-footer"> No Current Projects'
+        out += 'No Current Projects'
       }
+      out += '</div></div></div><div class="card-footer">A small text about yourself here.<br>'
       out+='<a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
       out+='</div>';
       //out+='</div>';
