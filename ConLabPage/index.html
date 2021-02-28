@@ -94,7 +94,7 @@ $(function () {
       background: #fff;
   }
 
-  .card-img-caption .card-text {
+  .card-img-caption > .card-text {
     text-align: center;
     font-size: 35px;
     color: white;
@@ -105,7 +105,7 @@ $(function () {
     z-index: 1;
 
   }
-  .card-img-caption .card-text-small {
+  .card-img-caption > .card-text-small {
     text-align: left;
     font-size: 15px;
     color: white;
@@ -323,7 +323,7 @@ h5 {
       else {
         out += '<div class="text-center">No Current Projects'
       }
-      out += '</div></div></div></div><div class="card-footer">A small text about yourself here.<br>'
+      out += '</div></div></div></div><div class="card-footer">A small text about yourself here.<br><br>'
       out+='<a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
       out+='</div>';
       //out+='</div>';
