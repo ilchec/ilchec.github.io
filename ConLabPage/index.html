@@ -319,7 +319,7 @@ h5 {
       out+='<div class="card-block">'
       out+= '<div class="card-text">'
       if (entry.projects.length > 0) {
-        out += 'Projects: <br><br>'+generateProjectButtons(entry.projects)
+        out += '<h5 class="card-title text-center mt-3">Projects</h5>'+generateProjectButtons(entry.projects)
       }
       else {
         out += 'No Current Projects'
