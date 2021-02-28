@@ -414,7 +414,7 @@ function generateProjectButtons(projects) {
         break;
       }
     }
-    let b = `<button type="button" class='btn project-btn mr-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
+    let b = `<button type="button" class='btn project-btn mr-1 my-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
     b += `data-toggle="modal" data-target="#projectModal" data-project=${project}>${project}</button>`
     i = i+1;
     buttons += b
