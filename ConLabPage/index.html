@@ -305,7 +305,7 @@ h5 {
       out+='</div>'
       out+='<div class="card-body d-flex flex-column pb-3">';
       out+='<div class="card-block">'
-      out+= '<div class="card-text">Projects: <br>'
+      out+= '<div class="card-text">Projects: <br><br>'
       if (entry.projects.length > 0) {
         out += generateProjectButtons(entry.projects)
       }
@@ -403,7 +403,7 @@ function generateProjectButtons(projects) {
         break;
       }
     }
-    let b = `<button type="button" class='btn project-btn mx-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
+    let b = `<button type="button" class='btn project-btn mr-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
     b += `data-toggle="modal" data-target="#projectModal" data-project=${project}>${project}</button>`
     i = i+1;
     buttons += b
