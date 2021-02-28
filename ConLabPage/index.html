@@ -91,7 +91,6 @@ $(function () {
       top: 0;
       left: 0;
       max-width: 100%;
-      padding: .75em 1em;
       background: #fff;
   }
 
@@ -322,7 +321,7 @@ h5 {
         out += '<h5 class="card-title text-center">Projects</h5><div class="text-center">'+generateProjectButtons(entry.projects)
       }
       else {
-        out += 'No Current Projects'
+        out += '<div class="text-center">No Current Projects'
       }
       out += '</div></div></div></div><div class="card-footer">A small text about yourself here.<br>'
       out+='<a href='+entry.url+' class="btn btn-secondary float-right btn-sm">Personal Page</a></div>';
