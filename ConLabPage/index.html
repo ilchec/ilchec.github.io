@@ -6,14 +6,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script>
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-$(function () {
-  $('.popover').popover({
-    container: 'body'
-  })
-})
+
 $(function () {
    $('#modal').modal(toggle)
 });
@@ -411,7 +404,7 @@ function generateProjectButtons(projects) {
       }
     }
     let b = `<button type="button" class='btn project-btn mx-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
-    b += `data-toggle="modal" data-target="#projectModal" data-projectShortTitle=${project}>${project}</button>`
+    b += `data-toggle="modal" data-target="#projectModal" data-project=${project}>${project}</button>`
     i = i+1;
     buttons += b
   }
@@ -429,10 +422,10 @@ function scrollToAnchor(aid){
 
       $('#projectModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-        var projectShortTitle = button.data('projectShortTitle') // Extract info from data-* attributes
-        var data = loadFile("json/projects.json");
+        var projectShortTitle = button.data('project') // Extract info from data-* attributes
+        var d = loadFile("json/projects.json");
         //console.log(data);
-        var projects = JSON.parse(data);
+        var projects = JSON.parse(d);
         let currentProjectData;
         for (p of projects) {
           if(p.short_title == projectShortTitle){
