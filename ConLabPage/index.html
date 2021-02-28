@@ -398,9 +398,20 @@ function generateProjectButtons(projects) {
   colors = colors.concat(colors)
   let buttons = ""
   let i = 0
+  var data = loadFile("json/projects.json");
+  var projectsData = JSON.parse(data);
   for (project of projects.split(";")) {
-    let b = `<button type="button" class='btn project-btn mx-1 btn-sm btn-outline-${colors[i]}'`
-    b += `data-toggle="modal" data-target="#projectModal" data-project=${project}>${project}</button>`
+    //console.log(data);
+    let currentProjectData;
+    for (p of projectsData) {
+      if(p.short_title == projectShortTitle){
+        //console.log(p)
+        currentProjectData = p;
+        break;
+      }
+    }
+    let b = `<button type="button" class='btn project-btn mx-1 btn-sm btn-outline-${colors[currentProjectData.id]}'`
+    b += `data-toggle="modal" data-target="#projectModal" data-projectShortTitle=${project}>${project}</button>`
     i = i+1;
     buttons += b
   }
@@ -418,23 +429,21 @@ function scrollToAnchor(aid){
 
       $('#projectModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
-        var projectTitle = button.data('project') // Extract info from data-* attributes
+        var projectShortTitle = button.data('projectShortTitle') // Extract info from data-* attributes
         var data = loadFile("json/projects.json");
         //console.log(data);
         var projects = JSON.parse(data);
         let currentProjectData;
         for (p of projects) {
-          if(p.title == projectTitle){
+          if(p.short_title == projectShortTitle){
             //console.log(p)
             currentProjectData = p;
             break;
           }
         }
-        var projectExerpt = String(currentProjectData.exerpt);
-        var projectContributors = String(currentProjectData.contributors);
         var modal = $(this)
-        modal.find('.modal-title').text(projectTitle)
-        modal.find('.modal-body p').html(`${projectExerpt}<br>Contributors: <i>${projectContributors}</i>`)
+        modal.find('.modal-title').text(currentProjectData.title)
+        modal.find('.modal-body p').html(`${String(currentProjectData.exerpt)}<br><br>Contributors: <i>${String(currentProjectData.contributors)}</i>`)
         modal.find('#learnMoreModalButton').on('click', function() {
           $(".navbar").find(".active").removeClass("active");
           $("#projectsButton").addClass("active");
