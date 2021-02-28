@@ -91,7 +91,6 @@ $(function () {
       left: 0;
       max-width: 100%;
       padding: .75em 1em;
-      color: rgba(0, 0, 0, .4);
       background: #fff;
   }
 
@@ -319,7 +318,7 @@ h5 {
       out+='<div class="card-block">'
       out+= '<div class="card-text">'
       if (entry.projects.length > 0) {
-        out += '<h5 class="card-title text-left">Projects:</h5>'+generateProjectButtons(entry.projects)
+        out += '<h5 class="card-title text-center">Projects</h5>'+generateProjectButtons(entry.projects)
       }
       else {
         out += 'No Current Projects'
