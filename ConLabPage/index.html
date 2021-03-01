@@ -414,10 +414,10 @@ function JSONtoAccordion(path) {
   status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' style="pointer-events: none">Active</button>`,
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-secondary' style="pointer-events: none">Inactive</button>`}
-  var bibtex = loadFile(`bibtex/${entry.short_title}.bib`)
-  var parse = require("bibtex-parser")
-  console.log(parse(bibtex))
   for(let entry of content){
+      var bibtex = loadFile(`bibtex/${entry.short_title}.bib`)
+      var parse = require("bibtex-parser")
+      console.log(parse(bibtex))
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
       out += `<div class="row"> `
