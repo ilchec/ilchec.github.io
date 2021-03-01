@@ -420,7 +420,7 @@ function JSONtoAccordion(path) {
       out += `<div class="col-1"><a href="#" class="a-expand" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="fa fa-chevron-down pull-right"></i></a></div>`
       out += `</div></h5></div>`
       out += `</div>`
-      out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
+      out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
       out += `<div class="card-body">${entry.description}</div>`
       out += `</div></div>`;
     //out+='</div>';
