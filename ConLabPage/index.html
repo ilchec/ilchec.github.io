@@ -429,36 +429,6 @@ function scrollToAnchor(aid){
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
 }
 
-    $(document).ready(function() {
-      $("#homePageJumbotron").load("pages/homePageJumbotron.html");
-      $("#pageContent").load("pages/home.html");
-      $("#homeButton").addClass("active");
-
-      $('#projectModal').on('show.bs.modal', function (event) {
-        var button = $(event.relatedTarget) // Button that triggered the modal
-        var projectShortTitle = button.data('project') // Extract info from data-* attributes
-        var d = loadFile("json/projects.json");
-        //console.log(data);
-        var projects = JSON.parse(d);
-        let currentProjectData;
-        for (p of projects) {
-          if(p.short_title == projectShortTitle){
-            //console.log(p)
-            currentProjectData = p;
-            break;
-          }
-        }
-        var modal = $(this)
-        modal.find('.modal-title').text(String(currentProjectData.title))
-        modal.find('.modal-body p').html(`${String(currentProjectData.exerpt)}<br><br>Contributors: <i>${String(currentProjectData.contributors)}</i>`)
-        modal.find('#learnMoreModalButton').on('click', function() {
-          $(".navbar").find(".active").removeClass("active");
-          $("#projectsButton").addClass("active");
-          $("#pageContent").load("pages/projects.html");
-          $("#projectModal").modal('hide');
-          scrollToAnchor(project);
-        })
-      })
       function loadCorpora() {
         $("#homePageJumbotron").html("");
         let corporaHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
@@ -505,6 +475,37 @@ function scrollToAnchor(aid){
         //$("#projectsButton").addClass("active");
         //$("#pageContent").load("pages/projects.html");
       });
+
+      $(document).ready(function() {
+        $("#homePageJumbotron").load("pages/homePageJumbotron.html");
+        $("#pageContent").load("pages/home.html");
+        $("#homeButton").addClass("active");
+
+        $('#projectModal').on('show.bs.modal', function (event) {
+          var button = $(event.relatedTarget) // Button that triggered the modal
+          var projectShortTitle = button.data('project') // Extract info from data-* attributes
+          var d = loadFile("json/projects.json");
+          //console.log(data);
+          var projects = JSON.parse(d);
+          let currentProjectData;
+          for (p of projects) {
+            if(p.short_title == projectShortTitle){
+              //console.log(p)
+              currentProjectData = p;
+              break;
+            }
+          }
+          var modal = $(this)
+          modal.find('.modal-title').text(String(currentProjectData.title))
+          modal.find('.modal-body p').html(`${String(currentProjectData.exerpt)}<br><br>Contributors: <i>${String(currentProjectData.contributors)}</i>`)
+          modal.find('#learnMoreModalButton').on('click', function() {
+            $(".navbar").find(".active").removeClass("active");
+            $("#projectsButton").addClass("active");
+            $("#pageContent").load("pages/projects.html");
+            $("#projectModal").modal('hide');
+            scrollToAnchor(project);
+          })
+        }
 
   //  if(window.location.hash) {
   // Fragment exists
