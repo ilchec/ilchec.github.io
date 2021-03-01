@@ -515,26 +515,61 @@ function scrollToAnchor(aid){
     $("#homeButton").click(function(){
       loadHome()
     })
+    if (window.location.hash == ""){
+      loadHome()
+    }
 
     $("#projectsButton").click(function(){
       loadProjects()
     })
+    if (window.location.hash == "projects"){
+      loadProjects()
+    }
 
     $("#dictionariesButton").click(function(){
       loadDictionaries()
     })
+    if (window.location.hash == "dictionaries"){
+      loadDictionaries()
+    }
 
     $("#databasesButton").click(function(){
       loadDatabases()
     })
+    if (window.location.hash == "databases"){
+      loadDatabases()
+    }
 
     $("#corporaButton").click(function(){
       loadCorpora()
     })
+    if (window.location.hash == "corpora"){
+      loadCorpora()
+    }
 
     $("#peopleButton").click(function(){
       loadPeople()
     })
+    if (window.location.hash == "peopleSupervisors"){
+      loadPeople()
+      scrollToAnchor("peopleSupervisors")
+    }
+    else if (window.location.hash == "peopleResearchers"){
+      loadPeople()
+      scrollToAnchor("peopleResearchers")
+    }
+    else if (window.location.hash == "peopleAssociate"){
+      loadPeople()
+      scrollToAnchor("peopleAssociate")
+    }
+    else if (window.location.hash == "peopleAssistants"){
+      loadPeople()
+      scrollToAnchor("peopleAssistants")
+    }
+    else if (window.location.hash == "peopleManagers"){
+      loadPeople()
+      scrollToAnchor("peopleManagers")
+    }
 
     $(".nav-item").on("click", function(){
       $(".navbar").find(".active").removeClass("active");
