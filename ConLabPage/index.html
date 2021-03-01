@@ -189,16 +189,6 @@ h5 {
   color: black;
 }
 
-
-.btn-nav-accordion[aria-expanded="true"] .fa-chevron-down {
-  transform: rotate(180deg);
-}
-.fa-chevron-up {
-    transition: all 0.3s ease;
- }
-.btn-nav-accordion.collapsed .fa-chevron-up {
-  transform: rotate(180deg);
-}
   </style>
 
 </head>
@@ -406,8 +396,8 @@ function JSONtoAccordion(path) {
   out += '<div id="accordion">'
   for(let entry of content){
       out += `<div class="card mt-1">`
-      out += `<div class="card-header" id="project-collapsible-${entry.short_title}"> <h5 class="mb-0">`
-      out += `<button class="btn btn-link btn-block text-left " data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><span>${entry.title}</span><i class="fas fa-chevron-up"></i></button>`
+      out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><h5 class="mb-0">`
+      out += `<button class="btn btn-link btn-block text-left " data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><span>${entry.title}</span></button>`
       out += `</h5></div>`
       out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
       out += `<div class="card-body">${entry.description}</div>`
