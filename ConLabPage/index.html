@@ -193,10 +193,10 @@ h5 {
                   <a class="nav-link" href="#">Home</a>
               </li>
               <li id="projectsButton" class="nav-item">
-                  <a class="nav-link" href="#">Projects</a>
+                  <a class="nav-link" href="#projects">Projects</a>
               </li>
               <li id="peopleButton" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="peopleDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#peopleSupervisors" id="peopleDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
                   People
                 </a>
                 <div class="dropdown-menu" aria-labelledby="peopleDropdown">
@@ -220,7 +220,7 @@ h5 {
       <div class="navbar-collapse collapse w-100 dual-collapse2 order-2 order-md-2">
           <ul class="navbar-nav nav-justified w-100">
               <li id="corporaButton" class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="corporaDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#russianDialects" id="corporaDropdown" role="button" data-toggle="dropdown" haspopup="true" aria-expanded="false">
                   Corpora
                 </a>
                 <div class="dropdown-menu" aria-labelledby="corporaDropdown">
@@ -230,10 +230,10 @@ h5 {
                 </div>
               </li>
               <li id="dictionariesButton" class="nav-item">
-                  <a class="nav-link" href="#">Dictionaries</a>
+                  <a class="nav-link" href="#dictionaries">Dictionaries</a>
               </li>
               <li id="databasesButton" class="nav-item">
-                  <a class="nav-link" href="#">Databases</a>
+                  <a class="nav-link" href="#databases">Databases</a>
               </li>
           </ul>
       </div>
@@ -459,6 +459,46 @@ function scrollToAnchor(aid){
           scrollToAnchor(project);
         })
       })
+      function loadCorpora() {
+        $("#homePageJumbotron").html("");
+        let corporaHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
+                          JSONtoCards("json/russianDialectalCorpora.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
+                          JSONtoCards("json/bilingualRussianCorpora.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
+                          JSONtoCards("json/indigenousCorpora.json");
+        $("#pageContent").html(corporaHTML)
+      }
+      function loadHome() {
+        $("#homePageJumbotron").load("pages/homePageJumbotron.html");
+        $("#pageContent").load("pages/home.html");
+      }
+      function loadDatabases() {
+        $("#homePageJumbotron").html("");
+        $("#pageContent").html("<h1>Databases</h1><br>" + JSONtoCards("json/databases.json"))
+      }
+      function loadDictionaries() {
+        $("#homePageJumbotron").html("");
+        $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
+      }
+      function loadDictionaries() {
+        $("#homePageJumbotron").html("");
+        $("#pageContent").load("pages/projects.html")
+      }
+      function loadPeople() {
+        $("#homePageJumbotron").html("");
+        let peopleHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='peopleSupervisors'>Supervisors</h1><br>" +
+                          peopleJSONtoCards("json/peopleSupervisors.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleResearchers'>Researchers</h1><br>"+
+                          peopleJSONtoCards("json/peopleResearchers.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssociate'>Associate Researchers</h1><br>"+
+                          peopleJSONtoCards("json/peopleAssociate.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssistants'>Research Assistants</h1><br>"  +
+                          peopleJSONtoCards("json/peopleAssistants.json") +
+                          "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleManagers'>Manager</h1><br>" +
+                          peopleJSONtoCards("json/peopleManagers.json");
+        $("#pageContent").html(peopleHTML)
+
 
       $("body").delegate(".project-btn", "click", function(){
         //$(".navbar").find(".active").removeClass("active");
@@ -466,50 +506,33 @@ function scrollToAnchor(aid){
         //$("#pageContent").load("pages/projects.html");
       });
 
+    if(window.location.hash) {
+  // Fragment exists
+      } else {
+  // Fragment doesn't exist
+      }
     $("#homeButton").click(function(){
-      $("#homePageJumbotron").load("pages/homePageJumbotron.html");
-      $("#pageContent").load("pages/home.html");
+      loadHome()
     })
 
     $("#projectsButton").click(function(){
-      $("#homePageJumbotron").html("");
-      $("#pageContent").load("pages/projects.html")
+      loadProjects()
     })
 
     $("#dictionariesButton").click(function(){
-      $("#homePageJumbotron").html("");
-      $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
+      loadDictionaries()
     })
 
     $("#databasesButton").click(function(){
-      $("#homePageJumbotron").html("");
-      $("#pageContent").html("<h1>Databases</h1><br>" + JSONtoCards("json/databases.json"))
+      loadDatabases()
     })
 
     $("#corporaButton").click(function(){
-      $("#homePageJumbotron").html("");
-      let corporaHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Corpora of Russian Dialects</h1><br>" +
-                        JSONtoCards("json/russianDialectalCorpora.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='bilingualRussian'>Corpora of Bilingual Russian Varieties</h1><br>" +
-                        JSONtoCards("json/bilingualRussianCorpora.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='indigenousLanguages'>Corpora of Indigenous Languages of Russia</h1><br>" +
-                        JSONtoCards("json/indigenousCorpora.json");
-      $("#pageContent").html(corporaHTML)
+      loadCorpora()
     })
 
     $("#peopleButton").click(function(){
-      $("#homePageJumbotron").html("");
-      let peopleHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='peopleSupervisors'>Supervisors</h1><br>" +
-                        peopleJSONtoCards("json/peopleSupervisors.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleResearchers'>Researchers</h1><br>"+
-                        peopleJSONtoCards("json/peopleResearchers.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssociate'>Associate Researchers</h1><br>"+
-                        peopleJSONtoCards("json/peopleAssociate.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleAssistants'>Research Assistants</h1><br>"  +
-                        peopleJSONtoCards("json/peopleAssistants.json") +
-                        "<br><h1 style='padding-top: 90px; margin-top: -90px;' id='peopleManagers'>Manager</h1><br>" +
-                        peopleJSONtoCards("json/peopleManagers.json");
-      $("#pageContent").html(peopleHTML)
+      loadPeople()
     })
 
     $(".nav-item").on("click", function(){
