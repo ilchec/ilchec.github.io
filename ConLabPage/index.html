@@ -182,6 +182,10 @@ h5 {
 .background {
   background-image: linear-gradient(to bottom right, #f1beab, #eba4d3);
 }
+
+.btn-link {
+  color: black;
+}
   </style>
 
 </head>
@@ -381,6 +385,26 @@ h5 {
   return(cards)
 }
 
+function JSONtoAccordion(path) {
+  var data = loadFile(path)
+  //console.log(data);
+  var content = JSON.parse(data);
+  let out = "";
+  out += '<div id="accordion">'
+  for(let entry of content){
+      out += `<div class="card">`
+      out += `<div class="card-header" id="headingOne"> <h5 class="mb-0">`
+      out += `<button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">${entry.title}</button>`
+      out += `</h5></div>`
+      out += `<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">`
+      out += `<div class="card-body">${entry.description}</div>`
+      out += `</div></div></div>`;
+    //out+='</div>';
+
+  }
+  return(out)
+}
+
 //function generatePopOverWindow(project) {
 //  var data = loadFile("json/projects.json");
   //console.log(data);
@@ -454,7 +478,7 @@ function scrollToAnchor(aid){
       }
       function loadProjects() {
         $("#homePageJumbotron").html("");
-        $("#pageContent").load("pages/projects.html")
+        $("#pageContent").load(JSONtoAccordion("json/projects.json"))
       }
       function loadPeople() {
         $("#homePageJumbotron").html("");
