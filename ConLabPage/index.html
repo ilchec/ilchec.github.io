@@ -526,7 +526,7 @@ function scrollToAnchor(aid){
           modal.find('#learnMoreModalButton').on('click', function() {
             $(".navbar").find(".active").removeClass("active");
             $("#projectsButton").addClass("active");
-            $("#pageContent").load("pages/projects.html");
+            $("#pageContent").html(JSONtoAccordion("json/projects.json"));
             $("#projectModal").modal('hide');
             scrollToAnchor(project);
           })
