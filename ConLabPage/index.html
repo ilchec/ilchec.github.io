@@ -189,13 +189,15 @@ h5 {
   color: black;
 }
 
-.rotate {
-  transition: all .5s linear;
-}
+.card-header col-4  {font-size: 14px;text-transform: uppercase;font-weight: 600;padding-right:20px}
 
-.rotate.down {
-  transform: rotate(90deg);
-}
+
+/* Code for animation -- to change direction of chevron just change -40px to 40px and vice versa */
+.glyphicon-chevron-down-custom span, .glyphicon-chevron-up-custom span {width: 10px; height: 5px; background-color: rgb(99, 99, 99); display: inline-block; transition: all .1s linear;}
+.glyphicon-chevron-down-custom .sp-1, .glyphicon-chevron-up-custom .sp-2 {transform: skewY(-40deg);}
+.glyphicon-chevron-up-custom .sp-1, .glyphicon-chevron-down-custom .sp-2 {transform: skewY(40deg);}
+.glyphicon {top: -2px;}
+
 
 
   </style>
@@ -414,7 +416,7 @@ function JSONtoAccordion(path) {
       out += `<div class="col-4">${entry.title}</div>`
       out += `<div class="col-2">${status_btns[entry.status]}</div>`
       out += `<div class="col-5">${entry.contributors}</div>`
-      out += `<div class="col-1"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><div class="fa fa-chevron-right rotate"></div></button></div>`
+      out += `<div class="col-1"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="indicator glyphicon glyphicon-chevron-down-custom  pull-right"><span class="sp-1"></span><span class="sp-2"></span></i></button></div>`
       out += `</div></h5></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
@@ -471,11 +473,14 @@ function generateProjectButtons(projects) {
   }
   return(buttons)
 }
-
-$(".rotate").click(function() {
-  $(this).toggleClass("down");
-})
-
+function toggleChevron(e) {
+$(e.target)
+.prev('.btn')
+.find("i.indicator")
+.toggleClass('glyphicon-chevron-down-custom glyphicon-chevron-up-custom');
+}
+$('#accordion').on('hidden.bs.collapse', toggleChevron);
+$('#accordion').on('shown.bs.collapse', toggleChevron);
 function scrollToAnchor(aid){
     var aTag = $("a[name='"+ aid +"']");
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
