@@ -5,6 +5,8 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.js"></script>
+
 <script>
 
 $(function () {
@@ -412,7 +414,13 @@ function JSONtoAccordion(path) {
   status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' style="pointer-events: none">Active</button>`,
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-secondary' style="pointer-events: none">Inactive</button>`}
+  let bibtexkey = "";
+  for (let i = 1; i <= 20; i++) {
+    bibtexkey += project+String(i)+"|"
+  }
+  bibtexkey = bibtexkey.substring(0, bibtexkey.length - 1)
   for(let entry of content){
+      out += `<bibtex src="bibtex/${project}.bib"></bibtex>`
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
       out += `<div class="row"> `
@@ -423,7 +431,7 @@ function JSONtoAccordion(path) {
       out += `</div></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
-      out += `<div class="card-body accord-card">${entry.description}</div>`
+      out += `<div class="card-body accord-card">${entry.description}<br><br><h2>Publications</h2><br><div class="bibtex_display" bibtexkey=${bibtexkey}></div></div>`
       out += `</div></div>`;
     //out+='</div>';
 
