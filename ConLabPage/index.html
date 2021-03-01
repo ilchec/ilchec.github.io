@@ -196,6 +196,9 @@ h5 {
   transform: rotate(90deg);
 }
 
+.a-expand {
+  color:black;
+}
 
 
   </style>
@@ -414,7 +417,7 @@ function JSONtoAccordion(path) {
       out += `<div class="col-4">${entry.title}</div>`
       out += `<div class="col-2">${status_btns[entry.status]}</div>`
       out += `<div class="col-5">${entry.contributors}</div>`
-      out += `<div class="col-1"><a href="#" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="fa fa-chevron-down pull-right"></i></a></div>`
+      out += `<div class="col-1"><a href="#" class="a-expand" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="fa fa-chevron-down pull-right"></i></a></div>`
       out += `</div></h5></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
@@ -523,13 +526,13 @@ function scrollToAnchor(aid){
         //$("#projectsButton").addClass("active");
         //$("#pageContent").load("pages/projects.html");
       });
-      $("body").delegate(".fa", "click", function(){
+      $("body").delegate(".a-expand", "click", function(){
         //$(".navbar").find(".active").removeClass("active");
         //$("#projectsButton").addClass("active");
         //$("#pageContent").load("pages/projects.html");
       });
 
-      $(".fa").on("click", function() {
+      $(".a-expand").on("click", function() {
         $(this).removeClass("fa-chevron-down");
         $(this).addClass("fa-chevron-up")
       })
