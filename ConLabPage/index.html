@@ -394,9 +394,9 @@ function JSONtoAccordion(path) {
   var content = JSON.parse(data);
   let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
   out += '<div id="accordion">'
-  status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-1 btn-sm btn-primary' style="pointer-events: none">Active</button>`,
-                 "Completed" : `<button type="button" class='btn project-btn mr-1 mt-1 btn-sm btn-success' style="pointer-events: none">Completed</button>`,
-                 "Inactive": `<button type="button" class='btn project-btn mr-1 mt-1 btn-sm btn-secondary' style="pointer-events: none">Inactive</button>`}
+  status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-primary' style="pointer-events: none">Active</button>`,
+                 "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-success' style="pointer-events: none">Completed</button>`,
+                 "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-secondary' style="pointer-events: none">Inactive</button>`}
   for(let entry of content){
       out += `<div class="card mt-1">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><div class="container-fluid"><h5 class="mb-0">`
