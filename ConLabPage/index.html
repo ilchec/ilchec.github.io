@@ -391,7 +391,7 @@ function JSONtoAccordion(path) {
   //console.log(data);
   var content = JSON.parse(data);
   let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
-  out += '<div id="accordion accordion-flush">'
+  out += '<div class="accordion accordion-flush" id="accordionFlush">'
   for(let entry of content){
       out += `<div class="accordion-item">`
       out += `<h5 class="accordion-header" id="header-${entry.short_title}">`
