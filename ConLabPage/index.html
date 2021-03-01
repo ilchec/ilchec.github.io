@@ -517,7 +517,7 @@ function scrollToAnchor(aid){
           $("#pageContent").html(JSONtoAccordion("json/projects.json"));
           $("#projectModal").modal('hide');
           scrollToAnchor(project);
-      }
+      })
     }
 
       $("body").delegate(".project-btn", "click", function(){
