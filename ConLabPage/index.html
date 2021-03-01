@@ -413,7 +413,7 @@ function JSONtoAccordion(path) {
       out += `<div class="card mt-1">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><div class="container-fluid"><h5 class="mb-0">`
       out += `<div class="row"> `
-      out += `<div class="col-4">${entry.title}/div>`
+      out += `<div class="col-4">${entry.title}</div>`
       out += `<div class="col-2">${status_btns[entry.status]}</div>`
       out += `<div class="col-5">${entry.contributors}</div>`
       out += `<div class="col-1"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="indicator glyphicon glyphicon-chevron-down-custom  pull-right"><span class="sp-1"></span><span class="sp-2"></span></i></button></div>`
