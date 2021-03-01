@@ -527,7 +527,8 @@ function scrollToAnchor(aid){
         //$("#pageContent").load("pages/projects.html");
       });
       $("body").delegate(".a-expand", "click", function(){
-        $(".a-expand").find(".fa").toggleClass("fa-chevron-down");
+        $(".a-expand").find(".fa").removeClass("fa-chevron-down");
+        $(".a-expand").find(".fa").addClass("fa-chevron-up");
       });
 
       $(document).ready(function() {
