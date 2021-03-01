@@ -527,11 +527,8 @@ function scrollToAnchor(aid){
         //$("#pageContent").load("pages/projects.html");
       });
       $("body").delegate(".a-expand", "click", function(){
-        $(this).find(".fa").removeClass("fa-chevron-down");
-        $(this).find(".fa").addClass("fa-chevron-up")
+        $(".a-expand").find(".fa").toggleClass("fa-chevron-down");
       });
-        
-      })
 
       $(document).ready(function() {
         $("#homePageJumbotron").load("pages/homePageJumbotron.html");
