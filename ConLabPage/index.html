@@ -533,8 +533,8 @@ function scrollToAnchor(aid){
       });
 
       $(".a-expand").on("click", function() {
-        $(this).removeClass("fa-chevron-down");
-        $(this).addClass("fa-chevron-up")
+        $(this).find(".fa").removeClass("fa-chevron-down");
+        $(this).find(".fa").addClass("fa-chevron-up")
       })
 
       $(document).ready(function() {
