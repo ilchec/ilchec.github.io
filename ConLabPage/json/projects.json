@@ -4,7 +4,7 @@
     "url": "http://lingconlab.ru/dagswadesh/",
     "image": "images/1.JPG",
     "exerpt": "DagSwadesh (Swadesh lists with village granularity) is a database of Swadesh-100 wordlists from the languages of Daghestan.",
-    "description" : "",
+    "description" : "DagSwadesh (Swadesh lists with village granularity) is a database of Swadesh-100 wordlists from the languages of Daghestan.",
     "contributors" : "Konstantin Filatov and Michael Daniel"},
   { "id": "2",
     "short_title": "DagLoans",
@@ -19,7 +19,7 @@
     "title": "Daghestanian Multilingualism",
      "url": "https://multidagestan.com/",
      "image": "images/1.JPG",
-     "exerpt": "Atlas of multilingualism in Daghestan",
+     "exerpt": "Atlas of multilingualism in Daghestan.",
      "description" : "The project aims to capture the social and geographical specifics of multilingualism in Daghestan with statistical methods. Excel spreadsheets contain data on language repertoires of several thousand people from highland Daghestan. The database is accessible online (multidagestan.com). We studied the distribution of multilingualism among men and women, and we wrote a paper on the hypothesis that the introduction of compulsory school education was instrumental in the spread of Russian as an L2. We also carried out a statistical validation of data we acquired through indirect interviews, where people described the language repertoire of their deceased relatives.",
      "contributors" : "Nina Dobrushina, Michael Daniel, George Moroz, Ilya Schurov"},
   { "id": "4",
@@ -28,15 +28,6 @@
      "url": "http://lingconlab.ru/dagatlas/",
      "image": "images/2.JPG",
      "exerpt": "Typological Atlas of the Languages of Daghestan",
-    "description" : "This project was designed to develop a tool for the visualization of information about linguistic structures characteristic of Daghestan, based on the available descriptive literature. A number of datasets and chapters on specific features are now available and can be accessed through the website. New datasets are collected by students of the School of Linguistics every year as part of a workshop, as well as by members of the Linguistic Convergence Laboratory.
-    The map visualizations in the atlas show the languages as groups of villages where the languages are spoken. This allows for a more accurate picture of the size and spread of the respective speech communities, which is important to formulate accurate hypotheses about contact phenomena. The atlas can be used for bibliographical research on a particular topic or idiom, and to formulate hypotheses about the distribution of linguistic features. It also allows a wider audience to become familiar with the linguistic diversity of the region.",
-     "contributors" : "Chiara Naccarato, Samira Verhees, Michael Daniel, George Moroz, Timofey Mukhin, Konstantion Filatov"},
-  { "id": "5",
-    "short_title": "DagStops",
-    "title": "Daghestanian Stops",
-     "url": "http://lingconlab.ru/dagatlas/",
-     "image": "images/2.JPG",
-     "exerpt": "Typological Atlas of the Languages of Daghestan",
-    "description" : "The aim of the project is to describe the variation in the acoustic features of stops in East Caucasian languages. It is probable that the acoustic features of the sounds that fill ‘identical’ slots in the phonetic inventories of East Caucasian languages (such as ejectives in Archi vs. ejectives in Lak) are slightly but consistently different. The immediate goal is to prove the presence of such differences in a statistically significant way. The ultimate goal, ideally, is to show that the differences are areally distributed (in a macro perspective, e.g. South Daghestan vs. North Daghestan, and in a local perspective, e.g. showing influence of neighbouring languages on different lects of the same language). Accounting for acoustic differences and similarities in areal terms is, as far as we know, a truly innovative research challenge. This project includes annotation of the recorded data, acoustic analysis and collecting more data during future fieldwork.",
-     "contributors" : "Sven Grawunder, George Moroz, Michael Daniel, Vasilisa Zhigulskaya, Alexander Shiryaev"}
+    "description" : "This project was designed to develop a tool for the visualization of information about linguistic structures characteristic of Daghestan, based on the available descriptive literature. A number of datasets and chapters on specific features are now available and can be accessed through the website. New datasets are collected by students of the School of Linguistics every year as part of a workshop, as well as by members of the Linguistic Convergence Laboratory. The map visualizations in the atlas show the languages as groups of villages where the languages are spoken. This allows for a more accurate picture of the size and spread of the respective speech communities, which is important to formulate accurate hypotheses about contact phenomena. The atlas can be used for bibliographical research on a particular topic or idiom, and to formulate hypotheses about the distribution of linguistic features. It also allows a wider audience to become familiar with the linguistic diversity of the region.",
+     "contributors" : "Chiara Naccarato, Samira Verhees, Michael Daniel, George Moroz, Timofey Mukhin, Konstantion Filatov"}
    ]
