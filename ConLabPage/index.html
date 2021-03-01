@@ -478,7 +478,7 @@ function scrollToAnchor(aid){
       }
       function loadProjects() {
         $("#homePageJumbotron").html("");
-        $("#pageContent").load(JSONtoAccordion("json/projects.json"))
+        $("#pageContent").html(JSONtoAccordion("json/projects.json"))
       }
       function loadPeople() {
         $("#homePageJumbotron").html("");
