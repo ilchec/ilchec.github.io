@@ -407,8 +407,7 @@ function JSONtoAccordion(path) {
   var data = loadFile(path)
   //console.log(data);
   var content = JSON.parse(data);
-  let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
-  out += '<div id="accordion-title" class="container mx-0 my-0"><div class="row"><div class="col-4" class="margin-left:12px">Project Title</div><div class="col-2" class="margin-left:3px">Status</div><div class="col-5">Participants</div></div></div>'
+  let out = '<div id="accordion-title" class="container mx-0 my-0" style="padding-top: 90px; margin-top: -90px;"><div class="row"><div class="col-4" class="margin-left:12px">Project Title</div><div class="col-2" class="margin-left:3px">Status</div><div class="col-5">Participants</div></div></div>'
   out += '<div id="accordion" class="accord-card">'
   status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-primary' style="pointer-events: none">Active</button>`,
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-success' style="pointer-events: none">Completed</button>`,
