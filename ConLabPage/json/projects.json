@@ -111,7 +111,7 @@
     "description" : "This project was designed to develop a tool for the visualization of information about linguistic structures characteristic of Daghestan, based on the available descriptive literature. A number of datasets and chapters on specific features are now available and can be accessed through the website. New datasets are collected by students of the School of Linguistics every year as part of a workshop, as well as by members of the Linguistic Convergence Laboratory.
     The map visualizations in the atlas show the languages as groups of villages where the languages are spoken. This allows for a more accurate picture of the size and spread of the respective speech communities, which is important to formulate accurate hypotheses about contact phenomena. The atlas can be used for bibliographical research on a particular topic or idiom, and to formulate hypotheses about the distribution of linguistic features. It also allows a wider audience to become familiar with the linguistic diversity of the region.",
      "contributors" : "Chiara Naccarato, Samira Verhees, Michael Daniel, George Moroz, Timofey Mukhin, Konstantion Filatov"},
-  { "id": "4",
+  { "id": "",
     "short_title": "TALD",
     "title": "Typological Atlas of Daghestan",
      "url": "http://lingconlab.ru/dagatlas/",
@@ -119,6 +119,5 @@
      "exerpt": "Typological Atlas of the Languages of Daghestan",
     "description" : "This project was designed to develop a tool for the visualization of information about linguistic structures characteristic of Daghestan, based on the available descriptive literature. A number of datasets and chapters on specific features are now available and can be accessed through the website. New datasets are collected by students of the School of Linguistics every year as part of a workshop, as well as by members of the Linguistic Convergence Laboratory.
     The map visualizations in the atlas show the languages as groups of villages where the languages are spoken. This allows for a more accurate picture of the size and spread of the respective speech communities, which is important to formulate accurate hypotheses about contact phenomena. The atlas can be used for bibliographical research on a particular topic or idiom, and to formulate hypotheses about the distribution of linguistic features. It also allows a wider audience to become familiar with the linguistic diversity of the region.",
-     "contributors" : "Chiara Naccarato, Samira Verhees, Michael Daniel, George Moroz, Timofey Mukhin, Konstantion Filatov"},
-
+     "contributors" : "Chiara Naccarato, Samira Verhees, Michael Daniel, George Moroz, Timofey Mukhin, Konstantion Filatov"}
 ]
