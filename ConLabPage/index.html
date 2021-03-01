@@ -200,6 +200,10 @@ h5 {
   color:black;
 }
 
+.accord-card {
+  border-radius: 0;
+  border: 1px 0px 1px 0px;
+}
 
   </style>
 
@@ -411,7 +415,7 @@ function JSONtoAccordion(path) {
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-secondary' style="pointer-events: none">Inactive</button>`}
   for(let entry of content){
-      out += `<div class="card mt-1">`
+      out += `<div class="card mt-0 accord-card">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><div class="container-fluid"><h5 class="mb-0">`
       out += `<div class="row"> `
       out += `<div class="col-4">${entry.title}</div>`
