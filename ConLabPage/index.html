@@ -523,6 +523,16 @@ function scrollToAnchor(aid){
         //$("#projectsButton").addClass("active");
         //$("#pageContent").load("pages/projects.html");
       });
+      $("body").delegate(".fa", "click", function(){
+        //$(".navbar").find(".active").removeClass("active");
+        //$("#projectsButton").addClass("active");
+        //$("#pageContent").load("pages/projects.html");
+      });
+
+      $(".fa").on("click", function() {
+        $(this).removeClass("fa-chevron-down");
+        $(this).addClass("fa-chevron-up")
+      })
 
       $(document).ready(function() {
         $("#homePageJumbotron").load("pages/homePageJumbotron.html");
