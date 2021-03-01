@@ -261,5 +261,3 @@ function doParse(input) {
   b.bibtex()
   return b.entries
 }
-
-module.exports = doParse
