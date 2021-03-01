@@ -189,9 +189,7 @@ h5 {
   color: black;
 }
 
-.panel-title h5 {font-size: 14px;text-transform: uppercase;font-weight: 600;padding-right:20px}
-.panel-default>.panel-heading {text-align: left;}
-.panel-heading {padding: 15px 15px;}
+.card-header col-4  {font-size: 14px;text-transform: uppercase;font-weight: 600;padding-right:20px}
 
 
 /* Code for animation -- to change direction of chevron just change -40px to 40px and vice versa */
@@ -415,10 +413,10 @@ function JSONtoAccordion(path) {
       out += `<div class="card mt-1">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><div class="container-fluid"><h5 class="mb-0">`
       out += `<div class="row"> `
-      out += `<div class="col-4"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><span>${entry.title}</span></button></div>`
+      out += `<div class="col-4">${entry.title}/div>`
       out += `<div class="col-2">${status_btns[entry.status]}</div>`
       out += `<div class="col-5">${entry.contributors}</div>`
-      out += `<div class="col-1"><i class="indicator glyphicon glyphicon-chevron-down-custom  pull-right"><span class="sp-1"></span><span class="sp-2"></span></i></div>`
+      out += `<div class="col-1"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><i class="indicator glyphicon glyphicon-chevron-down-custom  pull-right"><span class="sp-1"></span><span class="sp-2"></span></i></button></div>`
       out += `</div></h5></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
