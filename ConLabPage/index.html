@@ -6,6 +6,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
 <script type="text/javascript" src="js/parse-bibtex.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/pcooksey/bibtex-js@1.0.0/src/bibtex_js.min.js"></script>
 
 <script>
 
@@ -415,8 +416,7 @@ function JSONtoAccordion(path) {
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-secondary' style="pointer-events: none">Inactive</button>`}
   for(let entry of content){
-      var bibtex = loadFile(`bibtex/${entry.short_title}.bib`)
-      console.log(doParse(bibtex))
+      out += `<bibtex src="bibtex/${entry.short_title}"></bibtex>`
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
       out += `<div class="row"> `
@@ -427,7 +427,7 @@ function JSONtoAccordion(path) {
       out += `</div></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
-      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br></div>`
+      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br><div class="bibtex_display" bibtexkey="${entry.short_title}[0-9]{1,3}"></div></div>`
       out += `</div></div>`;
     //out+='</div>';
 
