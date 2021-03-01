@@ -391,18 +391,19 @@ function JSONtoAccordion(path) {
   //console.log(data);
   var content = JSON.parse(data);
   let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
-  out += '<div class="accordion accordion-flush" id="accordionFlush">'
+  out += '<div id="accordion">'
   for(let entry of content){
-      out += `<div class="accordion-item">`
-      out += `<h5 class="accordion-header" id="header-${entry.short_title}">`
+      out += `<div class="card">`
+      out += `<div class="card-header" id="project-collapsible-${entry.short_title}"> <h5 class="mb-0">`
       out += `<button class="btn btn-link" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}">${entry.title}</button>`
-      out += `</h5>`
-      out += `<div id="${entry.short_title}" class="accordion-collapse collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
+      out += `</h5></div>`
+      out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
       out += `<div class="card-body">${entry.description}</div>`
       out += `</div></div>`;
+    //out+='</div>';
 
   }
-  out+='</div>'
+  out += "</div>"
   return(out)
 }
 
