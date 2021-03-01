@@ -527,11 +527,11 @@ function scrollToAnchor(aid){
         //$("#pageContent").load("pages/projects.html");
       });
       $("body").delegate(".a-expand", "click", function(){
-        if ($(this).find(".fa").hasClass("fa-chevron-down")){
+        if ($(this).attr('aria-expanded') === "true"){
           $(this).find(".fa").removeClass("fa-chevron-down");
           $(this).find(".fa").addClass("fa-chevron-up");
         }
-        else if ($(this).find(".fa").hasClass("fa-chevron-up")){
+        else if ($(this).attr('aria-expanded') === "false"){
           $(this).find(".fa").removeClass("fa-chevron-up");
           $(this).find(".fa").addClass("fa-chevron-down");
         }
