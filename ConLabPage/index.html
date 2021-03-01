@@ -528,12 +528,12 @@ function scrollToAnchor(aid){
       });
       $("body").delegate(".a-expand", "click", function(){
         if ($(this).attr('aria-expanded') === "true"){
-          $(this).find(".fa").removeClass("fa-chevron-down");
-          $(this).find(".fa").addClass("fa-chevron-up");
-        }
-        else if ($(this).attr('aria-expanded') === "false"){
           $(this).find(".fa").removeClass("fa-chevron-up");
           $(this).find(".fa").addClass("fa-chevron-down");
+        }
+        else if ($(this).attr('aria-expanded') === "false"){
+          $(this).find(".fa").removeClass("fa-chevron-down");
+          $(this).find(".fa").addClass("fa-chevron-up");
         }
       });
 
