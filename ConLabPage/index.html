@@ -407,6 +407,7 @@ function generateProjectButtons(projects) {
   var data = loadFile("json/projects.json");
   var projectsData = JSON.parse(data);
   for (project of projects.split(";")) {
+    console.log(project)
     //console.log(data);
     let currentProjectData;
     for (p of projectsData) {
