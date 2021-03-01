@@ -189,7 +189,21 @@ h5 {
   color: black;
 }
 
+.panel-title h5 {font-size: 14px;text-transform: uppercase;font-weight: 600;padding-right:20px}
+.panel-default>.panel-heading {text-align: left;}
+.panel-heading {padding: 15px 15px;}
+
+
+/* Code for animation -- to change direction of chevron just change -40px to 40px and vice versa */
+.glyphicon-chevron-down-custom span, .glyphicon-chevron-up-custom span {width: 10px; height: 5px; background-color: rgb(99, 99, 99); display: inline-block; transition: all .1s linear;}
+.glyphicon-chevron-down-custom .sp-1, .glyphicon-chevron-up-custom .sp-2 {transform: skewY(-40deg);}
+.glyphicon-chevron-up-custom .sp-1, .glyphicon-chevron-down-custom .sp-2 {transform: skewY(40deg);}
+.glyphicon {top: -2px;}
+
+
+
   </style>
+
 
 </head>
 
@@ -401,9 +415,11 @@ function JSONtoAccordion(path) {
       out += `<div class="card mt-1">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"><div class="container-fluid"><h5 class="mb-0">`
       out += `<div class="row"> `
-      out += `<div class="col-5"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><span>${entry.title}</span></button></div>`
+      out += `<div class="col-4"><button class="btn btn-link btn-block text-left" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}"><span>${entry.title}</span></button></div>`
       out += `<div class="col-2">${status_btns[entry.status]}</div>`
-      out += `<div class="col-5">${entry.contributors}</div></div></h5></div>`
+      out += `<div class="col-5">${entry.contributors}</div>`
+      out += `<div class="col-1"><i class="indicator glyphicon glyphicon-chevron-down-custom  pull-right"><span class="sp-1"></span><span class="sp-2"></span></i></div>`
+      out += `</div></h5></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}"" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}" data-parent="#accordion">`
       out += `<div class="card-body">${entry.description}</div>`
@@ -459,6 +475,14 @@ function generateProjectButtons(projects) {
   }
   return(buttons)
 }
+function toggleChevron(e) {
+$(e.target)
+.prev('.panel-heading')
+.find("i.indicator")
+.toggleClass('glyphicon-chevron-down-custom glyphicon-chevron-up-custom');
+        }
+        $('#accordion').on('hidden.bs.collapse', toggleChevron);
+        $('#accordion').on('shown.bs.collapse', toggleChevron);
 function scrollToAnchor(aid){
     var aTag = $("a[name='"+ aid +"']");
     $('html,body').animate({scrollTop: aTag.offset().top},'slow');
