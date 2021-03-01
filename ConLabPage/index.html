@@ -527,8 +527,14 @@ function scrollToAnchor(aid){
         //$("#pageContent").load("pages/projects.html");
       });
       $("body").delegate(".a-expand", "click", function(){
-        $(".a-expand").find(".fa").removeClass("fa-chevron-down");
-        $(".a-expand").find(".fa").addClass("fa-chevron-up");
+        if ($(this).find(".fa").hasClass("fa-chevron-down")){
+          $(this).find(".fa").removeClass("fa-chevron-down");
+          $(this).find(".fa").addClass("fa-chevron-up");
+        }
+        else if ($(this).find(".fa").hasClass("fa-chevron-up")){
+          $(this).find(".fa").removeClass("fa-chevron-up");
+          $(this).find(".fa").addClass("fa-chevron-down");
+        }
       });
 
       $(document).ready(function() {
