@@ -389,8 +389,8 @@ function JSONtoAccordion(path) {
   var data = loadFile(path)
   //console.log(data);
   var content = JSON.parse(data);
-  let out = "";
-  out += '<div id="accordion">'
+  let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
+  out += '<h><div id="accordion">'
   for(let entry of content){
       out += `<div class="card">`
       out += `<div class="card-header" id="headingOne"> <h5 class="mb-0">`
