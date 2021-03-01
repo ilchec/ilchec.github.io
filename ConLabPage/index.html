@@ -393,7 +393,7 @@ function JSONtoAccordion(path) {
   let out = "<h1 style='padding-top: 90px; margin-top: -90px;' id='russianDialects'>Projects</h1><br>";
   out += '<div id="accordion">'
   for(let entry of content){
-      out += `<div class="card">`
+      out += `<div class="card mt-1">`
       out += `<div class="card-header" id="project-collapsible-${entry.short_title}"> <h5 class="mb-0">`
       out += `<button class="btn btn-link" data-toggle="collapse" data-target="#${entry.short_title}" aria-expanded="false" aria-controls="${entry.short_title}">${entry.title}</button>`
       out += `</h5><i class="fas fa-angle-down rotate-icon"></i></div>`
