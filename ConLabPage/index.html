@@ -412,9 +412,9 @@ function JSONtoCitations(data) {
     let biblio_reference = "";
     let biblio_buttons = "";
     if (entry.entryType === "article") {
-      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}, `
+      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}`
       try {
-        biblio_reference += `${entry.entryTags.volume}</i>`
+        biblio_reference += `, ${entry.entryTags.volume}</i>`
       }
       catch {
          biblio_reference += `</i>`
