@@ -1,4 +1,5 @@
-function getJSON(path) {
+$(document).ready(function() {
+  function getJSON(path) {
   $.ajax({
     url:path,
     success: function (JSONdata){
@@ -320,3 +321,4 @@ function scrollToAnchor(aid){
         $(this).find(".fa").addClass("fa-chevron-up");
       }
     });
+});
