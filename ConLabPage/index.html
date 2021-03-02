@@ -428,7 +428,7 @@ function JSONtoBibtex(entry) {
     out += `${key} = "${entry.entryTags[key]}",<br>`
   }
   out = out.substring(0, out.length - ',<br>'.length)
-  out += "}"
+  out += "<br>}"
   return(out)
 }
 
