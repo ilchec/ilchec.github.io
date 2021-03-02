@@ -1,3 +1,5 @@
+$(document).ready(function(){
+
 function getJSON(path) {
   $.ajax({
     url:path,
@@ -232,24 +234,6 @@ out += "</div>"
 return(out)
 }
 
-//function generatePopOverWindow(project) {
-//  var data = loadFile("json/projects.json");
-//console.log(data);
-//  var projects = JSON.parse(data);
-//  let currentProjectData;
-//  for (p of projects) {
-//    if(p.title == project){
-    //console.log(p)
-//      currentProjectData = p;
-//      break;
-//    }
-//  }
-//  var popOverWindow = String(currentProjectData.exerpt);
-//console.log("Project Exerpt: "+popOverWindow)
-//popOverWindow += '<br><button value='+project+' class="mt-auto project-btn btn btn-info btn-sm">Learn More</button>'
-//  return(popOverWindow)
-//}
-
 function generateProjectButtons(projects) {
 let colors = ["primary", "secondary", "success", "danger", "warning", "info", "dark"]
 colors = colors.concat(colors)
@@ -338,3 +322,4 @@ function scrollToAnchor(aid){
         $(this).find(".fa").addClass("fa-chevron-up");
       }
     });
+  });
