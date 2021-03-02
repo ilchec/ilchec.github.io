@@ -421,6 +421,18 @@ h5 {
   return(cards)
 }
 
+function JSONtoBibtex(entry) {
+  if (entry === "") {return("")}
+  var out = "{";
+  out += `@${entry.entryType},<br>`
+  for (key of Object.keys(entry)) {
+    out += `${key} = "${entry.key}",<br>`
+  }
+  out = out.substring(0, out.length - ',<br>'.length)
+  out += "}"
+  return(out)
+}
+
 function JSONtoCitations(data) {
   if (data === "") {return("")}
   var out = '<div class = "container-fluid">';
@@ -473,7 +485,7 @@ function JSONtoCitations(data) {
       biblio_buttons += ""
     }
     try {
-      biblio_buttons += `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-dark' data-toggle="modal" data-target="#biblioModal" data-title="${String(entry.entryTags.title)}" data-content="${String(bibtexParse.toBibtex(entry))}">BibTeX</button>`
+      biblio_buttons += `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-dark' data-toggle="modal" data-target="#biblioModal" data-title="${String(entry.entryTags.title)}" data-content="${String(JSONtoBibtex(entry))}">BibTeX</button>`
     }
     catch {
       biblio_buttons += ""
