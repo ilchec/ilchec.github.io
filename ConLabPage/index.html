@@ -405,6 +405,53 @@ h5 {
   return(cards)
 }
 
+function JSONtoCitations(data) {
+  var out = '<div class = "container-fluid">';
+  for(let entry of data){
+    let biblio_reference = "";
+    let biblio_buttons = "";
+    if (entry.entryType === "article") {
+      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}, ${entry.entryTags.volume}</i>(${entry.entryTags.number}), ${entry.entryTags.pages}.`
+    }
+    else if (entry.entryType === "incollection") {
+      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i>[pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
+    }
+    try {
+      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' href='#'>Abstract</a>`
+    }
+    catch {
+      biblio_buttons += ""
+    }
+    try {
+      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-danger' href='${entry.entryTags.URL}'>Full Text</a>`
+    }
+    catch {
+      biblio_buttons += ""
+    }
+    try {
+      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-warning' href='${entry.entryTags.doi}'>DOI</a>`
+    }
+    catch {
+      biblio_buttons += ""
+    }
+    //else if (entry.entryType === "inbook") {
+
+    //}
+    //else if (entry.entryType === "inproceedings") {
+
+    //}
+    //else if (entry.entryType === "book") {
+
+    //}
+    out += `<div class="row"> `
+    out += `<div class="col-9">${biblio_reference}</div>`
+    out += `<div class="col-3">${biblio_buttons}</div>`
+    out += `</div>`
+  }
+  out += "</div>"
+  return(out)
+}
+
 function JSONtoAccordion(path) {
   var data = loadFile(path)
   //console.log(data);
@@ -433,7 +480,7 @@ function JSONtoAccordion(path) {
       out += `</div></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
-      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br></div>`
+      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br>${JSONtoCitations(pubs_json)}</div>`
       out += `</div></div>`;
     //out+='</div>';
 
