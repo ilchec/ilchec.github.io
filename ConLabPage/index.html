@@ -457,7 +457,7 @@ function JSONtoCitations(data) {
       biblio_reference += `${entry.entryTags.author} (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i> [pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
     }
     if (typeof(entry.entryTags.abstract) != "undefined") {
-      biblio_buttons += `<button type="button" class='btn bib-popover-button project-btn mr-1 mt-auto btn-sm btn-outline-primary' data-toggle="modal" data-target="#biblioModal" data-title="${entry.entryTags.title}" data-content="${entry.entryTags.abstract}">Abstract</button>`
+      biblio_buttons += `<button type="button" class='btn bib-popover-button project-btn mr-1 mt-auto btn-sm btn-outline-primary' data-toggle="modal" data-target="#biblioModal" data-title=${entry.entryTags.title} data-content=${entry.entryTags.abstract}>Abstract</button>`
     }
     else {
       biblio_buttons += ""
@@ -475,7 +475,7 @@ function JSONtoCitations(data) {
       biblio_buttons += ""
     }
     try {
-      biblio_buttons += `<button type="button" class='btn bib-popover-button project-btn mr-1 mt-auto btn-sm btn-outline-dark' data-toggle="modal" data-target="#biblioModal" data-title="${entry.entryTags.title}" data-content="${String(bibtexParse.toBibtex(entry))}" href='#'>BibTeX</button>`
+      biblio_buttons += `<button type="button" class='btn bib-popover-button project-btn mr-1 mt-auto btn-sm btn-outline-dark' data-toggle="modal" data-target="#biblioModal" data-title=${entry.entryTags.title} data-content=${String(bibtexParse.toBibtex(entry))}>BibTeX</button>`
     }
     catch {
       biblio_buttons += ""
