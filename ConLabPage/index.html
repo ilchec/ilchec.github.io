@@ -5,7 +5,7 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-<script type="text/javascript" src="js/bibtex_js.js"></script>
+<script type="text/javascript" src="js/bibtexParse.js"></script>
 
 <script>
 
@@ -415,7 +415,11 @@ function JSONtoAccordion(path) {
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-secondary' style="pointer-events: none">Inactive</button>`}
   for(let entry of content){
-      out += `<bibtex src="bibtex/${entry.short_title}.bib"></bibtex>`
+      try {
+        let pubs_bibtex = loadFile(`bibtex/${entry.short_title}.bib`)
+        let pubs_json = bibtexParse.toJSON('@article{sample1,title={sample title}}');
+        console.log(pubs_json)
+      }
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
       out += `<div class="row"> `
@@ -426,7 +430,7 @@ function JSONtoAccordion(path) {
       out += `</div></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
-      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br><div class="bibtex_display" bibtexkey="MultiDag1|MultiDag2|MultiDag3|MultiDag4|MultiDag5"></div></div>`
+      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br></div>`
       out += `</div></div>`;
     //out+='</div>';
 
