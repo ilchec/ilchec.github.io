@@ -456,7 +456,7 @@ function JSONtoCitations(data) {
     else if (entry.entryType === "incollection") {
       biblio_reference += `${entry.entryTags.author} (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i> [pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
     }
-    if (typeof(entry.entryTags.Abstract) != "undefined") {
+    if (typeof(entry.entryTags.abstract) != "undefined") {
       biblio_buttons += `<a role = 'button' class='btn project-btn bib-popover-button mr-1 mt-auto btn-sm btn-outline-primary' data-title="${entry.entryTags.title}" data-content="${entry.entryTags.abstract}" data-toggle="modal" data-target="#biblioModal" href='#'>Abstract</a>`
     }
     else {
