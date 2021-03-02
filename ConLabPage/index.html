@@ -685,7 +685,7 @@ function scrollToAnchor(aid){
           var content = button.data('content') // Extract info from data-* attributes
           var modal = $(this)
           modal.find('.modal-title').text(String(title))
-          modal.find('.modal-body p').html(`${String(content)}`)
+          modal.find('.modal-body p').html(${String(content)})
           })
         })
 
