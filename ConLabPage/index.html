@@ -413,22 +413,22 @@ function JSONtoCitations(data) {
     let biblio_buttons = "";
     if (entry.entryType === "article") {
       biblio_reference += `${entry.entryTags.author} (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}`
-      if (typeof entry.entryTags.volume != 'undefined') {
+      if (typeof(entry.entryTags.volume) != 'undefined') {
         biblio_reference += `, ${entry.entryTags.volume}</i>`
       }
       else {
-         biblio_reference += `</i>`
+        biblio_reference += `</i>`
       }
-      if (typeof entry.entryTags.number != 'undefined' & typeof entry.entryTags.volume != 'undefined') {
+      if (typeof(entry.entryTags.number) != 'undefined' & typeof(entry.entryTags.volume) != 'undefined') {
         biblio_reference += `(${entry.entryTags.number})`
       }
-      else if (typeof entry.entryTags.number != 'undefined' & typeof entry.entryTags.volume === 'undefined') {
+      else if (typeof(entry.entryTags.number) != 'undefined' & typeof(entry.entryTags.volume) === 'undefined') {
         biblio_reference += `, (${entry.entryTags.number})`
       }
       else {
         biblio_reference += ``
       }
-      if (typeof(${entry.entryTags.pages}) != "undefined") {
+      if (typeof(entry.entryTags.pages) != "undefined") {
         biblio_reference += `, ${entry.entryTags.pages}.`
       }
       else {
