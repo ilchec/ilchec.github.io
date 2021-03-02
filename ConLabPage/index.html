@@ -117,120 +117,113 @@ $(function () {
   </div>
   <div id="pageContent" class="container" style="margin-top: 100px">
   </div>
+  <script type="text/text/javascript" src="js/scripts.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#homePageJumbotron").load("pages/homePageJumbotron.html");
+    $("#pageContent").load("pages/home.html");
+    $("#homeButton").addClass("active");
+
+    $('#projectModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var projectShortTitle = button.data('project') // Extract info from data-* attributes
+      var d = loadFile("json/projects.json");
+      //console.log(data);
+      var projects = JSON.parse(d);
+      let currentProjectData;
+      for (p of projects) {
+        if(p.short_title == projectShortTitle){
+          //console.log(p)
+          currentProjectData = p;
+          break;
+        }
+      }
+      var modal = $(this)
+      modal.find('.modal-title').text(String(currentProjectData.title))
+      modal.find('.modal-body p').html(`${String(currentProjectData.exerpt)}<br><br>Contributors: <i>${String(currentProjectData.contributors)}</i>`)
+      modal.find('#learnMoreModalButton').on('click', function() {
+        $(".navbar").find(".active").removeClass("active");
+        $("#projectsButton").addClass("active");
+        $("#pageContent").html(JSONtoAccordion("json/projects.json"));
+        $("#projectModal").modal('hide');
+        scrollToAnchor(project);
+      })
+    })
+
+    $(document).on('show.bs.modal', '#biblioModal', function (event) {
+      var button = $(event.relatedTarget) // Button that triggered the modal
+      var title = button.data('title') // Extract info from data-* attributes
+      var content = button.data('content') // Extract info from data-* attributes
+      var modal = $(this)
+      modal.find('.modal-title').text(String(title))
+      modal.find('.modal-body p').html(String(content))
+      })
+
+    $("#homeButton").click(function(){
+      loadHome()
+    })
+    if (window.location.hash == ""){
+      loadHome()
+    }
+
+    $("#projectsButton").click(function(){
+      loadProjects()
+    })
+    if (window.location.hash == "projects"){
+      loadProjects()
+    }
+
+    $("#dictionariesButton").click(function(){
+      loadDictionaries()
+    })
+    if (window.location.hash == "dictionaries"){
+      loadDictionaries()
+    }
+
+    $("#databasesButton").click(function(){
+      loadDatabases()
+    })
+    if (window.location.hash == "databases"){
+      loadDatabases()
+    }
+
+    $("#corporaButton").click(function(){
+      loadCorpora()
+    })
+    if (window.location.hash == "corpora"){
+      loadCorpora()
+    }
+
+    $("#peopleButton").click(function(){
+      loadPeople()
+    })
+    if (window.location.hash == "peopleSupervisors"){
+      loadPeople()
+      scrollToAnchor("peopleSupervisors")
+    }
+    else if (window.location.hash == "peopleResearchers"){
+      loadPeople()
+      scrollToAnchor("peopleResearchers")
+    }
+    else if (window.location.hash == "peopleAssociate"){
+      loadPeople()
+      scrollToAnchor("peopleAssociate")
+    }
+    else if (window.location.hash == "peopleAssistants"){
+      loadPeople()
+      scrollToAnchor("peopleAssistants")
+    }
+    else if (window.location.hash == "peopleManagers"){
+      loadPeople()
+      scrollToAnchor("peopleManagers")
+    }
+
+    $(".nav-item").on("click", function(){
+    $(".navbar").find(".active").removeClass("active");
+    $(this).addClass("active");
+    })
+
+  });
+  </script>
 </body>
 </html>
-<script type="text/text/javascript" src="js/scripts.js"></script>
-
-<script>
-$(document).ready(function() {
-  $("#homePageJumbotron").load("pages/homePageJumbotron.html");
-  $("#pageContent").load("pages/home.html");
-  $("#homeButton").addClass("active");
-
-  $('#projectModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var projectShortTitle = button.data('project') // Extract info from data-* attributes
-    var d = loadFile("json/projects.json");
-    //console.log(data);
-    var projects = JSON.parse(d);
-    let currentProjectData;
-    for (p of projects) {
-      if(p.short_title == projectShortTitle){
-        //console.log(p)
-        currentProjectData = p;
-        break;
-      }
-    }
-    var modal = $(this)
-    modal.find('.modal-title').text(String(currentProjectData.title))
-    modal.find('.modal-body p').html(`${String(currentProjectData.exerpt)}<br><br>Contributors: <i>${String(currentProjectData.contributors)}</i>`)
-    modal.find('#learnMoreModalButton').on('click', function() {
-      $(".navbar").find(".active").removeClass("active");
-      $("#projectsButton").addClass("active");
-      $("#pageContent").html(JSONtoAccordion("json/projects.json"));
-      $("#projectModal").modal('hide');
-      scrollToAnchor(project);
-    })
-  })
-
-  $(document).on('show.bs.modal', '#biblioModal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var title = button.data('title') // Extract info from data-* attributes
-    var content = button.data('content') // Extract info from data-* attributes
-    var modal = $(this)
-    modal.find('.modal-title').text(String(title))
-    modal.find('.modal-body p').html(String(content))
-    })
-
-
-//  if(window.location.hash) {
-// Fragment exists
-//    } else {
-// Fragment doesn't exist
-//    }
-  $("#homeButton").click(function(){
-    loadHome()
-  })
-  if (window.location.hash == ""){
-    loadHome()
-  }
-
-  $("#projectsButton").click(function(){
-    loadProjects()
-  })
-  if (window.location.hash == "projects"){
-    loadProjects()
-  }
-
-  $("#dictionariesButton").click(function(){
-    loadDictionaries()
-  })
-  if (window.location.hash == "dictionaries"){
-    loadDictionaries()
-  }
-
-  $("#databasesButton").click(function(){
-    loadDatabases()
-  })
-  if (window.location.hash == "databases"){
-    loadDatabases()
-  }
-
-  $("#corporaButton").click(function(){
-    loadCorpora()
-  })
-  if (window.location.hash == "corpora"){
-    loadCorpora()
-  }
-
-  $("#peopleButton").click(function(){
-    loadPeople()
-  })
-  if (window.location.hash == "peopleSupervisors"){
-    loadPeople()
-    scrollToAnchor("peopleSupervisors")
-  }
-  else if (window.location.hash == "peopleResearchers"){
-    loadPeople()
-    scrollToAnchor("peopleResearchers")
-  }
-  else if (window.location.hash == "peopleAssociate"){
-    loadPeople()
-    scrollToAnchor("peopleAssociate")
-  }
-  else if (window.location.hash == "peopleAssistants"){
-    loadPeople()
-    scrollToAnchor("peopleAssistants")
-  }
-  else if (window.location.hash == "peopleManagers"){
-    loadPeople()
-    scrollToAnchor("peopleManagers")
-  }
-
-  $(".nav-item").on("click", function(){
-  $(".navbar").find(".active").removeClass("active");
-  $(this).addClass("active");
-  })
-
-});
-</script>
