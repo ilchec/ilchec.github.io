@@ -412,7 +412,25 @@ function JSONtoCitations(data) {
     let biblio_reference = "";
     let biblio_buttons = "";
     if (entry.entryType === "article") {
-      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}, ${entry.entryTags.volume}</i>(${entry.entryTags.number}), ${entry.entryTags.pages}.`
+      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}, `
+      try {
+        biblio_reference += `${entry.entryTags.volume}</i>`
+      }
+      catch {
+         biblio_reference += `</i>`
+      }
+      try {
+        biblio_reference += `(${entry.entryTags.number})`
+      }
+      catch {
+         biblio_reference += ``
+      }
+      try {
+        biblio_reference += `, ${entry.entryTags.pages}.`
+      }
+      catch {
+         biblio_reference += `.`
+      }
     }
     else if (entry.entryType === "incollection") {
       biblio_reference += `${entry.entryTags.author} (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i> [pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
