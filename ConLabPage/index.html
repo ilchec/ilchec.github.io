@@ -425,7 +425,7 @@ function JSONtoBibtex(entry) {
   if (entry === "") {return("")}
   var out = `@${entry.entryType}{${entry.entryTags.author}${entry.entryTags.year},<br>`
   for (key of Object.keys(entry.entryTags)) {
-    out += `${key} = "${entry.entryTags.key}",<br>`
+    out += `${key} = "${entry.entryTags[key]}",<br>`
   }
   out = out.substring(0, out.length - ',<br>'.length)
   out += "}"
