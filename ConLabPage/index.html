@@ -406,6 +406,7 @@ h5 {
 }
 
 function JSONtoCitations(data) {
+  if (data = "") {return("")}
   var out = '<div class = "container-fluid">';
   for(let entry of data){
     let biblio_reference = "";
@@ -468,7 +469,7 @@ function JSONtoAccordion(path) {
         //console.log(pubs_json)
       }
       catch {
-        //console.log(`No Bibtex for ${entry.short_title}.`)
+        pubs_json = ""
       }
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
