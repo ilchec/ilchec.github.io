@@ -469,7 +469,7 @@ function JSONtoAccordion(path) {
         //console.log(pubs_json)
       }
       catch {
-        pubs_json = ""
+        let pubs_json = ""
       }
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
