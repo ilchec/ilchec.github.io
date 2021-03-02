@@ -417,7 +417,7 @@ function JSONtoAccordion(path) {
   for(let entry of content){
       try {
         let pubs_bibtex = loadFile(`bibtex/${entry.short_title}.bib`)
-        let pubs_json = bibtexParse.toJSON('@article{sample1,title={sample title}}');
+        let pubs_json = bibtexParse.toJSON(pubs_bibtex);
         console.log(pubs_json)
       }
       catch {
