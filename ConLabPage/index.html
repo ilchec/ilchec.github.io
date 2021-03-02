@@ -420,6 +420,9 @@ function JSONtoAccordion(path) {
         let pubs_json = bibtexParse.toJSON('@article{sample1,title={sample title}}');
         console.log(pubs_json)
       }
+      catch {
+        console.log(`No Bibtex for ${entry.short_title}.`)
+      }
       out += `<div class="card accord-card">`
       out += `<div class="card-header accord-card" id="project-collapsible-${entry.short_title}"><div class="container-fluid">`
       out += `<div class="row"> `
