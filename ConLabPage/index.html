@@ -434,7 +434,7 @@ function JSONtoBibtex(entry) {
 
 function JSONtoCitations(data) {
   if (data === "") {return("")}
-  var out = '<div class = "container-fluid">';
+  var out = '<br><br><h4>Publications</h4><br><div class = "container-fluid">';
   for(let entry of data){
     let biblio_reference = "";
     let biblio_buttons = "";
@@ -536,7 +536,7 @@ function JSONtoAccordion(path) {
       out += `</div></div>`
       out += `</div>`
       out += `<div id="${entry.short_title}" class="collapse" aria-labelledby="project-collapsible-${entry.short_title}">`
-      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}<br><br><h4>Publications</h4><br>${JSONtoCitations(pubs_json)}</div>`
+      out += `<div class="card-body accord-card"><h4>About</h4><br>${entry.description}${JSONtoCitations(pubs_json)}</div>`
       out += `</div></div>`;
     //out+='</div>';
 
