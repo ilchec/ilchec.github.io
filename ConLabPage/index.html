@@ -327,7 +327,7 @@ function JSONtoAccordion(path) {
   //console.log(data);
   var content = JSON.parse(data);
   let out = '<div id="accordion-title" class="container mx-0 my-0"><div class="row"><div class="col-5" style="margin-left: 17px">Project Title</div><div class="col-5" style="margin-left: -17px">Participants</div><div class="col-2" style="margin-left: -30px">Status</div></div></div>'
-  out += '<div id="accordion" class="accord-card">'
+  out += '<div id="accordion" class="accord-card" style="padding-top: 90px; margin-top: -90px;">'
   status_btns = {"Active" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' style="pointer-events: none">Active</button>`,
                  "Completed" : `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-success' style="pointer-events: none">Completed</button>`,
                  "Inactive": `<button type="button" class='btn project-btn mr-1 mt-auto btn-sm btn-outline-secondary' style="pointer-events: none">Inactive</button>`}
