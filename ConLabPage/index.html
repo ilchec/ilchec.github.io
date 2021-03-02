@@ -415,22 +415,22 @@ function JSONtoCitations(data) {
       biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. <i>${entry.entryTags.journal}, ${entry.entryTags.volume}</i>(${entry.entryTags.number}), ${entry.entryTags.pages}.`
     }
     else if (entry.entryType === "incollection") {
-      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i>[pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
+      biblio_reference += `${entry.entryTags.author}. (${entry.entryTags.year}). ${entry.entryTags.title}. In: ${entry.entryTags.editor} <i>${entry.entryTags.booktitle}</i> [pp. ${entry.entryTags.pages}]. ${entry.entryTags.publisher}.`
     }
     try {
-      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' href='#'>Abstract</a>`
+      biblio_buttons += `<a role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-primary' href='#'>Abstract</a>`
     }
     catch {
       biblio_buttons += ""
     }
     try {
-      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-danger' href='${entry.entryTags.URL}'>Full Text</a>`
+      biblio_buttons += `<a role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-danger' href='${entry.entryTags.URL}'>Full Text</a>`
     }
     catch {
       biblio_buttons += ""
     }
     try {
-      biblio_buttons += `<a type="button" role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-warning' href='${entry.entryTags.doi}'>DOI</a>`
+      biblio_buttons += `<a role = 'button' class='btn project-btn mr-1 mt-auto btn-sm btn-outline-warning' href='${entry.entryTags.doi}'>DOI</a>`
     }
     catch {
       biblio_buttons += ""
