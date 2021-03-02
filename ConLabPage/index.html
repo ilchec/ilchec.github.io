@@ -406,7 +406,7 @@ h5 {
 }
 
 function JSONtoCitations(data) {
-  if (data = "") {return("")}
+  if (data === "") {return("")}
   var out = '<div class = "container-fluid">';
   for(let entry of data){
     let biblio_reference = "";
