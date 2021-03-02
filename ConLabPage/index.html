@@ -423,7 +423,7 @@ h5 {
 
 function JSONtoBibtex(entry) {
   if (entry === "") {return("")}
-  var out = `@${entry.entryType}{${entry.entryTags.author}${entry.entryTags.year},<br>`
+  var out = `@${entry.entryType}{${entry.entryTags.author.split(" ")[0]}${entry.entryTags.year},<br>`
   for (key of Object.keys(entry.entryTags)) {
     out += `${key} = "${entry.entryTags[key]}",<br>`
   }
