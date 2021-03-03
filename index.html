@@ -108,15 +108,6 @@ $(function () {
 </html>
 
 <script>
-  function getJSON(path) {
-    $.ajax({
-      url:path,
-      success: function (JSONdata){
-        var JSONcontent = JSON.parse(JSONdata);
-      }
-    });
-    return(JSONcontent)
-  }
 
   function loadFile(path) {
     var result = null;
