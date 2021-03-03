@@ -23,6 +23,10 @@ border-radius: 0;
   background-color: #14244b;
 }
 
+.btn-dark {
+  background-color: #14244b;
+}
+
 .navbar .dropdown-menu > a {
 color: #6b6c6e;
 text-decoration-color: #6b6c6e;
