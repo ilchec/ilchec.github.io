@@ -19,6 +19,10 @@ background-color: #343a40;
 border-radius: 0;
 }
 
+.navbar-dark {
+  background-color: #14244b;
+}
+
 .navbar .dropdown-menu > a {
 color: #6b6c6e;
 text-decoration-color: #6b6c6e;
