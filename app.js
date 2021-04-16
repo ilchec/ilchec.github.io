@@ -331,31 +331,42 @@ function scrollToAnchor(aid){
       }
     });
 
-    $(document).ready(function() {
-      resizeHandler();
-      const pages = {
-        projects: function() {loadProjects()},
-        cv: function() {loadCV()}//;
-      };
+    const pages = {
+      projects: function() {loadProjects()},
+      cv: function() {loadCV()}//;
+    };
+    function resizeHandler() {
+      var winWidth  = window.innerWidth;
+          threshold = 992;
+          els       = document.getElementsByClassName('nav-item');
+      [].forEach.call(els, function (el) {
+        if (winWidth >= threshold) {
+          el.removeAttribute("data-toggle");
+        } else {
+          el.setAttribute("data-toggle", "collapse");
+        }
+      })
+    };
+
+    function hashChangeHandler() {
       hash = location.hash.substring(1)
       if (hash === ""){
         loadHome();
-        $("nav-item").removeClass("active");
-        $(`#${hash}Button`).addClass("active");
+        $(".navbar").find(".active").removeClass("active");
+        $(`#homeButton`).addClass("active");
       }
       else {
         pages[hash]();
-        $("nav-item").removeClass("active");
+        $(".navbar").find(".active").removeClass("active");
         $(`#${hash}Button`).addClass("active");
       }
-      //if (location.hash.substring(1) === "projects"){
-      //  loadProjects();
-      //  $("nav-item").removeClass("active");
-      //  $("#projectsButton").addClass("active");
-      //}
+    }
 
-      //const myHash = location.hash
-      console.log(location.hash.substring(1));
+    $(document).ready(function() {
+      resizeHandler(); //run on page load to set the proper state for the screen size
+      hashChangeHandler() //run on page load to ensure the proper behaviour of the 'back' button
+      window.addEventListener("hashchange", hashChangeHandler);
+      window.addEventListener("resize", resizeHandler);
 
       $('#projectModal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Button that triggered the modal
@@ -390,35 +401,11 @@ function scrollToAnchor(aid){
         modal.find('.modal-title').text(String(title))
         modal.find('.modal-body p').html(String(content))
         })
-
-    window.addEventListener("resize", resizeHandler);
-    function resizeHandler() {
-      var winWidth  = window.innerWidth;
-          threshold = 992;
-          els       = document.getElementsByClassName('nav-item');
-      [].forEach.call(els, function (el) {
-        if (winWidth >= threshold) {
-          el.removeAttribute("data-toggle");
-        } else {
-          el.setAttribute("data-toggle", "collapse");
-        }
-      });
-      buttonContainers = document.getElementsByClassName('button-container');
-        [].forEach.call(buttonContainers, function (cont) {
-          if (winWidth >= threshold) {
-        cont.addClass("d-flex align-self-left align-content-center");
-      } else {
-        cont.removeClass("d-flex align-self-left");
-      }
-      });
-    }
+    })
 
   $("#homeButton").click(function(){
     loadHome()
   })
-  if (window.location.hash == ""){
-    loadHome()
-  }
 
   $("#projectsButton").click(function(){
     loadProjects()
@@ -439,30 +426,8 @@ function scrollToAnchor(aid){
   $("#peopleButton").click(function(){
     loadPeople()
   })
-  if (window.location.hash == "peopleSupervisors"){
-    loadPeople()
-    scrollToAnchor("peopleSupervisors")
-  }
-  else if (window.location.hash == "peopleResearchers"){
-    loadPeople()
-    scrollToAnchor("peopleResearchers")
-  }
-  else if (window.location.hash == "peopleAssociate"){
-    loadPeople()
-    scrollToAnchor("peopleAssociate")
-  }
-  else if (window.location.hash == "peopleAssistants"){
-    loadPeople()
-    scrollToAnchor("peopleAssistants")
-  }
-  else if (window.location.hash == "peopleManagers"){
-    loadPeople()
-    scrollToAnchor("peopleManagers")
-  }
 
   $(".nav-item").on("click", function(){
     $(".navbar").find(".active").removeClass("active");
     $(this).addClass("active");
   })
-
-  });
