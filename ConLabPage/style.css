@@ -41,7 +41,7 @@ body {
   padding:0;
 }
 .jumbotron {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("images/1.JPG");
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("images/jumbotron_background.JPG");
   background-size: cover;
   margin: -50px -15px 0px -15px;
   color: white;

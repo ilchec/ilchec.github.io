@@ -2,7 +2,27 @@
       .navbar {
           height:50px;
       }
+      .rounded-circle {
+        width:120px;
+        height:120px;
+
+      }
   }
+@media (max-width: 992px) {
+  .rounded-circle {
+    width:120px;
+    height:120px;
+    margin-top: -40px;
+    margin-bottom:-40px;
+  }
+  .nb-left {
+    margin-top: 40px;
+  }
+  .navbar-toggler {
+    float: right;
+    margin-left: -50px;
+  }
+}
 .card-img-caption {
   border-top-left-radius: calc(.25rem - 1px);
   border-top-right-radius: calc(.25rem - 1px);
@@ -41,7 +61,7 @@ body {
   padding:0;
 }
 .jumbotron {
-  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("images/1.JPG");
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.6) 100%), url("images/jumbotron_background.jpg");
   background-size: cover;
   margin: -50px -15px 0px -15px;
   color: white;
@@ -177,7 +197,8 @@ font-family: tahoma;
 }
 
 #accordion-title {
-border: none;
+border: 1px;
 font-family: tahoma;
-font-size: 30px;
+background-color: coral;
+font-size:18px;
 }
