@@ -1,0 +1,280 @@
+<!DOCTYPE HTML>
+<meta http-equiv="content-type" content="text/html" charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html lang="ru">
+<title>Илья Чечуро</title>
+<head>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+  .dropdown-large{ padding:20px; }
+
+  @media all and (min-width: 992px) {
+  	.dropdown-large{ min-width:500px; }
+  }
+  </style>
+
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  #draggable { width: 150px; height: 150px; padding: 0.5em; }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script>
+  $( function() {
+    $( "#rawTextCard" ).draggable();
+    $( "#rulesCard" ).draggable();
+    $( "#outputCard" ).draggable();
+  } );
+  </script>
+  <script>
+  $(document).on('click', '.dropdown-menu', function (e) {
+    e.stopPropagation();
+  });
+  </script>
+
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="../img/Ilia_Chechuro.png" height="35" alt="">
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="../index-bootstrap.html">Home <span class="sr-only"></span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Apps
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="../index-bootstrap.html">Wordlist Wrangler</a>
+          <a class="dropdown-item" href="#">GLOW</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+<div class = "container" style = "margin-top: 70px">
+        <form>
+          <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+            <a class="navbar-brand" href="#">
+              <img src="../img/glow.png" width="110" height="35" alt="">
+            </a>
+            <div class="btn-group pull-right open">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <span class="caret">File</span>
+              </button>
+              <ul class="dropdown-menu dropdown-large">
+                <li>
+                  <div class = "col-sm-12 my-1">
+                  <input type="file" class="custom-file-input" id="file-selector">
+                  <label class="custom-file-label" for="file-selector" id = "file-selector-label">Text File</label>
+                </div>
+                </li>
+                <li>
+                  <div class = "col-sm-12 my-1">
+                    <input type="file" class="custom-file-input" id="vocabulary-selector">
+                    <label class="custom-file-label" for="vocabulary-selector" id = "vocabulary-label">Vocabulary File</label>
+                    </div>
+                </li>
+                <li>
+                  <div class = "col-sm-12 my-1">
+                    <input type="file" class="custom-file-input" id="gloss-file-selector">
+                    <label class="custom-file-label" for="gloss-file-selector" id = "gloss-file-selector-label">Gloss File</label>
+                  </div>
+                </li>
+                <li>
+                  <div class = "col-sm-12 my-1">
+                    <input type="file" class="custom-file-input" id="transliteration-file">
+                    <label class="custom-file-label" for="file-selector" id = "transliteration-selector-label">Orthography Profile</label>
+                  </div>
+                </li>
+                <div class="dropdown-divider"></div>
+                <li>
+                  <div id="download-button" class = "show-button">
+                    <button type="button" id = "download-output" class="btn btn-outline-success">Download Output</button>
+                  </div>
+                </li>
+                </ul>
+              </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-tab" aria-controls="nav-tab" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="nav nav-tabs collapse navbar-collapse mr-auto" id="nav-tab" role="tablist">
+              <a class="nav-item nav-link" id="nav-gloss-tab" data-toggle="tab" href="#nav-gloss" role="tab" aria-controls="nav-gloss" aria-selected="true">Gloss</a>
+              <a class="nav-item nav-link" id="nav-detect-tab" data-toggle="tab" href="#nav-detect" role="tab" aria-controls="nav-detect" aria-selected="false">Detect</a>
+              <a class="nav-item nav-link" id="nav-wrangle-tab" data-toggle="tab" href="#nav-wrangle" role="tab" aria-controls="nav-wrangle" aria-selected="false">Wrangle</a>
+              <a class="nav-item nav-link" id="nav-cards-tab" data-toggle="tab" href="#nav-cards" role="tab" aria-controls="nav-cards" aria-selected="false">Windows</a>
+            </div>
+          </nav>
+
+          <div class="tab-content" id="nav-content" role="tabpanel" aria-labelledby="nav-content-tab">
+            <div class="tab-pane fade" id="nav-gloss" role="tabpanel" aria-labelledby="nav-gloss-tab">
+              <div class="pos-f-t">
+                <div class="bg-light p-4">
+                  <div class="input-group" id = "gloss-group">
+                    <div class="btn-toolbar">
+                      <div class="btn-group  m-2" role="group" aria-label="Text to Words">
+                        <button class="btn btn-success btn-sm" type="button" id="text-to-words-button">Text to Words</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-detect" role="tabpanel" aria-labelledby="nav-detect-tab">
+              <div class="pos-f-t">
+                <div class="bg-light p-4">
+                  <label for="#letters-group">
+                    <small class = "text-muted">
+                      <strong>Letter Detector.</strong>Please, provide a regular expression in the box.
+                    </small>
+                  </label>
+                  <div class="input-group" id = "letters-group">
+                    <input type="text" class="form-control" id = "regexpSource" placeholder = "Regex: ([а-яА-Я].*?)[абг-щыэюяА-ЩЫЭЮЯ\- $]" value = "([а-яА-Я].*?)[абг-щыэюяА-ЩЫЭЮЯ\- $]">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="letters">
+                        Show Letters
+                      </button>
+                    </div>
+                  </div>
+                  <br>
+                  <label for="#chars-group">
+                    <small class = "text-muted">
+                      <strong>N-Gram Detector. </strong>Please, provide the minimal and the maximal length of N-Grams:
+                    </small>
+                  </label>
+                  <div class="input-group" id = "chars-group">
+                    <input type="text" class="form-control" id = "nGramStartNumber" placeholder = "Length From: ">
+                    <input type="text" class="form-control" id = "nGramEndNumber" placeholder = "Length To: ">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="chars">Show N-Grams</button>
+                    </div>
+                  </div>
+                </div>
+                <div id="alert-ngrams">
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-wrangle" role="tabpanel" aria-labelledby="nav-wrangle-tab">
+              <div class="pos-f-t">
+                <div class="bg-light p-4">
+                  <div class="input-group" id = "transliterate-group">
+                    <div class="btn-toolbar">
+                      <div class="btn-group  m-2" role="group" aria-label="first group">
+                        <button class="btn btn-outline-success btn-sm" type="button" id="transliteration-button">Transliterate</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="second group">
+                        <button class="btn btn-outline-secondary btn-sm" type="button" id="sort-button">Sort Rules by Letter Length</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="third group">
+                        <button class="btn btn-outline-primary btn-sm" type="button" id="getLines-button">Get Lines by Character List</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="nav-cards" role="tabpanel" aria-labelledby="nav-cards-tab">
+              <div class="pos-f-t">
+                <div class="bg-light p-4">
+                  <div class="input-group" id = "cards-group">
+                    <div class="btn-toolbar">
+                      <div class="btn-group  m-2" role="group" aria-label="Raw Text">
+                        <button class="btn btn-success btn-sm" type="button" id="raw-text-card-button" value = "rawTextCard">Raw Text</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="Transliteration Rules">
+                        <button class="btn btn-success btn-sm" type="button" id="transliteration-rules-card-button" value = "rulesCard">Transliteration Rules</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="Output">
+                        <button class="btn btn-success btn-sm" type="button" id="output-card-button" value = "outputCard">Output</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="Vocabulary">
+                        <button class="btn btn-outline-success btn-sm" type="button" id="vocabulary-card-button">Vocabulary</button>
+                      </div>
+                      <div class="btn-group  m-2" role="group" aria-label="Glosses">
+                        <button class="btn btn-outline-success btn-sm" type="button" id="glosses-card-button">Glosses</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+          <div class="container">
+            <div class = "row">
+              <div class="card bg-light col-sm-4" id="rawTextCard">
+                <div class="card-heading">
+                  <small class = "text-muted">
+                    <strong>Raw Text:</strong>
+                  </small>
+                </div>
+                <div class="card-text">
+                  <div class="input-group col-sm-12" id="src-text">
+                    <textarea rows=15 id="source-text" class="md-textarea form-control"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card bg-light col-sm-4" id="rulesCard">
+                <div class="card-heading">
+                  <small class = "text-muted">
+                    <strong>Transliteration Rules:</strong>
+                  </small>
+                </div>
+                <div class="card-text">
+                  <div class="input-group col-sm-12" id="tr-rules">
+                    <textarea rows=15 id="transliteration-rules" class="md-textarea form-control"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card bg-light col-sm-4" id="outputCard">
+                <div class="card-heading">
+                  <small class = "text-muted">
+                    <strong>Output:</strong>
+                  </small>
+                </div>
+                <div class="card-text">
+                  <div class="col-sm-12" id="out-text">
+                    <p id="output-text"></p>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            </div>
+          </div>
+
+
+
+
+
+
+</div>
+<script src = "extractChars.js"> </script>
+
+</script>
+
+</body>
+
+</html>
