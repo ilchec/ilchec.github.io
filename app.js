@@ -294,7 +294,8 @@ function scrollToAnchor(aid){
     }
     function loadCV() {
       $("#homePageJumbotron").html("");
-      $("#pageContent").html("<h1>Dictionaries</h1><br>" + JSONtoCards("json/dictionaries.json"))
+      $("#pageContent").html("<h1>Dictionaries</h1><br><iframe src='pages/CV_Chechuro_Jena 27.08.2021.pdf' width='100%' height='100%'>
+    </iframe>"))
     }
     function loadProjects() {
       $("#homePageJumbotron").html("");
