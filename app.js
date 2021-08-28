@@ -300,6 +300,10 @@ function scrollToAnchor(aid){
       $("#homePageJumbotron").html("");
       $("#pageContent").html(JSONtoAccordion("json/projects.json"))
     }
+    function loadWebDev() {
+      $("#homePageJumbotron").html("");
+      $("#pageContent").html(JSONtoCards("json/webdev.json"))
+    }
     function loadPeople() {
       $("#homePageJumbotron").html("");
       let peopleHTML = "<h1 style='padding-top: 90px; margin-top: -90px;' id='peopleSupervisors'>Supervisors</h1><br>" +
@@ -425,6 +429,10 @@ function scrollToAnchor(aid){
 
   $("#peopleButton").click(function(){
     loadPeople()
+  })
+
+  $("#webdevButton").click(function(){
+    loadWebDev()
   })
 
   $(".nav-item").on("click", function(){
