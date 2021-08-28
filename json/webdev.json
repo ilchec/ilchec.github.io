@@ -2,15 +2,18 @@
 { "id": "1",
   "title": "Linguistic Convergence Laboratory (Unofficial page)",
   "url": "http://ilchec.github.io/ConLabPage/index.html",
-  "description" : "This is a page I created for showcasing the projects at the Linguistic Convergence Laborarory (Moscow). The page currently is not used and I keep it simply for my portfolio.",
+  "image": "images/webdev_icons/lingconlab.png",
+  "exerpt" : "This is a page I created for showcasing the projects at the Linguistic Convergence Laborarory (Moscow). The page currently is not used and I keep it simply for my portfolio."
 },
 { "id": "2",
   "title": "Expanding Cards / Image Gallery",
   "url": "http://ilchec.github.io/projects/day1_expanding_cards",
-  "description" : "This is the first project I created as part of the 50-days — 50 projects JavaScript challenge.",
+  "image": "images/webdev_icons/expanding_cards.png",
+  "exerpt" : "This is the first project I created as part of the 50 days — 50 projects JavaScript challenge."
 },{ "id": "3",
   "title": "Progress Steps",
   "url": "http://ilchec.github.io/projects/day2_progress_steps",
-  "description" : "This is the second project I created as part of the 50-days — 50 projects JavaScript challenge.",
-},
+  "image": "images/webdev_icons/progress_steps.png",
+  "exerpt" : "This is the second project I created as part of the 50 days — 50 projects JavaScript challenge."
+}
 ]

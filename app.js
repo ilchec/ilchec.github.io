@@ -76,16 +76,18 @@ function JSONtoCards(path) {
       out += '<div class="card">';
     }
     i = i+1;
-    out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p>'+
-    '<p class="card-text-small">Contributors: <i>'+entry.contributors+'</i></p>'
-    if (entry.image.length > 0) {
-      out += '<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+    out+='<a href='+entry.url+'><div class="card-img-caption"><p class="card-text">'+entry.title+'</p>'
+    if (entry.contributors != undefined) {
+      out += '<p class="card-text-small">Contributors: <i>'+entry.contributors+'</i></p>'
     }
+    if (entry.image != undefined) {
+        out += '<img class="card-img-top" src="'+entry.image+'" alt="..."></div></a>'
+      }
     else {
-      out += '<img class="card-img-top-not-shaded background"></div></a>'
-    }
+        out += '<img class="card-img-top-not-shaded background"></div></a>'
+      }
     out+='<div class="card-body d-flex flex-column pb-3">';
-    out+=entry.exerpt;
+    if (entry.exerpt != undefined) { out+=entry.exerpt; }
     out+='<div class="cls-for-load"></div><br>';
     out+='<a href='+entry.url+' class="mt-auto btn btn-info" role="button">Open</a>';
     out+='</div>';
@@ -337,7 +339,8 @@ function scrollToAnchor(aid){
 
     const pages = {
       projects: function() {loadProjects()},
-      cv: function() {loadCV()}//;
+      cv: function() {loadCV()},
+      webdev: function() {loadWebDev()}//;
     };
     function resizeHandler() {
       var winWidth  = window.innerWidth;
