@@ -19,10 +19,12 @@ body {
     transition: transform 0.5s linear;
     min-height: 100vh;
     padding: 50px;
+
 }
 
 .container.show-nav {
     transform: rotate(-20deg);
+
 }
 
 .circle-container {
@@ -32,6 +34,7 @@ body {
 }
 
 .circle {
+    display: block;
     background-color: #ff7979;
     height: 200px;
     width: 200px;
@@ -41,8 +44,13 @@ body {
     transition: transform 0.5s linear;
 }
 
+.container.show-nav {
+    position: fixed;
+}
+
+
 .container.show-nav .circle {
-    transform: rotate(-70deg)
+    transform: rotate(-70deg);
 }
 
 .circle button {
@@ -51,7 +59,6 @@ body {
     top: 50%;
     left: 50%;
     height: 100px;
-    z-index: 1;
     background: transparent;
     border: 0;
     font-size: 26px;
