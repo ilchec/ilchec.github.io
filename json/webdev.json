@@ -28,5 +28,11 @@
   "url": "/projects/day4_hidden_search",
   "image": "images/webdev_icons/hidden_search.png",
   "exerpt" : "This is the fourth project I created as part of the 50 days — 50 projects JavaScript challenge."
+},
+{ "id": "6",
+  "title": "Blurry Loading",
+  "url": "/projects/day5_blurry_loading",
+  "image": "images/webdev_icons/blurry_loading.png",
+  "exerpt" : "This is the fifth project I created as part of the 50 days — 50 projects JavaScript challenge."
 }
 ]
