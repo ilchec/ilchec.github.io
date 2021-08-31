@@ -22,5 +22,11 @@
   "url": "/projects/day3_rotating_navigation",
   "image": "images/webdev_icons/rotating_navigation.png",
   "exerpt" : "This is the third project I created as part of the 50 days — 50 projects JavaScript challenge."
+},
+{ "id": "5",
+  "title": "Hidden Search",
+  "url": "/projects/day4_hidden_search",
+  "image": "images/webdev_icons/rotating_navigation.png",
+  "exerpt" : "This is the fourth project I created as part of the 50 days — 50 projects JavaScript challenge."
 }
 ]
